@@ -1,0 +1,38 @@
+# 操作系统生成文件
+.DS_Store
+Thumbs.db
+
+# 编辑器/IDE生成文件
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# 依赖目录
+node_modules/
+bower_components/
+
+# 构建输出
+dist/
+build/
+out/
+*.log
+
+# 环境变量
+.env
+.env.local
+.env.*.local
+
+# 测试相关
+coverage/
+.nyc_output/
+
+# 其他
+*.bak
+*.tmp
+
+# 构建输出 public目录
+public/
