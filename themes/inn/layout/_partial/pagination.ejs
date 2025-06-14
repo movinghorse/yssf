@@ -1,0 +1,9 @@
+<div class="pagination">
+  <% if (page.prev) { %>
+    <a class="prev" href="<%= page.prev_link %>">上一页</a>
+  <% } %>
+
+  <% if (page.next) { %>
+    <a class="next" href="<%= page.next_link %>">下一页</a>
+  <% } %>
+</div>

@@ -1,0 +1,218 @@
+<%- partial('_partial/header') %>
+
+<!-- 英雄区块 - 大图展示 -->
+<section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1 class="hero-title"><%= config.title %></h1>
+        <p class="hero-subtitle"><%= config.subtitle %></p>
+        <a href="/留言预定/" class="hero-button">立即预订</a>
+    </div>
+</section>
+
+<main class="inn-main container">
+    <!-- 特色区块 -->
+    <section class="feature-section">
+        <h2 class="feature-title">欢迎来到云水山房</h2>
+        <p>云水山房坐落于风景秀丽的山水之间，是一处远离喧嚣、回归自然的理想之地。这里青山环绕，溪水潺潺，空气清新，是您休闲度假、放松身心的绝佳选择。</p>
+        <p>我们提供舒适典雅的客房、地道美味的餐饮以及丰富多彩的文化体验活动，让您在享受自然美景的同时，也能感受中国传统文化的魅力。</p>
+    </section>
+    
+    <!-- 房间展示 -->
+    <section class="rooms-section">
+        <h2 class="section-title">精选客房</h2>
+        <div class="room-grid">
+            <!-- 房间1 -->
+            <div class="room-card">
+                <img src="/img/room1.jpg" alt="停云馆" class="room-image">
+                <div class="room-info">
+                    <h3 class="room-title">停云馆</h3>
+                    <p class="room-description">典雅舒适的中式客房，拥有山景视野，适合情侣或独行旅客。</p>
+                    <p class="room-price">¥680 起/晚</p>
+                    <a href="/停云馆/" class="book-button">查看详情</a>
+                </div>
+            </div>
+            
+            <!-- 房间2 -->
+            <div class="room-card">
+                <img src="/img/room2.jpg" alt="还山楼" class="room-image">
+                <div class="room-info">
+                    <h3 class="room-title">还山楼</h3>
+                    <p class="room-description">宽敞明亮的家庭套房，配有独立阳台，可欣赏壮丽山景。</p>
+                    <p class="room-price">¥880 起/晚</p>
+                    <a href="/还山楼/" class="book-button">查看详情</a>
+                </div>
+            </div>
+            
+            <!-- 房间3 -->
+            <div class="room-card">
+                <img src="/img/room3.jpg" alt="筛月阁" class="room-image">
+                <div class="room-info">
+                    <h3 class="room-title">筛月阁</h3>
+                    <p class="room-description">古色古香的豪华套房，融合传统与现代元素，尽享奢华体验。</p>
+                    <p class="room-price">¥1080 起/晚</p>
+                    <a href="/筛月阁/" class="book-button">查看详情</a>
+                </div>
+            </div>
+        </div>
+        <div class="view-all-rooms">
+            <a href="/客房介绍/" class="view-all-button">查看全部客房</a>
+        </div>
+    </section>
+    
+    <!-- 特色服务 -->
+    <section class="services-section">
+        <h2 class="section-title">特色服务</h2>
+        <div class="services-grid">
+            <!-- 服务1 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3 class="service-title">农家美食</h3>
+                <p class="service-description">提供当地特色农家菜，食材新鲜，口味地道，让您品尝山野间的自然美味。</p>
+            </div>
+            
+            <!-- 服务2 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-hiking"></i>
+                </div>
+                <h3 class="service-title">户外活动</h3>
+                <p class="service-description">组织登山、徒步、采摘等户外活动，让您亲近自然，感受大自然的魅力。</p>
+            </div>
+            
+            <!-- 服务3 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h3 class="service-title">文化体验</h3>
+                <p class="service-description">提供茶艺、书法、古琴等传统文化体验活动，感受中国传统文化的魅力。</p>
+            </div>
+            
+            <!-- 服务4 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shuttle-van"></i>
+                </div>
+                <h3 class="service-title">接送服务</h3>
+                <p class="service-description">提供机场/车站接送服务，让您的旅途更加便捷舒适。</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 最新动态/博客文章 -->
+    <section class="blog-section">
+        <h2 class="section-title">山房动态</h2>
+        <div class="post-list">
+            <% page.posts.sort('date', -1).limit(3).each(function(post) { %>
+                <article class="post-item">
+                    <h2 class="post-title">
+                        <a href="<%= url_for(post.path) %>"><%= post.title %></a>
+                    </h2>
+                    
+                    <div class="post-meta">
+                        <span class="post-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <%- date(post.date, config.date_format) %>
+                        </span>
+                        
+                        <% if (post.categories && post.categories.length) { %>
+                        <span class="post-categories">
+                            <i class="far fa-folder-open"></i>
+                            <%- list_categories(post.categories, {show_count: false}) %>
+                        </span>
+                        <% } %>
+                    </div>
+                    
+                    <div class="post-excerpt">
+                        <% if (post.excerpt) { %>
+                            <%- post.excerpt %>
+                        <% } else { %>
+                            <%- truncate(strip_html(post.content), {length: 150}) %>
+                        <% } %>
+                    </div>
+                    
+                    <a href="<%= url_for(post.path) %>" class="read-more">阅读更多</a>
+                </article>
+            <% }) %>
+        </div>
+        <div class="view-all-posts">
+            <a href="/archives/" class="view-all-button">查看全部文章</a>
+        </div>
+    </section>
+</main>
+
+<!-- 页脚 -->
+<footer class="inn-footer">
+    <div class="container">
+        <div class="footer-inner">
+            <!-- 关于我们 -->
+            <div class="footer-section">
+                <h3 class="footer-title">关于云水山房</h3>
+                <p>云水山房是一处位于山水之间的特色民宿，致力于为游客提供舒适、自然、文化体验丰富的度假环境。</p>
+            </div>
+            
+            <!-- 快速链接 -->
+            <div class="footer-section">
+                <h3 class="footer-title">快速链接</h3>
+                <ul class="footer-links">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/客房介绍/">客房介绍</a></li>
+                    <li><a href="/庭院介绍/">庭院介绍</a></li>
+                    <li><a href="/温馨公告/">温馨公告</a></li>
+                    <li><a href="/留言预定/">留言预定</a></li>
+                    <li><a href="/关于/">关于我们</a></li>
+                </ul>
+            </div>
+            
+            <!-- 联系方式 -->
+            <div class="footer-section footer-contact">
+                <h3 class="footer-title">联系我们</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 云南省丽江市古城区</p>
+                <p><i class="fas fa-phone"></i> 电话：+86 123 4567 8910</p>
+                <p><i class="fas fa-envelope"></i> 邮箱：info@yssf.net</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; <%= new Date().getFullYear() %> <%= config.title %> - 版权所有</p>
+        </div>
+    </div>
+</footer>
+
+<!-- 返回顶部按钮 -->
+<div id="back-to-top" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+<!-- 引入字体图标 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!-- 引入jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- 自定义脚本 -->
+<script>
+    $(document).ready(function() {
+        // 返回顶部按钮
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 300) {
+                $('#back-to-top').fadeIn();
+            } else {
+                $('#back-to-top').fadeOut();
+            }
+        });
+        
+        $('#back-to-top').click(function() {
+            $('html, body').animate({scrollTop: 0}, 800);
+            return false;
+        });
+        
+        // 移动端菜单切换
+        $('#menu-toggle').click(function() {
+            $('#menu-list').toggleClass('active');
+        });
+    });
+</script>

@@ -4,16 +4,16 @@
 
 # Site
 title: 云水山房
-subtitle: '欢迎来入驻'
-description: '云水山房的故事'
-keywords:
-author: Xj Ye
-language: en
-timezone: ''
+subtitle: 寻一处静谧，享一份悠然
+description: 位于山水之间的精品客栈，提供舒适住宿与美食体验
+keywords: 客栈, 住宿, 美食, 旅游, 休闲
+author: 云水山房
+language: zh-CN
+timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://yssf.net
+url: http://example.com
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -40,17 +40,18 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
-syntax_highlighter: highlight.js
 highlight:
+  enable: true
   line_number: true
   auto_detect: false
   tab_replace: ''
   wrap: true
   hljs: false
 prismjs:
+  enable: false
   preprocess: true
   line_number: true
   tab_replace: ''
@@ -96,14 +97,61 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-# theme: landscape
-theme: butterfly
+theme: inn
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: 'git'
-  repo: 'git@github.com:movinghorse/yssf.git'
-  branch: 'pages'
-  name: 'movinghorse'
-  email: 'movinghorse@hotmail.com'
+  type: ''
+
+# 自定义设置
+# 特色图片
+featured_image: /images/hero-bg.svg
+
+# 客房信息
+rooms:
+  - title: 山景大床房
+    image: /images/rooms/mountain-view.jpg
+    price: ¥688/晚
+    description: 面朝青山，静享山林之美，配备舒适大床和现代化设施。
+    amenities: [免费WiFi, 空调, 24小时热水, 茶具, 拖鞋]
+    url: /rooms/mountain-view/
+    
+  - title: 水景双床房
+    image: /images/rooms/water-view.jpg
+    price: ¥788/晚
+    description: 临水而居，聆听流水潺潺，配备两张舒适单人床和现代化设施。
+    amenities: [免费WiFi, 空调, 24小时热水, 茶具, 拖鞋]
+    url: /rooms/water-view/
+    
+  - title: 庭院套房
+    image: /images/rooms/garden-suite.jpg
+    price: ¥1088/晚
+    description: 独立庭院，私密空间，配备豪华大床和完善的现代化设施。
+    amenities: [免费WiFi, 空调, 24小时热水, 茶具, 拖鞋, 私人庭院]
+    url: /rooms/garden-suite/
+    
+  - title: 家庭套房
+    image: /images/rooms/family-suite.jpg
+    price: ¥1288/晚
+    description: 宽敞明亮，适合家庭入住，配备大床和双床，满足全家需求。
+    amenities: [免费WiFi, 空调, 24小时热水, 茶具, 拖鞋, 加床服务]
+    url: /rooms/family-suite/
+
+# 特色服务
+services:
+  - title: 农家美食
+    icon: fa-utensils
+    description: 采用当地新鲜食材，提供正宗农家菜肴，让您品尝地道乡村美食。
+    
+  - title: 茶艺体验
+    icon: fa-coffee
+    description: 专业茶艺师带您领略中国传统茶道文化，品味各地名茶。
+    
+  - title: 民俗活动
+    icon: fa-theater-masks
+    description: 定期举办传统民俗活动，让您近距离体验中国传统文化魅力。
+    
+  - title: 周边游览
+    icon: fa-mountain
+    description: 提供周边景点游览服务，探索当地自然风光和人文景观。

@@ -1,0 +1,26 @@
+<!-- 打赏组件 -->
+<% if (theme.reward && theme.reward.enable) { %>
+<div class="reward-container">
+    <div class="reward-button">
+        <button><%= theme.reward.text || '打赏' %></button>
+    </div>
+    
+    <div class="reward-main">
+        <ul class="reward-list">
+            <% if (theme.reward.wechat) { %>
+            <li class="reward-item">
+                <img class="reward-img" src="<%= url_for(theme.reward.wechat) %>" alt="微信">
+                <div class="reward-name">微信</div>
+            </li>
+            <% } %>
+            
+            <% if (theme.reward.alipay) { %>
+            <li class="reward-item">
+                <img class="reward-img" src="<%= url_for(theme.reward.alipay) %>" alt="支付宝">
+                <div class="reward-name">支付宝</div>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+</div>
+<% } %>

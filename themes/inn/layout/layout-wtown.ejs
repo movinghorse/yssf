@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="<%= config.language || 'zh-CN' %>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= page.title || config.title %></title>
+    
+    <!-- 网站图标 -->
+    <% if (config.favicon) { %>
+    <link rel="shortcut icon" href="<%= url_for(config.favicon) %>">
+    <% } %>
+    
+    <!-- 基础样式 -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- 古北水镇风格样式 -->
+    <link rel="stylesheet" href="/css/wtown-style.css">
+    
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- 引入Google字体 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&display=swap">
+    
+    <!-- 其他头部元素 -->
+    <%- partial('_partial/head') %>
+</head>
+<body>
+    <!-- 头部 -->
+    <%- partial('_partial/header-wtown') %>
+    
+    <!-- 主体内容 -->
+    <div class="main-content">
+        <%- body %>
+    </div>
+    
+    <!-- 页脚 -->
+    <%- partial('_partial/footer-wtown') %>
+    
+    <!-- 引入jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <!-- 自定义脚本 -->
+    <script>
+        $(document).ready(function() {
+            // 返回顶部按钮
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 300) {
+                    $('#back-to-top').fadeIn();
+                } else {
+                    $('#back-to-top').fadeOut();
+                }
+            });
+            
+            $('#back-to-top').click(function() {
+                $('html, body').animate({scrollTop: 0}, 800);
+                return false;
+            });
+            
+            // 移动端菜单切换
+            $('#menu-toggle').click(function() {
+                $('#menu-list').toggleClass('active');
+            });
+            
+            // 搜索功能
+            $('#search-btn').click(function() {
+                $('#search-mask').fadeIn();
+                $('#search-box').fadeIn();
+                $('#search-input').focus();
+            });
+            
+            $('#search-close, #search-mask').click(function() {
+                $('#search-mask').fadeOut();
+                $('#search-box').fadeOut();
+            });
+            
+            // 夜间模式切换
+            $('#darkmode-toggle').click(function() {
+                $('body').toggleClass('dark-mode');
+                
+                // 保存用户偏好
+                if ($('body').hasClass('dark-mode')) {
+                    localStorage.setItem('darkMode', 'enabled');
+                    $(this).html('<i class="fas fa-sun"></i>');
+                } else {
+                    localStorage.setItem('darkMode', 'disabled');
+                    $(this).html('<i class="fas fa-moon"></i>');
+                }
+            });
+            
+            // 检查用户偏好
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                $('body').addClass('dark-mode');
+                $('#darkmode-toggle').html('<i class="fas fa-sun"></i>');
+            }
+        });
+    </script>
+</body>
+</html>

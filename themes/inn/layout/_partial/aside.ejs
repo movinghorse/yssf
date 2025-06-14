@@ -1,0 +1,53 @@
+<div class="inn-aside-card card-author">
+    <% if (theme.author.avatar) { %>
+    <div class="author-avatar">
+        <img src="<%= theme.author.avatar %>" alt="<%= config.author %>">
+    </div>
+    <% } %>
+    
+    <div class="author-info">
+        <h3><%= config.author %></h3>
+        <% if (theme.author.description) { %>
+        <p><%= theme.author.description %></p>
+        <% } %>
+        
+        <% if (theme.social) { %>
+        <div class="social-links">
+            <% for (const [icon, link] of Object.entries(theme.social)) { %>
+            <a href="<%= link.url %>" title="<%= link.name %>" target="_blank">
+                <i class="<%= icon %>"></i>
+            </a>
+            <% } %>
+        </div>
+        <% } %>
+    </div>
+</div>
+
+<div class="inn-aside-card card-recent-posts">
+    <h3>最新文章</h3>
+    <ul>
+        <% site.posts.sort('date', -1).limit(5).each(function(post) { %>
+        <li>
+            <a href="<%= url_for(post.path) %>"><%= post.title %></a>
+        </li>
+        <% }) %>
+    </ul>
+</div>
+
+<div class="inn-aside-card card-categories">
+    <h3>分类</h3>
+    <%- list_categories(site.categories, {
+        show_count: true,
+        class: 'category-list',
+        depth: 1
+    }) %>
+</div>
+
+<div class="inn-aside-card card-tags">
+    <h3>标签</h3>
+    <%- list_tags(site.tags, {
+        show_count: true,
+        class: 'tag-list',
+        style: 'none'
+    }) %>
+</div>

@@ -1,0 +1,23 @@
+<!-- 文章目录组件 -->
+<% if (theme.toc && theme.toc.enable && page.toc !== false) { %>
+<div class="inn-toc-container">
+    <div class="inn-toc-card">
+        <div class="toc-header">
+            <i class="fas fa-list"></i>
+            <span>目录</span>
+            <% if (theme.toc.expand_all) { %>
+            <button class="toc-expand-btn" title="展开全部">
+                <i class="fas fa-angle-double-down"></i>
+            </button>
+            <% } %>
+        </div>
+        <div class="toc-content">
+            <% if (toc(page.content, {list_number: theme.toc.number, max_depth: theme.toc.max_depth, min_depth: 1}).length > 0) { %>
+                <%- toc(page.content, {list_number: theme.toc.number, max_depth: theme.toc.max_depth, min_depth: 1}) %>
+            <% } else { %>
+                <p class="toc-empty">暂无目录</p>
+            <% } %>
+        </div>
+    </div>
+</div>
+<% } %>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="40" viewBox="0 0 800 40">
+  <!-- 中国风云纹装饰图案 -->
+  <defs>
+    <pattern id="cloudPattern" patternUnits="userSpaceOnUse" width="200" height="40">
+      <path d="M0,20 Q10,5 20,20 T40,20 T60,20 T80,20 T100,20 T120,20 T140,20 T160,20 T180,20 T200,20" fill="none" stroke="#A0522D" stroke-width="2" opacity="0.6"/>
+      <path d="M0,25 Q10,10 20,25 T40,25 T60,25 T80,25 T100,25 T120,25 T140,25 T160,25 T180,25 T200,25" fill="none" stroke="#8B4513" stroke-width="2" opacity="0.6"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="40" fill="url(#cloudPattern)" />
+</svg>

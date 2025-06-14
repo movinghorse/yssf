@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <!-- 背景 -->
+  <rect width="200" height="200" fill="#F5F5F0" rx="10" ry="10"/>
+  
+  <!-- 二维码框架 - 简化版 -->
+  <rect x="40" y="40" width="120" height="120" fill="none" stroke="#8B4513" stroke-width="2"/>
+  
+  <!-- 二维码图案 - 简化版 -->
+  <g fill="#8B4513">
+    <!-- 定位图案 - 左上 -->
+    <rect x="50" y="50" width="20" height="20"/>
+    <rect x="55" y="55" width="10" height="10" fill="#F5F5F0"/>
+    
+    <!-- 定位图案 - 右上 -->
+    <rect x="130" y="50" width="20" height="20"/>
+    <rect x="135" y="55" width="10" height="10" fill="#F5F5F0"/>
+    
+    <!-- 定位图案 - 左下 -->
+    <rect x="50" y="130" width="20" height="20"/>
+    <rect x="55" y="135" width="10" height="10" fill="#F5F5F0"/>
+    
+    <!-- 随机二维码数据点 - 简化版 -->
+    <rect x="80" y="50" width="5" height="5"/>
+    <rect x="90" y="55" width="5" height="5"/>
+    <rect x="100" y="60" width="5" height="5"/>
+    <rect x="60" y="80" width="5" height="5"/>
+    <rect x="70" y="90" width="5" height="5"/>
+    <rect x="80" y="100" width="5" height="5"/>
+    <rect x="90" y="110" width="5" height="5"/>
+    <rect x="100" y="120" width="5" height="5"/>
+    <rect x="110" y="130" width="5" height="5"/>
+    <rect x="120" y="70" width="5" height="5"/>
+    <rect x="130" y="80" width="5" height="5"/>
+    <rect x="110" y="90" width="5" height="5"/>
+    <rect x="120" y="100" width="5" height="5"/>
+    <rect x="130" y="110" width="5" height="5"/>
+    <rect x="70" y="120" width="5" height="5"/>
+    <rect x="80" y="130" width="5" height="5"/>
+    <rect x="90" y="140" width="5" height="5"/>
+  </g>
+  
+  <!-- 微信图标 -->
+  <g transform="translate(85, 20) scale(0.15)">
+    <path d="M193.2,131.6c-3.2-15.8-16.6-27.6-33.4-27.6c-18.8,0-34,15.2-34,34c0,18.8,15.2,34,34,34c16.8,0,30.2-11.8,33.4-27.6h-33.4v-12.8H193.2z" fill="#8B4513"/>
+    <path d="M124.8,131.6c-3.2-15.8-16.6-27.6-33.4-27.6c-18.8,0-34,15.2-34,34c0,18.8,15.2,34,34,34c16.8,0,30.2-11.8,33.4-27.6H91.4v-12.8H124.8z" fill="#8B4513"/>
+    <path d="M0,0v200h200V0H0z M100,180c-44.2,0-80-35.8-80-80s35.8-80,80-80s80,35.8,80,80S144.2,180,100,180z" fill="#8B4513" fill-opacity="0.2"/>
+  </g>
+  
+  <!-- 底部文字 -->
+  <text x="100" y="185" font-family="'Noto Serif SC', serif" font-size="12" text-anchor="middle" fill="#8B4513">微信打赏</text>
+</svg>

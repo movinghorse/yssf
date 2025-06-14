@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <!-- 中国风客栈Logo -->
+  <style>
+    .primary-color { fill: #8B4513; }
+    .accent-color { fill: #D2B48C; }
+    .text-color { fill: #333333; }
+  </style>
+  
+  <!-- 屋顶 -->
+  <path class="primary-color" d="M20,40 L100,10 L180,40 L160,40 L100,20 L40,40 Z" />
+  
+  <!-- 房屋主体 -->
+  <rect class="accent-color" x="40" y="40" width="120" height="30" />
+  
+  <!-- 门 -->
+  <rect class="primary-color" x="85" y="45" width="30" height="25" />
+  
+  <!-- 窗户 -->
+  <rect class="primary-color" x="50" y="50" width="20" height="15" />
+  <rect class="primary-color" x="130" y="50" width="20" height="15" />
+  
+  <!-- 装饰线条 -->
+  <line x1="40" y1="45" x2="160" y2="45" stroke="#8B4513" stroke-width="2" />
+  
+  <!-- 文字 -->
+  <text x="100" y="75" font-family="'Ma Shan Zheng', cursive" font-size="12" text-anchor="middle" class="text-color">云水山房</text>
+  
+  <!-- 中国风装饰元素 -->
+  <circle class="primary-color" cx="30" cy="30" r="5" />
+  <circle class="primary-color" cx="170" cy="30" r="5" />
+  
+  <!-- 灯笼 -->
+  <ellipse class="primary-color" cx="30" cy="55" rx="5" ry="8" />
+  <ellipse class="primary-color" cx="170" cy="55" rx="5" ry="8" />
+</svg>

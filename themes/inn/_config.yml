@@ -1,0 +1,121 @@
+# 云水山房 - 古北水镇风格主题配置
+
+# 主题信息
+theme_info:
+  name: Inn Theme - Wtown Style
+  version: 1.0.0
+  author: AI Assistant
+
+# 站点信息
+site:
+  title: 云水山房
+  subtitle: 寻一处静谧，享一份悠然
+  description: 位于山水之间的精品客栈，提供舒适住宿与美食体验
+  keywords: 客栈, 住宿, 美食, 旅游, 休闲
+  author: 云水山房
+  language: zh-CN
+  timezone: Asia/Shanghai
+
+# 导航菜单
+menu:
+  首页: /
+  关于我们: /about/
+  客房预订: /rooms/
+  美食体验: /dining/
+  周边游玩: /attractions/
+  最新动态: /news/
+  联系我们: /contact/
+
+# 社交链接
+social:
+  微博: https://weibo.com/
+  微信: /images/wechat-qrcode.jpg
+  抖音: https://www.douyin.com/
+  小红书: https://www.xiaohongshu.com/
+
+# 页脚信息
+footer:
+  copyright: © 2023 云水山房 版权所有
+  icp: 京ICP备XXXXXXXX号
+  gongan: 京公网安备XXXXXXXX号
+  address: 北京市密云区古北水镇附近
+  phone: 010-XXXXXXXX
+  email: contact@yssf.com
+
+# 主题设置
+theme_config:
+  # 布局设置
+  layout: wtown
+  post_layout: post-wtown
+  index_layout: index-wtown
+  header: header-wtown
+  footer: footer-wtown
+  
+  # 颜色设置
+  primary_color: '#8B4513'
+  secondary_color: '#A0522D'
+  accent_color: '#D2B48C'
+  text_color: '#333333'
+  light_bg: '#F5F5F5'
+  
+  # 特色图片
+  logo: /images/logo-wtown.svg
+  favicon: /images/favicon.ico
+  hero_image: /images/hero-bg.svg
+  default_thumbnail: /images/default-thumbnail.jpg
+  
+  # 功能开关
+  darkmode: true
+  search: true
+  lazyload: true
+  back_to_top: true
+  reward: true
+  
+  # 代码块设置
+  highlight:
+    enable: true
+    line_number: true
+    auto_detect: false
+    tab_replace: ''
+    wrap: true
+    hljs: false
+  prismjs:
+    enable: false
+    preprocess: true
+    line_number: true
+    tab_replace: ''
+
+# 第三方服务
+third_party:
+  # 评论系统
+  disqus_shortname: 
+  gitalk:
+    enable: false
+    clientID: 
+    clientSecret: 
+    repo: 
+    owner: 
+    admin: 
+  valine:
+    enable: false
+    appid: 
+    appkey: 
+    notify: false
+    verify: false
+    placeholder: 请输入您的评论...
+    avatar: mm
+    guest_info: nick,mail,link
+    pageSize: 10
+    
+  # 统计分析
+  google_analytics: 
+  baidu_analytics: 
+  
+  # CDN 设置
+  cdn:
+    css:
+      fontawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css
+      googlefonts: https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap
+    js:
+      jquery: https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js
+      fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js

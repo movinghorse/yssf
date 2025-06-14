@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <!-- 背景 -->
+  <rect width="200" height="200" fill="#F5F5F0" rx="10" ry="10"/>
+  
+  <!-- 二维码框架 - 简化版 -->
+  <rect x="40" y="40" width="120" height="120" fill="none" stroke="#1677FF" stroke-width="2"/>
+  
+  <!-- 二维码图案 - 简化版 -->
+  <g fill="#1677FF">
+    <!-- 定位图案 - 左上 -->
+    <rect x="50" y="50" width="20" height="20"/>
+    <rect x="55" y="55" width="10" height="10" fill="#F5F5F0"/>
+    
+    <!-- 定位图案 - 右上 -->
+    <rect x="130" y="50" width="20" height="20"/>
+    <rect x="135" y="55" width="10" height="10" fill="#F5F5F0"/>
+    
+    <!-- 定位图案 - 左下 -->
+    <rect x="50" y="130" width="20" height="20"/>
+    <rect x="55" y="135" width="10" height="10" fill="#F5F5F0"/>
+    
+    <!-- 随机二维码数据点 - 简化版，与微信不同的模式 -->
+    <rect x="85" y="55" width="5" height="5"/>
+    <rect x="95" y="60" width="5" height="5"/>
+    <rect x="105" y="65" width="5" height="5"/>
+    <rect x="65" y="85" width="5" height="5"/>
+    <rect x="75" y="95" width="5" height="5"/>
+    <rect x="85" y="105" width="5" height="5"/>
+    <rect x="95" y="115" width="5" height="5"/>
+    <rect x="105" y="125" width="5" height="5"/>
+    <rect x="115" y="135" width="5" height="5"/>
+    <rect x="125" y="75" width="5" height="5"/>
+    <rect x="135" y="85" width="5" height="5"/>
+    <rect x="115" y="95" width="5" height="5"/>
+    <rect x="125" y="105" width="5" height="5"/>
+    <rect x="135" y="115" width="5" height="5"/>
+    <rect x="75" y="125" width="5" height="5"/>
+    <rect x="85" y="135" width="5" height="5"/>
+    <rect x="95" y="145" width="5" height="5"/>
+  </g>
+  
+  <!-- 支付宝图标 -->
+  <g transform="translate(85, 20) scale(0.15)">
+    <path d="M0,0v200h200V0H0z M100,180c-44.2,0-80-35.8-80-80s35.8-80,80-80s80,35.8,80,80S144.2,180,100,180z" fill="#1677FF" fill-opacity="0.2"/>
+    <path d="M160,80c0-33.1-26.9-60-60-60S40,46.9,40,80c0,29.7,21.6,54.3,50,59v-42H70v-10h20V77c0-5.5,4.5-10,10-10h30v10h-30v10h25l5,10h-30c0,0,5,15,20,15s20-15,20-15h10c0,0-5,25-30,25c-16.6,0-28.2-13.9-30-20H40c5.5,28.9,31.3,50,60,50c33.1,0,60-26.9,60-60V80z" fill="#1677FF"/>
+  </g>
+  
+  <!-- 底部文字 -->
+  <text x="100" y="185" font-family="'Noto Serif SC', serif" font-size="12" text-anchor="middle" fill="#1677FF">支付宝打赏</text>
+</svg>

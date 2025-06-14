@@ -1,0 +1,39 @@
+<!-- 文章版权信息 -->
+<% if (theme.post_copyright && theme.post_copyright.enable && page.copyright !== false) { %>
+<div class="post-copyright">
+    <div class="post-copyright-info">
+        <div class="post-copyright-item">
+            <span class="post-copyright-label">文章作者:</span>
+            <span class="post-copyright-value"><%= config.author %></span>
+        </div>
+        
+        <div class="post-copyright-item">
+            <span class="post-copyright-label">发布时间:</span>
+            <span class="post-copyright-value"><%= date(page.date, config.date_format) %></span>
+        </div>
+        
+        <div class="post-copyright-item">
+            <span class="post-copyright-label">更新时间:</span>
+            <span class="post-copyright-value"><%= date(page.updated, config.date_format) %></span>
+        </div>
+        
+        <div class="post-copyright-item">
+            <span class="post-copyright-label">原文链接:</span>
+            <span class="post-copyright-value">
+                <a href="<%= page.permalink %>"><%= page.permalink %></a>
+            </span>
+        </div>
+        
+        <div class="post-copyright-item">
+            <span class="post-copyright-label">许可协议:</span>
+            <span class="post-copyright-value">
+                <a href="<%= theme.post_copyright.license_url %>" target="_blank"><%= theme.post_copyright.license %></a>
+            </span>
+        </div>
+    </div>
+    
+    <div class="post-copyright-notice">
+        <span>请遵循许可协议进行转载，注明出处，不得用于商业用途。</span>
+    </div>
+</div>
+<% } %>

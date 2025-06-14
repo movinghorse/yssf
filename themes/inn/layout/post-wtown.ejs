@@ -1,0 +1,109 @@
+<div class="container">
+    <article class="inn-post">
+        <!-- 文章头部 -->
+        <header class="post-header">
+            <h1 class="post-title"><%= page.title %></h1>
+            
+            <div class="post-meta">
+                <!-- 发布日期 -->
+                <span class="post-date">
+                    <i class="far fa-calendar-alt"></i>
+                    <%- date(page.date, config.date_format) %>
+                </span>
+                
+                <!-- 分类 -->
+                <% if (page.categories && page.categories.length) { %>
+                <span class="post-categories">
+                    <i class="far fa-folder-open"></i>
+                    <%- list_categories(page.categories, {show_count: false}) %>
+                </span>
+                <% } %>
+                
+                <!-- 标签 -->
+                <% if (page.tags && page.tags.length) { %>
+                <span class="post-tags">
+                    <i class="fas fa-tags"></i>
+                    <%- list_tags(page.tags, {show_count: false}) %>
+                </span>
+                <% } %>
+            </div>
+        </header>
+        
+        <!-- 文章内容 -->
+        <div class="post-content">
+            <%- page.content %>
+        </div>
+        
+        <!-- 文章底部 -->
+        <footer class="post-footer">
+            <!-- 版权信息 -->
+            <div class="post-copyright">
+                <div class="post-copyright-info">
+                    <div class="post-copyright-item">
+                        <span class="post-copyright-label">作者:</span>
+                        <span class="post-copyright-value"><%= config.author %></span>
+                    </div>
+                    
+                    <div class="post-copyright-item">
+                        <span class="post-copyright-label">链接:</span>
+                        <span class="post-copyright-value"><%= page.permalink %></span>
+                    </div>
+                    
+                    <div class="post-copyright-item">
+                        <span class="post-copyright-label">版权声明:</span>
+                        <span class="post-copyright-value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <%= config.title %>。</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 打赏 -->
+            <div class="reward-container">
+                <button class="reward-button">
+                    <i class="fas fa-coffee"></i> 打赏
+                </button>
+                
+                <div class="reward-main">
+                    <div class="reward-item">
+                        <img class="reward-img" src="/img/wechat-reward.svg" alt="微信打赏">
+                        <div class="reward-text">微信打赏</div>
+                    </div>
+                    
+                    <div class="reward-item">
+                        <img class="reward-img" src="/img/alipay-reward.svg" alt="支付宝打赏">
+                        <div class="reward-text">支付宝打赏</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 上一篇/下一篇 -->
+            <nav class="post-nav">
+                <% if (page.prev) { %>
+                <div class="post-nav-item post-nav-prev">
+                    <a href="<%= url_for(page.prev.path) %>" rel="prev">
+                        <i class="fas fa-chevron-left"></i>
+                        <span class="post-nav-text"><%= page.prev.title %></span>
+                    </a>
+                </div>
+                <% } %>
+                
+                <% if (page.next) { %>
+                <div class="post-nav-item post-nav-next">
+                    <a href="<%= url_for(page.next.path) %>" rel="next">
+                        <span class="post-nav-text"><%= page.next.title %></span>
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+                <% } %>
+            </nav>
+        </footer>
+    </article>
+</div>
+
+<!-- 打赏脚本 -->
+<script>
+    $(document).ready(function() {
+        $('.reward-button').click(function() {
+            $('.reward-main').slideToggle();
+        });
+    });
+</script>

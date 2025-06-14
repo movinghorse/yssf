@@ -1,0 +1,370 @@
+/**
+ * 云水山房 - 古北水镇风格主题响应式样式
+ */
+
+/* 平板电脑 */
+@media (max-width: 992px) {
+    .container {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+    
+    .header-inner {
+        padding: 10px 0;
+    }
+    
+    .site-title {
+        font-size: 24px;
+    }
+    
+    .site-subtitle {
+        font-size: 14px;
+    }
+    
+    .menu-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--header-bg);
+        flex-direction: column;
+        padding: 10px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        z-index: 100;
+    }
+    
+    .menu-list.active {
+        display: flex;
+    }
+    
+    .menu-item {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .menu-link {
+        display: block;
+        padding: 10px 20px;
+        border-radius: 0;
+    }
+    
+    .menu-toggle {
+        display: block;
+        font-size: 24px;
+        color: #fff;
+        cursor: pointer;
+    }
+    
+    .hero-section {
+        height: 400px;
+    }
+    
+    .hero-title {
+        font-size: 36px;
+    }
+    
+    .hero-subtitle {
+        font-size: 18px;
+    }
+    
+    .room-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .footer-inner {
+        flex-wrap: wrap;
+    }
+    
+    .footer-section {
+        flex: 0 0 50%;
+        margin-bottom: 30px;
+    }
+}
+
+/* 手机 */
+@media (max-width: 576px) {
+    .site-info {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .site-logo {
+        margin-bottom: 10px;
+    }
+    
+    .site-text {
+        text-align: center;
+    }
+    
+    .hero-section {
+        height: 300px;
+    }
+    
+    .hero-title {
+        font-size: 28px;
+    }
+    
+    .hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .hero-button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+    
+    .feature-section {
+        padding: 20px;
+    }
+    
+    .feature-title {
+        font-size: 20px;
+    }
+    
+    .room-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .post-item {
+        padding: 15px;
+    }
+    
+    .post-title {
+        font-size: 20px;
+    }
+    
+    .post-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .post-date, .post-categories {
+        margin-bottom: 5px;
+    }
+    
+    .footer-section {
+        flex: 0 0 100%;
+    }
+    
+    .post-nav {
+        flex-direction: column;
+    }
+    
+    .post-nav-item {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* 暗黑模式 */
+body.dark-mode {
+    --primary-color: #A0522D;
+    --secondary-color: #8B4513;
+    --accent-color: #D2B48C;
+    --text-color: #E0E0E0;
+    --light-bg: #1A1A1A;
+    --card-bg: #2A2A2A;
+    --border-color: #3A3A3A;
+    --link-color: #D2B48C;
+    --link-hover-color: #E6C9A8;
+    --header-bg: rgba(42, 42, 42, 0.9);
+    --footer-bg: #2A2A2A;
+    --shadow: 0 2px 10px rgba(0,0,0,0.3);
+    --feature-bg: #2A2A2A;
+    --feature-border: #3A3A3A;
+    --button-bg: #A0522D;
+    --button-hover-bg: #8B4513;
+}
+
+body.dark-mode .inn-header,
+body.dark-mode .inn-footer {
+    background-color: var(--header-bg);
+}
+
+body.dark-mode .post-item,
+body.dark-mode .room-card,
+body.dark-mode .service-card,
+body.dark-mode .inn-post,
+body.dark-mode .feature-section {
+    background-color: var(--card-bg);
+    box-shadow: var(--shadow);
+}
+
+body.dark-mode .post-title a,
+body.dark-mode .room-title,
+body.dark-mode .service-title,
+body.dark-mode .feature-title,
+body.dark-mode .section-title {
+    color: var(--accent-color);
+}
+
+body.dark-mode a {
+    color: var(--link-color);
+}
+
+body.dark-mode a:hover {
+    color: var(--link-hover-color);
+}
+
+body.dark-mode .read-more,
+body.dark-mode .book-button,
+body.dark-mode .hero-button,
+body.dark-mode .view-all-button {
+    background-color: var(--button-bg);
+    color: #fff;
+}
+
+body.dark-mode .read-more:hover,
+body.dark-mode .book-button:hover,
+body.dark-mode .hero-button:hover,
+body.dark-mode .view-all-button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+body.dark-mode .post-copyright,
+body.dark-mode .reward-container {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .search-box {
+    background-color: var(--card-bg);
+    box-shadow: var(--shadow);
+}
+
+body.dark-mode .search-input {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .search-close {
+    color: var(--text-color);
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.hero-content {
+    animation: fadeIn 1s ease-out;
+}
+
+.feature-section,
+.room-card,
+.service-card,
+.post-item {
+    animation: slideUp 0.6s ease-out;
+}
+
+.inn-header {
+    animation: slideDown 0.6s ease-out;
+}
+
+/* 返回顶部按钮 */
+.back-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 99;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: var(--transition);
+    display: none;
+}
+
+.back-to-top:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+/* 打赏按钮 */
+.reward-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: var(--button-bg);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.reward-button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+.reward-main {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.reward-item {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.reward-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 4px;
+    border: 2px solid var(--border-color);
+}
+
+.reward-text {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+/* 查看全部按钮 */
+.view-all-rooms,
+.view-all-posts {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.view-all-button {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: var(--button-bg);
+    color: #fff;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.view-all-button:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-2px);
+}

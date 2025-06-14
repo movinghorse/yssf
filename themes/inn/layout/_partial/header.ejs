@@ -1,0 +1,59 @@
+<!-- 头部组件 -->
+<header class="inn-header">
+    <div class="container">
+        <div class="header-inner">
+            <!-- 网站标题和Logo -->
+            <div class="site-info">
+                <% if (theme.nav && theme.nav.logo) { %>
+                <div class="site-logo">
+                    <a href="<%= url_for('/') %>">
+                        <img src="<%= url_for(theme.nav.logo) %>" alt="<%= config.title %>">
+                    </a>
+                </div>
+                <% } %>
+                
+                <div class="site-text">
+                    <h1 class="site-title">
+                        <a href="<%= url_for('/') %>"><%= config.title %></a>
+                    </h1>
+                    <p class="site-subtitle"><%= config.subtitle %></p>
+                </div>
+            </div>
+            
+            <!-- 导航菜单 -->
+            <nav class="site-nav">
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <ul class="menu-list" id="menu-list">
+                    <li class="menu-item">
+                        <a href="<%= url_for('/') %>" class="menu-link">首页</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="<%= url_for('/archives/') %>" class="menu-link">归档</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="<%= url_for('/categories/') %>" class="menu-link">分类</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="<%= url_for('/tags/') %>" class="menu-link">标签</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="<%= url_for('/about/') %>" class="menu-link">关于</a>
+                    </li>
+                </ul>
+                
+                <!-- 搜索按钮 -->
+                <%- partial('search') %>
+                
+                <!-- 夜间模式切换 -->
+                <% if (theme.darkmode && theme.darkmode.enable && theme.darkmode.button) { %>
+                <div class="darkmode-toggle" id="darkmode-toggle" title="切换夜间模式">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <% } %>
+            </nav>
+        </div>
+    </div>
+</header>

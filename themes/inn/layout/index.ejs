@@ -1,0 +1,47 @@
+<%- partial('_partial/header') %>
+
+<main class="inn-main container">
+    <% if (page.posts && page.posts.length) { %>
+        <div class="post-list">
+            <% page.posts.each(function(post) { %>
+                <article class="post-item">
+                    <h2 class="post-title">
+                        <a href="<%= url_for(post.path) %>"><%= post.title %></a>
+                    </h2>
+                    
+                    <div class="post-meta">
+                        <span class="post-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <%- date(post.date, config.date_format) %>
+                        </span>
+                        
+                        <% if (post.categories && post.categories.length) { %>
+                        <span class="post-categories">
+                            <i class="far fa-folder-open"></i>
+                            <%- list_categories(post.categories, {show_count: false}) %>
+                        </span>
+                        <% } %>
+                    </div>
+                    
+                    <div class="post-excerpt">
+                        <% if (post.excerpt) { %>
+                            <%- post.excerpt %>
+                        <% } else { %>
+                            <%- truncate(strip_html(post.content), {length: 200}) %>
+                        <% } %>
+                    </div>
+                    
+                    <a href="<%= url_for(post.path) %>" class="read-more">阅读更多</a>
+                </article>
+            <% }) %>
+        </div>
+        
+        <%- partial('_partial/pagination') %>
+    <% } else { %>
+        <div class="no-posts">
+            <p>暂无文章</p>
+        </div>
+    <% } %>
+</main>
+
+<%- partial('_partial/footer') %>
