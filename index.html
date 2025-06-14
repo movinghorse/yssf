@@ -1,572 +1,179 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>云水山房 - 欢迎来入驻</title><meta name="author" content="Xj Ye"><meta name="copyright" content="Xj Ye"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="云水山房的故事">
+<meta property="og:type" content="website">
+<meta property="og:title" content="云水山房">
+<meta property="og:url" content="http://yssf.net/index.html">
+<meta property="og:site_name" content="云水山房">
+<meta property="og:description" content="云水山房的故事">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="og:image" content="http://yssf.net/img/butterfly-icon.png">
+<meta property="article:author" content="Xj Ye">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="http://yssf.net/img/butterfly-icon.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yssf.net/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
 
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
   
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
   
-  
-<meta name="generator" content="Hexo 7.3.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '云水山房',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">云水山房</span></a></span><div id="menus"></div></nav><div id="site-info"><h1 id="site-title">云水山房</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/06/14/hello-world/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-06-14T08:44:27.402Z" title="Created 2025-06-14 16:44:27">2025-06-14</time></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2010/12/12/%E7%9B%9B%E9%82%80%E6%9C%8B%E5%8F%8B%E5%88%86%E4%BA%AB%E7%BE%8E%E4%B8%BD%E6%9E%9C%E5%AE%9E/" title="盛邀朋友分享美丽果实">盛邀朋友分享美丽果实</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-12-12T11:55:57.000Z" title="Created 2010-12-12 19:55:57">2010-12-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BA%91%E8%A8%80%E6%B0%B4%E5%A3%B0%E5%B1%B1%E8%AF%9D/">云言水声山话</a></span></div><div class="content">我家的李子成熟了，满树金色的果子。 还山楼的露台上随手可以采摘， 昨天来了二位朋友，见了如此景色，无法不停留。 坐在藤椅上，顺手摘一颗李子，从嘴甜到心头。 来吧，朋友 愿与你一同分享美丽时光。 </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2010/12/12/%E6%88%91%E5%AE%B6%E7%9A%84%E6%A8%B1%E6%A1%83%E6%A0%91%E7%BB%93%E6%BB%A1%E4%BA%86%E7%BA%A2%E8%89%B3%E8%89%B3%E7%9A%84%E6%A8%B1%E6%A1%83/" title="我家的樱桃树结满了红艳艳的樱桃">我家的樱桃树结满了红艳艳的樱桃</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-12-12T11:55:33.000Z" title="Created 2010-12-12 19:55:33">2010-12-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BA%91%E8%A8%80%E6%B0%B4%E5%A3%B0%E5%B1%B1%E8%AF%9D/">云言水声山话</a></span></div><div class="content">我家后院的樱桃树上结满了红艳艳的樱桃。  垂涎欲滴的樱桃。  分明的红和绿。  一粒阳光下的红果。  白族老人在摘成熟的果子。  可爱的城市小女孩有了第一次摘果子的经历。  花与果。 </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2010/12/12/%E6%96%B0%E9%B2%9C%E4%BA%8B/" title="新鲜事">新鲜事</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-12-12T11:55:16.000Z" title="Created 2010-12-12 19:55:16">2010-12-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BA%91%E8%A8%80%E6%B0%B4%E5%A3%B0%E5%B1%B1%E8%AF%9D/">云言水声山话</a></span></div><div class="content">重回云水山房，发生了许多新鲜事。 去年7月从文海带回来的小母鸡当上了鸡妈妈。4月21日孵出了12只小鸡。有妈妈的呵护，小鸡长的健康而快乐，活泼的同时显得充满了安全感。大头狗也从来都不欺负小鸡，一派和谐的景象。 鸡妈妈带小鸡的样子完全和动物习性专家劳伦兹研究的印刻现象一致，妈妈“咯咯”一声，小鸡就紧紧跟随着妈妈。院落里有了它们充满了生命力。  小鸡围绕着鸡妈妈。  鸡妈妈带小鸡回家 鸡爸爸可完全没有爸爸的样子，不仅不照顾幼年的孩子，还照样和往常一样和别的母鸡“寻欢作乐”，月子妈妈独子一人带着12个孩子。 大头狗好像也要做妈妈的样子，肚子的大小有点异样，我问小妹：“大头有没有做姑娘”，小妹说：“一个月前，家里面公狗不断”。当一个母狗发情的时候，它的气味可以散发到半径为300米的范围。 等暑假来的时候大头也要做妈妈了。 过年的时候和小妹一起整理了一下种在猪槽里的芦荟。没想到在它的中央居然长出支开出了美丽、艳丽的花。  芦荟花居然有支干。  “节节高”样的温润而平和的芦荟花 生命原来就是如此和谐、多样。 </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2010/12/12/%E9%B8%A1%E9%99%85%E5%85%B3%E7%B3%BB/" title="鸡际关系">鸡际关系</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-12-12T11:55:01.000Z" title="Created 2010-12-12 19:55:01">2010-12-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BA%91%E8%A8%80%E6%B0%B4%E5%A3%B0%E5%B1%B1%E8%AF%9D/">云言水声山话</a></span></div><div class="content">昨天小妹从娘家回来，带来了一只公鸡，  上午院子里便有了原来的两只母鸡和壹只公鸡， 好象鸡之间的关系发生了微妙的变化，原本两只鸡常常互相争斗，可今早上好象安静了许多。  哈哈，原来公鸡的加入，母鸡之间的关注少了，两个母鸡的专注点都到了公鸡身上，公鸡一左一右地拥着两只母鸡在院子里平静地寻找食物，偶尔母鸡在觅食时，公鸡乘其不备跳上母鸡的身上交配。 鸡之间也有争宠、也会施展魅力，昨晚有意让公鸡个小母鸡关在一起睡觉，想让他们先建立感情，因为大母鸡总欺负小母鸡，要是得不到公鸡的宠爱实在可怜。 但是，下蛋母鸡的“女性”气还是打动了公鸡，黄昏来临之时，已见大母鸡和公鸡在一起“睡觉”了。 为了不零落小母鸡，我把他们关在个一个笼子里，期望公鸡同等对待两个“妻”。 看见鸡际关系的演变，我又联想到了狗，真的和人一样，每一条狗都有自己的个性特点诶。等我有更多体会时会来描述的。 </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2010/12/12/%E4%BA%BA%E7%94%9F%E4%BD%93%E9%AA%8C%E7%94%B1%E6%AD%A4%E7%BE%8E%E5%A5%BD/" title="人生体验由此美好">人生体验由此美好</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-12-12T11:54:46.000Z" title="Created 2010-12-12 19:54:46">2010-12-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BA%91%E8%A8%80%E6%B0%B4%E5%A3%B0%E5%B1%B1%E8%AF%9D/">云言水声山话</a></span></div><div class="content">坐在停云馆里，用整一块花梨木做成的大茶桌前。  桌前放着几本哲学书、还有梭罗的《瓦尔登湖》，还有就是电脑。 随心翻阅着书，读上几段， 又上电脑读一读之前下载还没阅读的哲文和美文。 时不时台头看看屋前的草坪、树木、阳光，还有鸡和狗， 草坪上的每一个草都有自己独特的颜色与众不同， 每一棵树木形状、高低也截然不一，一个苹果树上结着9个苹果， 一株海棠树上长出了3朵花，大花蕙兰上挂满了花蓓蕾。 阳光时明时暗，让院子像有个幕布，一会拉上一会谢下, 还有鸡儿狗儿的嬉戏。 内心宁静，内心空寂， 这和都市生活中簇拥在汹涌的人流中，生活飞速运转相差太多， 托着腮帮子从容、优雅、淡定地或幻想，或发呆，或发傻，想象自己生命的开展， 思想由此激发，灵感由此灵现，人生体验由此美好。 再问一问自己，我是谁？ 问一问：真正想要的是什么？ 这是一个人类永恒的话题，也是自己不断要向自己询问的话题。 我常常在问，我想要什么？是获得别人的赞许、事业有成、家庭美满、孩子出色、丈夫呵护、家中财富、学生敬爱、朋友认同、还是…… 想起来，发现不同的时候真得是想要的东西不一样，...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2010/12/12/%E9%B8%A1%E9%A3%9E%E7%8B%97%E8%B7%B3%E7%9A%84%E5%92%8C%E8%B0%90%E9%99%A2%E8%90%BD/" title="鸡飞狗跳的和谐院落">鸡飞狗跳的和谐院落</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-12-12T11:54:25.000Z" title="Created 2010-12-12 19:54:25">2010-12-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BA%91%E8%A8%80%E6%B0%B4%E5%A3%B0%E5%B1%B1%E8%AF%9D/">云言水声山话</a></span></div><div class="content">这几天云水山房院落里总共5样动物: 狗两条:大头和老头， 鸡两只:生蛋鸡和童子鸡， 还有就是我。 每天早晨不知道是谁最先起床，反正等我起床的时候它们都已在院子里活动了。 狗只要一见到我就在我身边跳跃，想得到我的宠爱，给它食物，而其中3个月大的大头更是不肯离开我，我走到哪它粘到哪。老头因为年岁已高食欲减退，常常独自远远看着我们。 鸡在院子里寻找小虫、蚯蚓等食物。 而每天起来我所看见的另一道景色就是到处是鸡屎，一块白、一条黑、一滩黄，简直就像“地上的图画”。 还有被狗拉下飘落在地的木椅靠垫。 于是乎，“地上的图画”的清理、木椅靠垫的归整成为我每一天生活的开幕。 接着就是静心看院落里发生的故事， 以下是一天中的动漫。  和谐的鸡狗关系  嬉戏的狗（1）  嬉戏的狗（2）  嬉戏的狗（3）  准备战斗  战争将至  狗与鸡的战争（1）  狗与鸡的战争（2） 我每一天的谢幕曲就是将鸡与狗分别送进它们的“卧室”。 </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2010/12/12/%E5%BF%83%E5%9B%9E%E4%B8%BD%E6%B1%9F%E4%BA%91%E6%B0%B4%E5%B1%B1%E6%88%BF/" title="心回丽江云水山房">心回丽江云水山房</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-12-12T11:53:32.000Z" title="Created 2010-12-12 19:53:32">2010-12-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BA%91%E8%A8%80%E6%B0%B4%E5%A3%B0%E5%B1%B1%E8%AF%9D/">云言水声山话</a></span></div><div class="content">早上起床，先生说我幸福的溢了出来， 我问“怎么说？” 他告诉我“昨天夜间两次被你吵醒，一次是你说梦话，梦里面说，好！太好了；另一次是快要到早上的时候居然因为你的笑声把我吵醒，看来你真的是幸福！“ 哈哈，真有这样的事！ 想一想也是，我也觉得生活很美好， 工作虽忙，但充实而有价值， 生活上尽量把自己打理的滋润一些， 当然还有魂牵梦萦的丽江云水山房。 离开云水山房，我丽江的家才半个月， 可是我时常牵挂着它，还常常在睡梦中回到云水山房， 我们的大头瘦身****不知道长了多少， 菜园子里的向日葵小妹告诉说已经收割， 玉米不知道等我月底回去的时候是否已“老”， 辣椒是否已变成红色，茄子长的有多大了…… 以下这一段是关于我们的独白:十多年的古物收藏，八年的山川游历，不曾想在什么地方驻足，而无意识间却让我们在2007年底将身和心留在了丽江束河。到底是什么让我们俩停下脚步栖息在这里？也许是这里的云，这里的水、这里的山；也许是城市里的喧闹需要这一片的宁静祥和的滋润；也许是一直生活在西湖阴柔美景中需要阳刚美的匹配；也许是受太多中国古代山水画卷的影响，想实现友人携琴来访意象的梦想；也许……  茶书吧 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2010/12/12/hello-world-1/" title="束河时光">束河时光</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-12-12T09:28:19.000Z" title="Created 2010-12-12 17:28:19">2010-12-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BA%91%E8%A8%80%E6%B0%B4%E5%A3%B0%E5%B1%B1%E8%AF%9D/">云言水声山话</a></span></div><div class="content">答应老师要写些什么出来的，竟迟迟未动手。 其实并不是未动手，而是每每要动手的时候忽然发现自己完全写不出东西来了。 “我在这里，彩云之南、丽江、束河、云水山房……” 这是我在七月写出来的唯一的一行文字，那个时候的感受是：我在这里。那个时候，束河给我的印象也仅仅是适宜的气候和云水山房院子上方那四角的天空。我有时会问自己说：束河会有什么吸引我？我也曾经问了我身边能接触到的许多人，她们有的是第N次来这里，有的已经常驻在这里做事情了。可是，我仍然没有得到我想知道的答案。 记得有一次和李老师逛街的时候我抱怨说，如果来束河每天都只是逛街逛街买东西的话，这里就完全没有意思了！就在我抱怨声落的下一个转角，我们便遇到了人子生活馆做义卖的夫妇，看着他们抱着吉他在洒满夕阳的石板路旁唱着自己写的歌的时候，我忽然发现了束河的美丽，不一样生活所绽放出的美丽。...</div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Xj Ye</div><div class="author-info-description">云水山房的故事</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/14/hello-world/" title="Hello World">Hello World</a><time datetime="2025-06-14T08:44:27.402Z" title="Created 2025-06-14 16:44:27">2025-06-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2010/12/12/%E7%9B%9B%E9%82%80%E6%9C%8B%E5%8F%8B%E5%88%86%E4%BA%AB%E7%BE%8E%E4%B8%BD%E6%9E%9C%E5%AE%9E/" title="盛邀朋友分享美丽果实">盛邀朋友分享美丽果实</a><time datetime="2010-12-12T11:55:57.000Z" title="Created 2010-12-12 19:55:57">2010-12-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2010/12/12/%E6%88%91%E5%AE%B6%E7%9A%84%E6%A8%B1%E6%A1%83%E6%A0%91%E7%BB%93%E6%BB%A1%E4%BA%86%E7%BA%A2%E8%89%B3%E8%89%B3%E7%9A%84%E6%A8%B1%E6%A1%83/" title="我家的樱桃树结满了红艳艳的樱桃">我家的樱桃树结满了红艳艳的樱桃</a><time datetime="2010-12-12T11:55:33.000Z" title="Created 2010-12-12 19:55:33">2010-12-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2010/12/12/%E6%96%B0%E9%B2%9C%E4%BA%8B/" title="新鲜事">新鲜事</a><time datetime="2010-12-12T11:55:16.000Z" title="Created 2010-12-12 19:55:16">2010-12-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2010/12/12/%E9%B8%A1%E9%99%85%E5%85%B3%E7%B3%BB/" title="鸡际关系">鸡际关系</a><time datetime="2010-12-12T11:55:01.000Z" title="Created 2010-12-12 19:55:01">2010-12-12</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%BA%91%E8%A8%80%E6%B0%B4%E5%A3%B0%E5%B1%B1%E8%AF%9D/"><span class="card-category-list-name">云言水声山话</span><span class="card-category-list-count">8</span></a></li>
+          </ul></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>Archives</span>
       
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/06/14/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2025-06-14T08:44:27.402Z" itemprop="datePublished">2025-06-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/06/14/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
+    <ul class="card-archive-list">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              June 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/06/14/hello-world/" data-id="cmbw09j5t0003wxyy0tcn1trj" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2010/12/">
+            <span class="card-archive-list-date">
+              December 2010
+            </span>
+            <span class="card-archive-list-count">8</span>
+          </a>
+        </li>
       
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-盛邀朋友分享美丽果实" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2010/12/12/%E7%9B%9B%E9%82%80%E6%9C%8B%E5%8F%8B%E5%88%86%E4%BA%AB%E7%BE%8E%E4%B8%BD%E6%9E%9C%E5%AE%9E/" class="article-date">
-  <time class="dt-published" datetime="2010-12-12T11:55:57.000Z" itemprop="datePublished">2010-12-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BA%91%E8%A8%80%E6%B0%B4%E5%A3%B0%E5%B1%B1%E8%AF%9D/">云言水声山话</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2010/12/12/%E7%9B%9B%E9%82%80%E6%9C%8B%E5%8F%8B%E5%88%86%E4%BA%AB%E7%BE%8E%E4%B8%BD%E6%9E%9C%E5%AE%9E/">盛邀朋友分享美丽果实</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>我家的李子成熟了，满树金色的果子。 还山楼的露台上随手可以采摘， 昨天来了二位朋友，见了如此景色，无法不停留。 坐在藤椅上，顺手摘一颗李子，从嘴甜到心头。 来吧，朋友 愿与你一同分享美丽时光。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2010/12/12/%E7%9B%9B%E9%82%80%E6%9C%8B%E5%8F%8B%E5%88%86%E4%BA%AB%E7%BE%8E%E4%B8%BD%E6%9E%9C%E5%AE%9E/" data-id="cmbw09j5w000fwxyyfhqwd35u" data-title="盛邀朋友分享美丽果实" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-我家的樱桃树结满了红艳艳的樱桃" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2010/12/12/%E6%88%91%E5%AE%B6%E7%9A%84%E6%A8%B1%E6%A1%83%E6%A0%91%E7%BB%93%E6%BB%A1%E4%BA%86%E7%BA%A2%E8%89%B3%E8%89%B3%E7%9A%84%E6%A8%B1%E6%A1%83/" class="article-date">
-  <time class="dt-published" datetime="2010-12-12T11:55:33.000Z" itemprop="datePublished">2010-12-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BA%91%E8%A8%80%E6%B0%B4%E5%A3%B0%E5%B1%B1%E8%AF%9D/">云言水声山话</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2010/12/12/%E6%88%91%E5%AE%B6%E7%9A%84%E6%A8%B1%E6%A1%83%E6%A0%91%E7%BB%93%E6%BB%A1%E4%BA%86%E7%BA%A2%E8%89%B3%E8%89%B3%E7%9A%84%E6%A8%B1%E6%A1%83/">我家的樱桃树结满了红艳艳的樱桃</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>我家后院的樱桃树上结满了红艳艳的樱桃。 <a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=61242da70100iozh&url=http://static6.photo.sina.com.cn/orignal/61242da7x85c4e0c2dc35"><img src="http://static6.photo.sina.com.cn/middle/61242da7x85c4e0c2dc35&690" alt="第七十七篇：我家的樱桃树结满了红艳艳的樱桃" title="第七十七篇：我家的樱桃树结满了红艳艳的樱桃"></a> 垂涎欲滴的樱桃。 <a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=61242da70100iozh&url=http://static12.photo.sina.com.cn/orignal/61242da7x85c50b28aaeb"><img src="http://static12.photo.sina.com.cn/middle/61242da7x85c50b28aaeb&690" alt="第七十七篇：我家的樱桃树结满了红艳艳的樱桃" title="第七十七篇：我家的樱桃树结满了红艳艳的樱桃"></a> 分明的红和绿。 <a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=61242da70100iozh&url=http://static4.photo.sina.com.cn/orignal/61242da7x85c51a9cf633"><img src="http://static4.photo.sina.com.cn/middle/61242da7x85c51a9cf633&690" alt="第七十七篇：我家的樱桃树结满了红艳艳的樱桃" title="第七十七篇：我家的樱桃树结满了红艳艳的樱桃"></a> 一粒阳光下的红果。 <a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=61242da70100iozh&url=http://static3.photo.sina.com.cn/orignal/61242da7x85c62fe16592"><img src="http://static3.photo.sina.com.cn/middle/61242da7x85c62fe16592&690" alt="第七十七篇：我家的樱桃树结满了红艳艳的樱桃" title="第七十七篇：我家的樱桃树结满了红艳艳的樱桃"></a> 白族老人在摘成熟的果子。 <a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=61242da70100iozh&url=http://static16.photo.sina.com.cn/orignal/61242da7x85c657a8e98f"><img src="http://static16.photo.sina.com.cn/middle/61242da7x85c657a8e98f&690" alt="第七十七篇：我家的樱桃树结满了红艳艳的樱桃" title="第七十七篇：我家的樱桃树结满了红艳艳的樱桃"></a> 可爱的城市小女孩有了第一次摘果子的经历。 <a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=61242da70100iozh&url=http://static11.photo.sina.com.cn/orignal/61242da7x85c65d8def8a"><img src="http://static11.photo.sina.com.cn/middle/61242da7x85c65d8def8a&690" alt="第七十七篇：我家的樱桃树结满了红艳艳的樱桃" title="第七十七篇：我家的樱桃树结满了红艳艳的樱桃"></a> 花与果。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2010/12/12/%E6%88%91%E5%AE%B6%E7%9A%84%E6%A8%B1%E6%A1%83%E6%A0%91%E7%BB%93%E6%BB%A1%E4%BA%86%E7%BA%A2%E8%89%B3%E8%89%B3%E7%9A%84%E6%A8%B1%E6%A1%83/" data-id="cmbw09j5v000awxyy2lea2dbg" data-title="我家的樱桃树结满了红艳艳的樱桃" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-新鲜事" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2010/12/12/%E6%96%B0%E9%B2%9C%E4%BA%8B/" class="article-date">
-  <time class="dt-published" datetime="2010-12-12T11:55:16.000Z" itemprop="datePublished">2010-12-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BA%91%E8%A8%80%E6%B0%B4%E5%A3%B0%E5%B1%B1%E8%AF%9D/">云言水声山话</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2010/12/12/%E6%96%B0%E9%B2%9C%E4%BA%8B/">新鲜事</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>重回云水山房，发生了许多新鲜事。 去年7月从文海带回来的小母鸡当上了鸡妈妈。4月21日孵出了12只小鸡。有妈妈的呵护，小鸡长的健康而快乐，活泼的同时显得充满了安全感。大头狗也从来都不欺负小鸡，一派和谐的景象。 鸡妈妈带小鸡的样子完全和动物习性专家劳伦兹研究的印刻现象一致，妈妈“咯咯”一声，小鸡就紧紧跟随着妈妈。院落里有了它们充满了生命力。 <a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=61242da70100inpq&url=http://static13.photo.sina.com.cn/orignal/61242da7x85b085b2939c"><img src="http://static13.photo.sina.com.cn/middle/61242da7x85b085b2939c&690" alt="第七十四篇：新鲜事" title="第七十四篇：新鲜事"></a> 小鸡围绕着鸡妈妈。 <a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=61242da70100inpq&url=http://static1.photo.sina.com.cn/orignal/61242da7x85b08e2b1e00"><img src="http://static1.photo.sina.com.cn/middle/61242da7x85b08e2b1e00&690" alt="第七十四篇：新鲜事" title="第七十四篇：新鲜事"></a> 鸡妈妈带小鸡回家 鸡爸爸可完全没有爸爸的样子，不仅不照顾幼年的孩子，还照样和往常一样和别的母鸡“寻欢作乐”，月子妈妈独子一人带着12个孩子。 大头狗好像也要做妈妈的样子，肚子的大小有点异样，我问小妹：“大头有没有做姑娘”，小妹说：“一个月前，家里面公狗不断”。当一个母狗发情的时候，它的气味可以散发到半径为300米的范围。 等暑假来的时候大头也要做妈妈了。 过年的时候和小妹一起整理了一下种在猪槽里的芦荟。没想到在它的中央居然长出支开出了美丽、艳丽的花。 <a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=61242da70100inpq&url=http://static12.photo.sina.com.cn/orignal/61242da7x85b0c055eafb"><img src="http://static12.photo.sina.com.cn/middle/61242da7x85b0c055eafb&690" alt="第七十四篇：新鲜事" title="第七十四篇：新鲜事"></a> 芦荟花居然有支干。 <a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=61242da70100inpq&url=http://static3.photo.sina.com.cn/orignal/61242da7x85b0c5a4fe12"><img src="http://static3.photo.sina.com.cn/middle/61242da7x85b0c5a4fe12&690" alt="第七十四篇：新鲜事" title="第七十四篇：新鲜事"></a> “节节高”样的温润而平和的芦荟花 生命原来就是如此和谐、多样。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2010/12/12/%E6%96%B0%E9%B2%9C%E4%BA%8B/" data-id="cmbw09j5w000dwxyyfmty2a3i" data-title="新鲜事" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-鸡际关系" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2010/12/12/%E9%B8%A1%E9%99%85%E5%85%B3%E7%B3%BB/" class="article-date">
-  <time class="dt-published" datetime="2010-12-12T11:55:01.000Z" itemprop="datePublished">2010-12-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BA%91%E8%A8%80%E6%B0%B4%E5%A3%B0%E5%B1%B1%E8%AF%9D/">云言水声山话</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2010/12/12/%E9%B8%A1%E9%99%85%E5%85%B3%E7%B3%BB/">鸡际关系</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>昨天小妹从娘家回来，带来了一只公鸡， <a target="_blank" rel="noopener" href="http://blog.photo.sina.com.cn/showpic.html#url=http://static6.photo.sina.com.cn/orignal/61242da7x7640799c5d35&690"><img src="http://static6.photo.sina.com.cn/bmiddle/61242da7x7640799c5d35&690"></a> 上午院子里便有了原来的两只母鸡和壹只公鸡， 好象鸡之间的关系发生了微妙的变化，原本两只鸡常常互相争斗，可今早上好象安静了许多。 <a target="_blank" rel="noopener" href="http://blog.photo.sina.com.cn/showpic.html#url=http://static7.photo.sina.com.cn/orignal/61242da7x7640935a4d36&690"><img src="http://static7.photo.sina.com.cn/bmiddle/61242da7x7640935a4d36&690"></a> 哈哈，原来公鸡的加入，母鸡之间的关注少了，两个母鸡的专注点都到了公鸡身上，公鸡一左一右地拥着两只母鸡在院子里平静地寻找食物，偶尔母鸡在觅食时，公鸡乘其不备跳上母鸡的身上交配。 鸡之间也有争宠、也会施展魅力，昨晚有意让公鸡个小母鸡关在一起睡觉，想让他们先建立感情，因为大母鸡总欺负小母鸡，要是得不到公鸡的宠爱实在可怜。 但是，下蛋母鸡的“女性”气还是打动了公鸡，黄昏来临之时，已见大母鸡和公鸡在一起“睡觉”了。 为了不零落小母鸡，我把他们关在个一个笼子里，期望公鸡同等对待两个“妻”。 看见鸡际关系的演变，我又联想到了狗，真的和人一样，每一条狗都有自己的个性特点诶。等我有更多体会时会来描述的。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2010/12/12/%E9%B8%A1%E9%99%85%E5%85%B3%E7%B3%BB/" data-id="cmbw09j5w000hwxyyc2bub6wv" data-title="鸡际关系" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-人生体验由此美好" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2010/12/12/%E4%BA%BA%E7%94%9F%E4%BD%93%E9%AA%8C%E7%94%B1%E6%AD%A4%E7%BE%8E%E5%A5%BD/" class="article-date">
-  <time class="dt-published" datetime="2010-12-12T11:54:46.000Z" itemprop="datePublished">2010-12-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BA%91%E8%A8%80%E6%B0%B4%E5%A3%B0%E5%B1%B1%E8%AF%9D/">云言水声山话</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2010/12/12/%E4%BA%BA%E7%94%9F%E4%BD%93%E9%AA%8C%E7%94%B1%E6%AD%A4%E7%BE%8E%E5%A5%BD/">人生体验由此美好</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>坐在停云馆里，用整一块花梨木做成的大茶桌前。 <a target="_blank" rel="noopener" href="http://blog.photo.sina.com.cn/showpic.html#url=http://static13.photo.sina.com.cn/orignal/61242da7x761a0163ac5c&690"><img src="http://static13.photo.sina.com.cn/bmiddle/61242da7x761a0163ac5c&690"></a> 桌前放着几本哲学书、还有梭罗的《瓦尔登湖》，还有就是电脑。 随心翻阅着书，读上几段， 又上电脑读一读之前下载还没阅读的哲文和美文。 时不时台头看看屋前的草坪、树木、阳光，还有鸡和狗， 草坪上的每一个草都有自己独特的颜色与众不同， 每一棵树木形状、高低也截然不一，一个苹果树上结着9个苹果， 一株海棠树上长出了3朵花，大花蕙兰上挂满了花蓓蕾。 阳光时明时暗，让院子像有个幕布，一会拉上一会谢下, 还有鸡儿狗儿的嬉戏。 内心宁静，内心空寂， 这和都市生活中簇拥在汹涌的人流中，生活飞速运转相差太多， 托着腮帮子从容、优雅、淡定地或幻想，或发呆，或发傻，想象自己生命的开展， 思想由此激发，灵感由此灵现，人生体验由此美好。 再问一问自己，我是谁？ 问一问：真正想要的是什么？ 这是一个人类永恒的话题，也是自己不断要向自己询问的话题。 我常常在问，我想要什么？是获得别人的赞许、事业有成、家庭美满、孩子出色、丈夫呵护、家中财富、学生敬爱、朋友认同、还是…… 想起来，发现不同的时候真得是想要的东西不一样， 小学的时候想长大，想过年有新衣穿、有米花糖、芝麻糕、黄豆糕吃，甚至渴望也有一个和小朋友一样的铜火熜可以爆几粒玉米。 中学的时候，想成绩好一点、穿得好一些能得到老师的喜欢、父母的赞赏和同学们的羡慕，可是当时家境一般，穿得不怎样，但也每天都会将裤子叠的好好，放枕头底下压平。 上大学的时候情窦初开，便更多地希望得到男生们的喜爱，于是怎样让自己美丽、妩媚成为一件事了。 结婚生子，抚育孩子的成长成为了我生活的中心。 到孩子上学读书，让自己的工作更有起色，将注意力转移到教学、研究上是我的追求。 近20年孜孜不倦的工作，我已经明白，事业是有限制的，而心灵的成长更重要。 那么现在的我到地想要什么？ 束河生活的介入，我逐渐明白我想要的， 那就是将自己生命的一部分回归自然， 那就是提升自己的心灵，让生命更多一点内涵，更多一点活泼。 其实我的专业工作也让我在不断地感受他人生命中丰富我的人生的意义。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2010/12/12/%E4%BA%BA%E7%94%9F%E4%BD%93%E9%AA%8C%E7%94%B1%E6%AD%A4%E7%BE%8E%E5%A5%BD/" data-id="cmbw09j5u0005wxyya3u877xi" data-title="人生体验由此美好" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-鸡飞狗跳的和谐院落" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2010/12/12/%E9%B8%A1%E9%A3%9E%E7%8B%97%E8%B7%B3%E7%9A%84%E5%92%8C%E8%B0%90%E9%99%A2%E8%90%BD/" class="article-date">
-  <time class="dt-published" datetime="2010-12-12T11:54:25.000Z" itemprop="datePublished">2010-12-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BA%91%E8%A8%80%E6%B0%B4%E5%A3%B0%E5%B1%B1%E8%AF%9D/">云言水声山话</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2010/12/12/%E9%B8%A1%E9%A3%9E%E7%8B%97%E8%B7%B3%E7%9A%84%E5%92%8C%E8%B0%90%E9%99%A2%E8%90%BD/">鸡飞狗跳的和谐院落</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>这几天云水山房院落里总共5样动物: 狗两条:大头和老头， 鸡两只:生蛋鸡和童子鸡， 还有就是我。 每天早晨不知道是谁最先起床，反正等我起床的时候它们都已在院子里活动了。 狗只要一见到我就在我身边跳跃，想得到我的宠爱，给它食物，而其中3个月大的大头更是不肯离开我，我走到哪它粘到哪。老头因为年岁已高食欲减退，常常独自远远看着我们。 鸡在院子里寻找小虫、蚯蚓等食物。 而每天起来我所看见的另一道景色就是到处是鸡屎，一块白、一条黑、一滩黄，简直就像“地上的图画”。 还有被狗拉下飘落在地的木椅靠垫。 于是乎，“地上的图画”的清理、木椅靠垫的归整成为我每一天生活的开幕。 接着就是静心看院落里发生的故事， 以下是一天中的动漫。 <a target="_blank" rel="noopener" href="http://blog.photo.sina.com.cn/showpic.html#url=http://static8.photo.sina.com.cn/orignal/61242da7x72339ec916b7&690"><img src="http://static8.photo.sina.com.cn/bmiddle/61242da7x72339ec916b7&690"></a> 和谐的鸡狗关系 <a target="_blank" rel="noopener" href="http://blog.photo.sina.com.cn/showpic.html#url=http://static8.photo.sina.com.cn/orignal/61242da7x7233a017f307&690"><img src="http://static8.photo.sina.com.cn/bmiddle/61242da7x7233a017f307&690"></a> 嬉戏的狗（1） <a target="_blank" rel="noopener" href="http://blog.photo.sina.com.cn/showpic.html#url=http://static6.photo.sina.com.cn/orignal/61242da7x76044c351af5&690"><img src="http://static6.photo.sina.com.cn/bmiddle/61242da7x76044c351af5&690"></a> 嬉戏的狗（2） <a target="_blank" rel="noopener" href="http://blog.photo.sina.com.cn/showpic.html#url=http://static7.photo.sina.com.cn/orignal/61242da7x760461166ef6&690"><img src="http://static7.photo.sina.com.cn/bmiddle/61242da7x760461166ef6&690"></a> 嬉戏的狗（3） <a target="_blank" rel="noopener" href="http://blog.photo.sina.com.cn/showpic.html#url=http://static6.photo.sina.com.cn/orignal/61242da7x76046e795825&690"><img src="http://static6.photo.sina.com.cn/bmiddle/61242da7x76046e795825&690"></a> 准备战斗 <a target="_blank" rel="noopener" href="http://blog.photo.sina.com.cn/showpic.html#url=http://static2.photo.sina.com.cn/orignal/61242da7x760481221a61&690"><img src="http://static2.photo.sina.com.cn/bmiddle/61242da7x760481221a61&690"></a> 战争将至 <a target="_blank" rel="noopener" href="http://blog.photo.sina.com.cn/showpic.html#url=http://static4.photo.sina.com.cn/orignal/61242da7x76049b0e30c3&690"><img src="http://static4.photo.sina.com.cn/bmiddle/61242da7x76049b0e30c3&690"></a> 狗与鸡的战争（1） <a target="_blank" rel="noopener" href="http://blog.photo.sina.com.cn/showpic.html#url=http://static1.photo.sina.com.cn/orignal/61242da7x760491374c50&690"><img src="http://static1.photo.sina.com.cn/bmiddle/61242da7x760491374c50&690"></a> 狗与鸡的战争（2） 我每一天的谢幕曲就是将鸡与狗分别送进它们的“卧室”。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2010/12/12/%E9%B8%A1%E9%A3%9E%E7%8B%97%E8%B7%B3%E7%9A%84%E5%92%8C%E8%B0%90%E9%99%A2%E8%90%BD/" data-id="cmbw09j5w000kwxyyhmimeq28" data-title="鸡飞狗跳的和谐院落" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-心回丽江云水山房" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2010/12/12/%E5%BF%83%E5%9B%9E%E4%B8%BD%E6%B1%9F%E4%BA%91%E6%B0%B4%E5%B1%B1%E6%88%BF/" class="article-date">
-  <time class="dt-published" datetime="2010-12-12T11:53:32.000Z" itemprop="datePublished">2010-12-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BA%91%E8%A8%80%E6%B0%B4%E5%A3%B0%E5%B1%B1%E8%AF%9D/">云言水声山话</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2010/12/12/%E5%BF%83%E5%9B%9E%E4%B8%BD%E6%B1%9F%E4%BA%91%E6%B0%B4%E5%B1%B1%E6%88%BF/">心回丽江云水山房</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>早上起床，先生说我幸福的溢了出来， 我问“怎么说？” 他告诉我“昨天夜间两次被你吵醒，一次是你说梦话，梦里面说，好！太好了；另一次是快要到早上的时候居然因为你的笑声把我吵醒，看来你真的是幸福！“ 哈哈，真有这样的事！ 想一想也是，我也觉得生活很美好， 工作虽忙，但充实而有价值， 生活上尽量把自己打理的滋润一些， 当然还有魂牵梦萦的丽江云水山房。 离开云水山房，我丽江的家才半个月， 可是我时常牵挂着它，还常常在睡梦中回到云水山房， 我们的大头瘦身****不知道长了多少， 菜园子里的向日葵小妹告诉说已经收割， 玉米不知道等我月底回去的时候是否已“老”， 辣椒是否已变成红色，茄子长的有多大了…… 以下这一段是关于我们的独白:十多年的古物收藏，八年的山川游历，不曾想在什么地方驻足，而无意识间却让我们在2007年底将身和心留在了丽江束河。到底是什么让我们俩停下脚步栖息在这里？也许是这里的云，这里的水、这里的山；也许是城市里的喧闹需要这一片的宁静祥和的滋润；也许是一直生活在西湖阴柔美景中需要阳刚美的匹配；也许是受太多中国古代山水画卷的影响，想实现友人携琴来访意象的梦想；也许…… <a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=61242da70100fbk5&url=http://static13.photo.sina.com.cn/orignal/61242da7h7361910dc08c&690"><img src="http://static13.photo.sina.com.cn/bmiddle/61242da7h7361910dc08c&690"></a> 茶书吧 <a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=61242da70100fbk5&url=http://static16.photo.sina.com.cn/orignal/61242da7h7361bd27d5df&690"><img src="http://static16.photo.sina.com.cn/bmiddle/61242da7h7361bd27d5df&690"></a> 离束河只有10公里的文海 <a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=61242da70100fbk5&url=http://static10.photo.sina.com.cn/orignal/61242da7h736135f9dc19&690"><img src="http://static10.photo.sina.com.cn/bmiddle/61242da7h736135f9dc19&690"></a> 我家的小朱姐姐</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2010/12/12/%E5%BF%83%E5%9B%9E%E4%B8%BD%E6%B1%9F%E4%BA%91%E6%B0%B4%E5%B1%B1%E6%88%BF/" data-id="cmbw09j5v0008wxyy80k5djd0" data-title="心回丽江云水山房" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hello-world-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2010/12/12/hello-world-1/" class="article-date">
-  <time class="dt-published" datetime="2010-12-12T09:28:19.000Z" itemprop="datePublished">2010-12-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BA%91%E8%A8%80%E6%B0%B4%E5%A3%B0%E5%B1%B1%E8%AF%9D/">云言水声山话</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2010/12/12/hello-world-1/">束河时光</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>答应老师要写些什么出来的，竟迟迟未动手。 其实并不是未动手，而是每每要动手的时候忽然发现自己完全写不出东西来了。 “我在这里，彩云之南、丽江、束河、云水山房……” 这是我在七月写出来的唯一的一行文字，那个时候的感受是：我在这里。那个时候，束河给我的印象也仅仅是适宜的气候和云水山房院子上方那四角的天空。我有时会问自己说：束河会有什么吸引我？我也曾经问了我身边能接触到的许多人，她们有的是第N次来这里，有的已经常驻在这里做事情了。可是，我仍然没有得到我想知道的答案。 记得有一次和李老师逛街的时候我抱怨说，如果来束河每天都只是逛街逛街买东西的话，这里就完全没有意思了！就在我抱怨声落的下一个转角，我们便遇到了人子生活馆做义卖的夫妇，看着他们抱着吉他在洒满夕阳的石板路旁唱着自己写的歌的时候，我忽然发现了束河的美丽，不一样生活所绽放出的美丽。 八月落雨的傍晚，和老师在还山楼下的走廊里斜倚在大大的圈椅里聊天，细雨滴答落下的声音、天空中丝丝缕缕扯开的灰云、近处的灯笼和远处的重檐、屋脊上的瓦猫，即使是只看能看到它的背影，亦可以感受到它威风凛凛的神态；耳朵里是蓝色假期的曲子，就在夜幕一点点落下的那些瞬间，忽然真的有了假期的感觉。又问自己，束河到底有什么会吸引我？ 也许是屋角上飞落的小鸟、也许是宁静清澈的溪流、也许是光滑的石板街、也许是茶人居泡出的普洱、也许是抱着吉他在夕阳余晖中弹唱的夫妻、也许是晚上黛色的远山和清明的月亮、也许是偶尔蓝紫色的天空和金黄的晚霞，也许是天空中大朵大朵厚重起伏的白云，也许是八月份还在盛开着的大片的土豆花和油菜花，也许就是这样坐着的平和，也许就是云水山房这个院子……忽然发现，就在这样的每一个小的瞬间，束河与我已经有了那么多的连结，不浓烈，但却已是我的一部分。“等回去了我会怀念这里的生活的”对老师说的话的确是当时很强烈的感受。 束河这个小镇子，真的是一个可以让人发呆到落泪的地方，这里不太适合观光、不适合喧嚣和浮躁，它就是一个安静的镇子，适合就这样坐着，让细雨伴着音符落下、伴着夜幕落下、伴着心情落下、伴着喜悦落下、伴着祥和落下…… 这是一个很丰富的暑假，收获了很多，见到了很多人，见到了不同的生活、听到了不同的故事。其实还是有很多没记的，比如文海行、比如香格里拉行、比如火把节，比如传奇般失而复得得而复失的黑龙，比如很多的谈论和分享，比如…… 这些就是组成束河温柔时光的每一个小水滴。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2010/12/12/hello-world-1/" data-id="cmbw09j5s0001wxyy6gzj8npd" data-title="束河时光" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%91%E8%A8%80%E6%B0%B4%E5%A3%B0%E5%B1%B1%E8%AF%9D/">云言水声山话</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2025/06/14/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2010/12/12/%E7%9B%9B%E9%82%80%E6%9C%8B%E5%8F%8B%E5%88%86%E4%BA%AB%E7%BE%8E%E4%B8%BD%E6%9E%9C%E5%AE%9E/">盛邀朋友分享美丽果实</a>
-          </li>
-        
-          <li>
-            <a href="/2010/12/12/%E6%88%91%E5%AE%B6%E7%9A%84%E6%A8%B1%E6%A1%83%E6%A0%91%E7%BB%93%E6%BB%A1%E4%BA%86%E7%BA%A2%E8%89%B3%E8%89%B3%E7%9A%84%E6%A8%B1%E6%A1%83/">我家的樱桃树结满了红艳艳的樱桃</a>
-          </li>
-        
-          <li>
-            <a href="/2010/12/12/%E6%96%B0%E9%B2%9C%E4%BA%8B/">新鲜事</a>
-          </li>
-        
-          <li>
-            <a href="/2010/12/12/%E9%B8%A1%E9%99%85%E5%85%B3%E7%B3%BB/">鸡际关系</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2025 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">9</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-06-14T09:15:00.921Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By Xj Ye</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
