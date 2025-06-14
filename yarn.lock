@@ -23,6 +23,31 @@
   resolved "http://registry.m.jd.com/@assemblyscript/loader/download/@assemblyscript/loader-0.10.1.tgz"
   integrity sha1-cORWePBscvouNQ6FU+xKTXK5LgY=
 
+"@babel/helper-string-parser@^7.27.1":
+  version "7.27.1"
+  resolved "http://registry.m.jd.com/@babel/helper-string-parser/download/@babel/helper-string-parser-7.27.1.tgz"
+  integrity sha1-VNp5YJerGc5n7Z+ItHuy7Ek2doc=
+
+"@babel/helper-validator-identifier@^7.27.1":
+  version "7.27.1"
+  resolved "http://registry.m.jd.com/@babel/helper-validator-identifier/download/@babel/helper-validator-identifier-7.27.1.tgz"
+  integrity sha1-pwVNzBRaln3U3I/uhFpXwTFsnfg=
+
+"@babel/parser@^7.6.0", "@babel/parser@^7.9.6":
+  version "7.27.5"
+  resolved "http://registry.m.jd.com/@babel/parser/download/@babel/parser-7.27.5.tgz"
+  integrity sha1-7SL4cfEQqihab9k0oO/tYh0RiCY=
+  dependencies:
+    "@babel/types" "^7.27.3"
+
+"@babel/types@^7.27.3", "@babel/types@^7.6.1", "@babel/types@^7.9.6":
+  version "7.27.6"
+  resolved "http://registry.m.jd.com/@babel/types/download/@babel/types-7.27.6.tgz"
+  integrity sha1-pDTKet1RTU5kbID3N1wKor78VTU=
+  dependencies:
+    "@babel/helper-string-parser" "^7.27.1"
+    "@babel/helper-validator-identifier" "^7.27.1"
+
 "@csstools/color-helpers@^5.0.2":
   version "5.0.2"
   resolved "http://registry.m.jd.com/@csstools/color-helpers/download/@csstools/color-helpers-5.0.2.tgz"
@@ -184,10 +209,15 @@ argparse@^2.0.1:
   resolved "http://registry.m.jd.com/argparse/download/argparse-2.0.1.tgz"
   integrity sha1-JG9Q88p4oyQPbJl+ipvR6sSeSzg=
 
-asap@^2.0.3:
+asap@^2.0.3, asap@~2.0.3:
   version "2.0.6"
   resolved "http://registry.m.jd.com/asap/download/asap-2.0.6.tgz"
   integrity sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=
+
+assert-never@^1.2.1:
+  version "1.4.0"
+  resolved "http://registry.m.jd.com/assert-never/download/assert-never-1.4.0.tgz"
+  integrity sha1-sNSYhijIfzXrlHFsxUQipjkn4XU=
 
 async@^3.2.3:
   version "3.2.6"
@@ -198,6 +228,13 @@ asynckit@^0.4.0:
   version "0.4.0"
   resolved "http://registry.m.jd.com/asynckit/download/asynckit-0.4.0.tgz"
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
+
+babel-walk@3.0.0-canary-5:
+  version "3.0.0-canary-5"
+  resolved "http://registry.m.jd.com/babel-walk/download/babel-walk-3.0.0-canary-5.tgz"
+  integrity sha1-9m7Ncpg1eu5ElV8jWm71QhkQSxE=
+  dependencies:
+    "@babel/types" "^7.9.6"
 
 balanced-match@^1.0.0:
   version "1.0.2"
@@ -284,6 +321,14 @@ call-bind-apply-helpers@^1.0.1, call-bind-apply-helpers@^1.0.2:
     es-errors "^1.3.0"
     function-bind "^1.1.2"
 
+call-bound@^1.0.2:
+  version "1.0.4"
+  resolved "http://registry.m.jd.com/call-bound/download/call-bound-1.0.4.tgz"
+  integrity sha1-I43pNdKippKSjFOMfM+pEGf9Bio=
+  dependencies:
+    call-bind-apply-helpers "^1.0.2"
+    get-intrinsic "^1.3.0"
+
 camaro@^6.0.2:
   version "6.2.3"
   resolved "http://registry.m.jd.com/camaro/download/camaro-6.2.3.tgz"
@@ -306,6 +351,13 @@ chalk@^4.0.2:
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
+
+character-parser@^2.2.0:
+  version "2.2.0"
+  resolved "http://registry.m.jd.com/character-parser/download/character-parser-2.2.0.tgz"
+  integrity sha1-x84o821LzZdE5f/CxfzeHHMmH8A=
+  dependencies:
+    is-regex "^1.0.3"
 
 chokidar@^3.0.0, chokidar@^3.3.0, chokidar@^3.5.3:
   version "3.6.0"
@@ -392,6 +444,14 @@ connect@^3.7.0:
     finalhandler "1.1.2"
     parseurl "~1.3.3"
     utils-merge "1.0.1"
+
+constantinople@^4.0.1:
+  version "4.0.1"
+  resolved "http://registry.m.jd.com/constantinople/download/constantinople-4.0.1.tgz"
+  integrity sha1-De8RP6Dk3I3oMzGlz3nIsyUhMVE=
+  dependencies:
+    "@babel/parser" "^7.6.0"
+    "@babel/types" "^7.6.1"
 
 cross-spawn@^7.0.0, cross-spawn@^7.0.3:
   version "7.0.6"
@@ -518,6 +578,11 @@ destroy@1.2.0:
   version "1.2.0"
   resolved "http://registry.m.jd.com/destroy/download/destroy-1.2.0.tgz"
   integrity sha1-SANzVQmti+VSk0xn32FPlOZvoBU=
+
+doctypes@^1.1.0:
+  version "1.1.0"
+  resolved "http://registry.m.jd.com/doctypes/download/doctypes-1.1.0.tgz"
+  integrity sha1-6oCxBqh1OHdOijpKWv4pPeSJ4Kk=
 
 dom-serializer@^1.0.1:
   version "1.4.1"
@@ -782,7 +847,7 @@ function-bind@^1.1.2:
   resolved "http://registry.m.jd.com/function-bind/download/function-bind-1.1.2.tgz"
   integrity sha1-LALYZNl/PqbIgwxGTL0Rq26rehw=
 
-get-intrinsic@^1.2.6:
+get-intrinsic@^1.2.6, get-intrinsic@^1.3.0:
   version "1.3.0"
   resolved "http://registry.m.jd.com/get-intrinsic/download/get-intrinsic-1.3.0.tgz"
   integrity sha1-dD8OO2lkqTpUke0b/6rgVNf5jQE=
@@ -1027,6 +1092,13 @@ hexo-renderer-marked@^7.0.0:
     jsdom "^25.0.1"
     marked "^15.0.4"
 
+hexo-renderer-pug@^3.0.0:
+  version "3.0.0"
+  resolved "http://registry.m.jd.com/hexo-renderer-pug/download/hexo-renderer-pug-3.0.0.tgz"
+  integrity sha1-TKYxzQ7MzvxDtwrEQjDVAIlWrcI=
+  dependencies:
+    pug "^3.0.2"
+
 hexo-renderer-stylus@^3.0.1:
   version "3.0.1"
   resolved "http://registry.m.jd.com/hexo-renderer-stylus/download/hexo-renderer-stylus-3.0.1.tgz"
@@ -1267,6 +1339,14 @@ is-docker@^2.0.0, is-docker@^2.1.1:
   resolved "http://registry.m.jd.com/is-docker/download/is-docker-2.2.1.tgz"
   integrity sha1-M+6r4jz+hvFL3kQIoCwM+4U6zao=
 
+is-expression@^4.0.0:
+  version "4.0.0"
+  resolved "http://registry.m.jd.com/is-expression/download/is-expression-4.0.0.tgz"
+  integrity sha1-wzFVliq/IdCv0lUlFNZ9LsFv0qs=
+  dependencies:
+    acorn "^7.1.1"
+    object-assign "^4.1.1"
+
 is-extglob@^2.1.1:
   version "2.1.1"
   resolved "http://registry.m.jd.com/is-extglob/download/is-extglob-2.1.1.tgz"
@@ -1294,6 +1374,21 @@ is-potential-custom-element-name@^1.0.1:
   resolved "http://registry.m.jd.com/is-potential-custom-element-name/download/is-potential-custom-element-name-1.0.1.tgz"
   integrity sha1-Fx7W8Z46xVQ5Tt94yqBXhKRb67U=
 
+is-promise@^2.0.0:
+  version "2.2.2"
+  resolved "http://registry.m.jd.com/is-promise/download/is-promise-2.2.2.tgz"
+  integrity sha1-OauVnMv5p3TPB597QMeib3YxNfE=
+
+is-regex@^1.0.3:
+  version "1.2.1"
+  resolved "http://registry.m.jd.com/is-regex/download/is-regex-1.2.1.tgz"
+  integrity sha1-dtcKPtEO+b5I61d4h9dCBb8MrSI=
+  dependencies:
+    call-bound "^1.0.2"
+    gopd "^1.2.0"
+    has-tostringtag "^1.0.2"
+    hasown "^2.0.2"
+
 is-wsl@^2.2.0:
   version "2.2.0"
   resolved "http://registry.m.jd.com/is-wsl/download/is-wsl-2.2.0.tgz"
@@ -1315,6 +1410,11 @@ jake@^10.8.5:
     chalk "^4.0.2"
     filelist "^1.0.4"
     minimatch "^3.1.2"
+
+js-stringify@^1.0.2:
+  version "1.0.2"
+  resolved "http://registry.m.jd.com/js-stringify/download/js-stringify-1.0.2.tgz"
+  integrity sha1-Fzb939lyTyijaCrcYjCufk6Weds=
 
 js-yaml-js-types@^1.0.0:
   version "1.0.1"
@@ -1399,6 +1499,14 @@ jsonparse@^1.3.1:
   version "1.3.1"
   resolved "http://registry.m.jd.com/jsonparse/download/jsonparse-1.3.1.tgz"
   integrity sha1-P02uSpH6wxX3EGL4UhzCOfE2YoA=
+
+jstransformer@1.0.0:
+  version "1.0.0"
+  resolved "http://registry.m.jd.com/jstransformer/download/jstransformer-1.0.0.tgz"
+  integrity sha1-7Yvwkh4vPx7U1cGkT2hwntJHIsM=
+  dependencies:
+    is-promise "^2.0.0"
+    promise "^7.0.1"
 
 keyv@^4.0.0:
   version "4.5.4"
@@ -1619,6 +1727,11 @@ nwsapi@^2.2.0, nwsapi@^2.2.12:
   resolved "http://registry.m.jd.com/nwsapi/download/nwsapi-2.2.20.tgz"
   integrity sha1-IuUyU8Yeew5+k870LIkRVLzKEe8=
 
+object-assign@^4.1.1:
+  version "4.1.1"
+  resolved "http://registry.m.jd.com/object-assign/download/object-assign-4.1.1.tgz"
+  integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
+
 on-finished@~2.3.0:
   version "2.3.0"
   resolved "http://registry.m.jd.com/on-finished/download/on-finished-2.3.0.tgz"
@@ -1735,12 +1848,122 @@ prismjs@^1.17.1, prismjs@^1.29.0:
   resolved "http://registry.m.jd.com/prismjs/download/prismjs-1.30.0.tgz"
   integrity sha1-2XCZadnU4WQD9vNIxjVTsZ8Jdak=
 
+promise@^7.0.1:
+  version "7.3.1"
+  resolved "http://registry.m.jd.com/promise/download/promise-7.3.1.tgz"
+  integrity sha1-BktyYCsY+Q8pGSuLG8QY/9Hr078=
+  dependencies:
+    asap "~2.0.3"
+
 psl@^1.1.33:
   version "1.15.0"
   resolved "http://registry.m.jd.com/psl/download/psl-1.15.0.tgz"
   integrity sha1-vazjGJbx2XzsannoIkiYzpPZdMY=
   dependencies:
     punycode "^2.3.1"
+
+pug-attrs@^3.0.0:
+  version "3.0.0"
+  resolved "http://registry.m.jd.com/pug-attrs/download/pug-attrs-3.0.0.tgz"
+  integrity sha1-sQRR4DSBZeMfrRzCPr3dncc0fEE=
+  dependencies:
+    constantinople "^4.0.1"
+    js-stringify "^1.0.2"
+    pug-runtime "^3.0.0"
+
+pug-code-gen@^3.0.3:
+  version "3.0.3"
+  resolved "http://registry.m.jd.com/pug-code-gen/download/pug-code-gen-3.0.3.tgz"
+  integrity sha1-WBMxeMtCP+Fxauzhwdo5KnUlFSA=
+  dependencies:
+    constantinople "^4.0.1"
+    doctypes "^1.1.0"
+    js-stringify "^1.0.2"
+    pug-attrs "^3.0.0"
+    pug-error "^2.1.0"
+    pug-runtime "^3.0.1"
+    void-elements "^3.1.0"
+    with "^7.0.0"
+
+pug-error@^2.0.0, pug-error@^2.1.0:
+  version "2.1.0"
+  resolved "http://registry.m.jd.com/pug-error/download/pug-error-2.1.0.tgz"
+  integrity sha1-F+o3tYe2RD1LjxSDdOwntUtAblU=
+
+pug-filters@^4.0.0:
+  version "4.0.0"
+  resolved "http://registry.m.jd.com/pug-filters/download/pug-filters-4.0.0.tgz"
+  integrity sha1-0+Sa9bqEcum3pm2YDnB86dLMm14=
+  dependencies:
+    constantinople "^4.0.1"
+    jstransformer "1.0.0"
+    pug-error "^2.0.0"
+    pug-walk "^2.0.0"
+    resolve "^1.15.1"
+
+pug-lexer@^5.0.1:
+  version "5.0.1"
+  resolved "http://registry.m.jd.com/pug-lexer/download/pug-lexer-5.0.1.tgz"
+  integrity sha1-rkRijFvvmxkLZlaDsojKkCS4sNU=
+  dependencies:
+    character-parser "^2.2.0"
+    is-expression "^4.0.0"
+    pug-error "^2.0.0"
+
+pug-linker@^4.0.0:
+  version "4.0.0"
+  resolved "http://registry.m.jd.com/pug-linker/download/pug-linker-4.0.0.tgz"
+  integrity sha1-EsvAWU/Fo+Brn8Web5PBRpYqdwg=
+  dependencies:
+    pug-error "^2.0.0"
+    pug-walk "^2.0.0"
+
+pug-load@^3.0.0:
+  version "3.0.0"
+  resolved "http://registry.m.jd.com/pug-load/download/pug-load-3.0.0.tgz"
+  integrity sha1-n9nNpSICsIrbEdJWgfufNL1BtmI=
+  dependencies:
+    object-assign "^4.1.1"
+    pug-walk "^2.0.0"
+
+pug-parser@^6.0.0:
+  version "6.0.0"
+  resolved "http://registry.m.jd.com/pug-parser/download/pug-parser-6.0.0.tgz"
+  integrity sha1-qP3ANYY6lbLB3F6/Ts+AtOdqEmA=
+  dependencies:
+    pug-error "^2.0.0"
+    token-stream "1.0.0"
+
+pug-runtime@^3.0.0, pug-runtime@^3.0.1:
+  version "3.0.1"
+  resolved "http://registry.m.jd.com/pug-runtime/download/pug-runtime-3.0.1.tgz"
+  integrity sha1-9jaXYgRyPzWoxfb61qzaKhkbg9c=
+
+pug-strip-comments@^2.0.0:
+  version "2.0.0"
+  resolved "http://registry.m.jd.com/pug-strip-comments/download/pug-strip-comments-2.0.0.tgz"
+  integrity sha1-+UsH/WtJVSMzD0kKf1VLT/h2MD4=
+  dependencies:
+    pug-error "^2.0.0"
+
+pug-walk@^2.0.0:
+  version "2.0.0"
+  resolved "http://registry.m.jd.com/pug-walk/download/pug-walk-2.0.0.tgz"
+  integrity sha1-QXqrwpIyu0SZtbUGmistKiTV9f4=
+
+pug@^3.0.2:
+  version "3.0.3"
+  resolved "http://registry.m.jd.com/pug/download/pug-3.0.3.tgz"
+  integrity sha1-4YMkoxTNAiiDseA3K4rzoamfdZc=
+  dependencies:
+    pug-code-gen "^3.0.3"
+    pug-filters "^4.0.0"
+    pug-lexer "^5.0.1"
+    pug-linker "^4.0.0"
+    pug-load "^3.0.0"
+    pug-parser "^6.0.0"
+    pug-runtime "^3.0.1"
+    pug-strip-comments "^2.0.0"
 
 pump@^3.0.0:
   version "3.0.2"
@@ -1796,7 +2019,7 @@ resolve-alpn@^1.0.0:
   resolved "http://registry.m.jd.com/resolve-alpn/download/resolve-alpn-1.2.1.tgz"
   integrity sha1-t629rDVGqq7CC0Xn2CZZJwcnJvk=
 
-resolve@^1.20.0, resolve@^1.22.0:
+resolve@^1.15.1, resolve@^1.20.0, resolve@^1.22.0:
   version "1.22.10"
   resolved "http://registry.m.jd.com/resolve/download/resolve-1.22.10.tgz"
   integrity sha1-tmPoP/sJu/I4aURza6roAwKbizk=
@@ -2027,6 +2250,11 @@ toidentifier@1.0.1:
   resolved "http://registry.m.jd.com/toidentifier/download/toidentifier-1.0.1.tgz"
   integrity sha1-O+NDIaiKgg7RvYDfqjPkefu43TU=
 
+token-stream@1.0.0:
+  version "1.0.0"
+  resolved "http://registry.m.jd.com/token-stream/download/token-stream-1.0.0.tgz"
+  integrity sha1-zCAOqyYT9BZtJ/+a/HylbUnfbrQ=
+
 tough-cookie@^4.0.0:
   version "4.1.4"
   resolved "http://registry.m.jd.com/tough-cookie/download/tough-cookie-4.1.4.tgz"
@@ -2107,6 +2335,11 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "http://registry.m.jd.com/vary/download/vary-1.1.2.tgz"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
+
+void-elements@^3.1.0:
+  version "3.1.0"
+  resolved "http://registry.m.jd.com/void-elements/download/void-elements-3.1.0.tgz"
+  integrity sha1-YU9/v42AHwu18GYfWy9XhXUOTwk=
 
 w3c-hr-time@^1.0.2:
   version "1.0.2"
@@ -2205,6 +2438,16 @@ which@^2.0.1:
   integrity sha1-fGqN0KY2oDJ+ELWckobu6T8/UbE=
   dependencies:
     isexe "^2.0.0"
+
+with@^7.0.0:
+  version "7.0.2"
+  resolved "http://registry.m.jd.com/with/download/with-7.0.2.tgz"
+  integrity sha1-zO461ULSVTinp6gKrSErmChJW6w=
+  dependencies:
+    "@babel/parser" "^7.9.6"
+    "@babel/types" "^7.9.6"
+    assert-never "^1.2.1"
+    babel-walk "3.0.0-canary-5"
 
 wrappy@1:
   version "1.0.2"
