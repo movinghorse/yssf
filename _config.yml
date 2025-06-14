@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 云水山房
-subtitle: 寻一处静谧，享一份悠然
-description: 位于山水之间的精品客栈，提供舒适住宿与美食体验
-keywords: 客栈, 住宿, 美食, 旅游, 休闲
-author: 云水山房
+title: 云栖山舍
+subtitle: 山水间的诗意栖居
+description: 坐落于西湖之畔的禅意民宿，为您提供山水间的诗意栖居体验
+keywords: 云栖山舍,民宿,杭州民宿,西湖民宿,禅意民宿
+author: 云栖山舍
 language: zh-CN
 timezone: Asia/Shanghai
 
@@ -97,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: inn
+theme: yssf
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -155,3 +155,54 @@ services:
   - title: 周边游览
     icon: fa-mountain
     description: 提供周边景点游览服务，探索当地自然风光和人文景观。
+
+# 主题配置
+theme_config:
+  # 主题信息
+  name: YSSF
+  version: 1.0.0
+  description: 云栖山舍 - 山水间的诗意栖居
+  
+  # 主题颜色
+  colors:
+    primary: '#3A5A40'    # 墨绿
+    secondary: '#F5F1E6'  # 米白
+    accent: '#8B4513'     # 赭石
+  
+  # 布局设置
+  layout:
+    sidebar: right
+    sidebar_width: 300
+    toc: true
+    toc_number: true
+    social_links:
+      wechat: true
+      weibo: true
+      xiaohongshu: true
+  
+  # 功能特性
+  features:
+    parallax: true
+    vr_view: true
+    booking_system: true
+    member_system: true
+    season_theme: true
+  
+  # 自定义设置
+  custom:
+    booking_phone: '400-888-8888'
+    address: '浙江省杭州市西湖区云栖路88号'
+    business_hours: '24小时'
+    wechat_qr: '/images/wechat-qr.png'
+    vr_rooms:
+      - name: '山景房'
+        url: '/vr/mountain-view'
+      - name: '庭院房'
+        url: '/vr/garden-view'
+      - name: '星空房'
+        url: '/vr/starry-view'
+  
+  # SEO设置
+  seo:
+    keywords: '云栖山舍,民宿,杭州民宿,西湖民宿,禅意民宿'
+    description: '云栖山舍 - 坐落于西湖之畔的禅意民宿，为您提供山水间的诗意栖居体验。'

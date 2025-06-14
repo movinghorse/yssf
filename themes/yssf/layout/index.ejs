@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= config.title %> - <%= config.description %></title>
+  
+  <!-- Meta Tags -->
+  <meta name="description" content="<%= config.theme_config.seo.description %>">
+  <meta name="keywords" content="<%= config.theme_config.seo.keywords %>">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+  <script src="/js/main.js" defer></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav-main">
+    <div class="container">
+      <a href="/" class="logo">
+        <img src="/images/logo.png" alt="云栖山舍">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">关于我们</a></li>
+        <li><a href="#rooms">客房展示</a></li>
+        <li><a href="#dining">餐饮活动</a></li>
+        <li><a href="#location">地理位置</a></li>
+        <li><a href="#contact">联系我们</a></li>
+      </ul>
+      <button class="btn btn-booking">立即预订</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-slider">
+      <div class="hero-slide active" style="background-image: url('/images/hero-1.jpg')"></div>
+      <div class="hero-slide" style="background-image: url('/images/hero-2.jpg')"></div>
+      <div class="hero-slide" style="background-image: url('/images/hero-3.jpg')"></div>
+    </div>
+    <div class="hero-content">
+      <h1 class="fade-in">云栖山舍</h1>
+      <p class="slide-up">山水间的诗意栖居</p>
+      <a href="#booking" class="btn btn-primary">立即预订</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section-about">
+    <div class="container">
+      <h2 class="section-title">关于我们</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>云栖山舍坐落于西湖之畔，是一处融合传统与现代的禅意民宿。我们致力于为每一位客人提供独特的住宿体验，让您在山水之间感受诗意栖居的美好的。</p>
+          <div class="owner-message">
+            <blockquote>
+              "在这里，时间仿佛静止，让心灵回归自然，感受生活的本真。"
+            </blockquote>
+            <cite>— 云栖山舍主人</cite>
+          </div>
+        </div>
+        <div class="about-gallery">
+          <img src="/images/about-1.jpg" alt="庭院景观">
+          <img src="/images/about-2.jpg" alt="茶室">
+          <img src="/images/about-3.jpg" alt="露台">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rooms Section -->
+  <section id="rooms" class="section-rooms">
+    <div class="container">
+      <h2 class="section-title">客房展示</h2>
+      <div class="room-filters">
+        <button class="filter-btn active" data-filter="all">全部房型</button>
+        <button class="filter-btn" data-filter="mountain">山景房</button>
+        <button class="filter-btn" data-filter="garden">庭院房</button>
+        <button class="filter-btn" data-filter="starry">星空房</button>
+      </div>
+      <div class="room-grid">
+        <!-- Room Cards -->
+        <div class="room-card" data-type="mountain">
+          <div class="card-front">
+            <img src="/images/room-mountain.jpg" alt="山景房">
+            <div class="room-info">
+              <h3>山景房</h3>
+              <p>45㎡ | 2人</p>
+              <span class="price">¥888/晚</span>
+            </div>
+          </div>
+          <div class="card-back">
+            <h3>设施详情</h3>
+            <ul>
+              <li><i class="fas fa-wifi"></i> 免费WiFi</li>
+              <li><i class="fas fa-bath"></i> 独立卫浴</li>
+              <li><i class="fas fa-snowflake"></i> 地暖</li>
+              <li><i class="fas fa-tv"></i> 智能电视</li>
+            </ul>
+            <button class="btn btn-vr">VR看房</button>
+          </div>
+        </div>
+        <!-- More room cards... -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Dining Section -->
+  <section id="dining" class="section-dining">
+    <div class="container">
+      <h2 class="section-title">餐饮活动</h2>
+      <div class="dining-content">
+        <div class="seasonal-menu">
+          <h3>节气菜单</h3>
+          <div class="menu-items">
+            <!-- Menu items will be dynamically loaded based on season -->
+          </div>
+        </div>
+        <div class="activities">
+          <h3>特色活动</h3>
+          <div class="activity-timeline">
+            <!-- Activities will be dynamically loaded based on season -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Section -->
+  <section id="location" class="section-location">
+    <div class="container">
+      <h2 class="section-title">地理位置</h2>
+      <div class="location-content">
+        <div id="map" class="map-container"></div>
+        <div class="transportation-info">
+          <h3>交通指南</h3>
+          <div class="transport-tabs">
+            <button class="tab-btn active" data-tab="self-drive">自驾</button>
+            <button class="tab-btn" data-tab="train">高铁</button>
+            <button class="tab-btn" data-tab="bus">公交</button>
+          </div>
+          <div class="tab-content">
+            <!-- Transportation details will be loaded here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section id="booking" class="section-booking">
+    <div class="container">
+      <h2 class="section-title">在线预订</h2>
+      <form class="booking-form">
+        <div class="form-group">
+          <label class="form-label">入住日期</label>
+          <input type="date" name="check-in" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">离店日期</label>
+          <input type="date" name="check-out" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">房型选择</label>
+          <select name="room" class="form-input" required>
+            <option value="">请选择房型</option>
+            <option value="mountain" data-price="888">山景房</option>
+            <option value="garden" data-price="988">庭院房</option>
+            <option value="starry" data-price="1088">星空房</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">入住人数</label>
+          <input type="number" name="guests" class="form-input" min="1" max="4" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">联系人</label>
+          <input type="text" name="name" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">联系电话</label>
+          <input type="tel" name="phone" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">特殊需求</label>
+          <textarea name="special-requests" class="form-input"></textarea>
+        </div>
+        <div class="price-display">
+          <span>总价：</span>
+          <span class="price">¥0</span>
+        </div>
+        <button type="submit" class="btn btn-primary">确认预订</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section-contact">
+    <div class="container">
+      <h2 class="section-title">联系我们</h2>
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="info-item">
+            <i class="fas fa-phone"></i>
+            <span><%= config.theme_config.custom.booking_phone %></span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span><%= config.theme_config.custom.address %></span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-clock"></i>
+            <span><%= config.theme_config.custom.business_hours %></span>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-weixin"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-weibo"></i></a>
+          <a href="#" class="social-link"><i class="fas fa-book-open"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="/images/logo.png" alt="云栖山舍">
+        </div>
+        <div class="footer-links">
+          <div class="link-group">
+            <h4>快速链接</h4>
+            <ul>
+              <li><a href="#about">关于我们</a></li>
+              <li><a href="#rooms">客房展示</a></li>
+              <li><a href="#dining">餐饮活动</a></li>
+              <li><a href="#location">地理位置</a></li>
+            </ul>
+          </div>
+          <div class="link-group">
+            <h4>服务支持</h4>
+            <ul>
+              <li><a href="#">预订须知</a></li>
+              <li><a href="#">退订政策</a></li>
+              <li><a href="#">常见问题</a></li>
+              <li><a href="#">隐私政策</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <%= new Date().getFullYear() %> 云栖山舍. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Customer Service -->
+  <div class="customer-service">
+    <button class="cs-button" id="csButton">
+      <i class="fas fa-headset"></i>
+    </button>
+    <div class="cs-panel" id="csPanel">
+      <div class="cs-header">
+        <h3>在线客服</h3>
+        <button class="close-btn" id="closeCsPanel">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="cs-content">
+        <div class="cs-qr">
+          <img src="<%= config.theme_config.custom.wechat_qr %>" alt="微信客服">
+          <p>扫码添加客服微信</p>
+        </div>
+        <div class="cs-contact">
+          <p><i class="fas fa-phone"></i> <%= config.theme_config.custom.booking_phone %></p>
+          <p><i class="fas fa-envelope"></i> service@yssf.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

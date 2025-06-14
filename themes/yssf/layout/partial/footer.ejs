@@ -1,0 +1,63 @@
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="/images/logo.png" alt="云栖山舍">
+      </div>
+      <div class="footer-links">
+        <div class="link-group">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="#about">关于我们</a></li>
+            <li><a href="#rooms">客房展示</a></li>
+            <li><a href="#dining">餐饮活动</a></li>
+            <li><a href="#location">地理位置</a></li>
+          </ul>
+        </div>
+        <div class="link-group">
+          <h4>服务支持</h4>
+          <ul>
+            <li><a href="#">预订须知</a></li>
+            <li><a href="#">退订政策</a></li>
+            <li><a href="#">常见问题</a></li>
+            <li><a href="#">隐私政策</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <%= new Date().getFullYear() %> 云栖山舍. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Customer Service -->
+<div class="customer-service">
+  <button class="cs-button" id="csButton">
+    <i class="fas fa-headset"></i>
+  </button>
+  <div class="cs-panel" id="csPanel">
+    <div class="cs-header">
+      <h3>在线客服</h3>
+      <button class="close-btn" id="closeCsPanel">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="cs-content">
+      <div class="cs-qr">
+        <img src="<%= config.theme_config.custom.wechat_qr %>" alt="微信客服">
+        <p>扫码添加客服微信</p>
+      </div>
+      <div class="cs-contact">
+        <p><i class="fas fa-phone"></i> <%= config.theme_config.custom.booking_phone %></p>
+        <p><i class="fas fa-envelope"></i> service@yssf.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Custom Footer -->
+<%- config.custom_footer %>
+</body>
+</html>
