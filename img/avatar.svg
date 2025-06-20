@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <!-- 背景圆形 -->
+  <circle cx="100" cy="100" r="95" fill="#F5F5F0" stroke="#8B4513" stroke-width="5"/>
+  
+  <!-- 中国风山水画元素 -->
+  <!-- 远山 -->
+  <path d="M30,120 Q60,80 90,110 Q120,80 150,100 Q170,90 190,110 L190,150 L30,150 Z" fill="#D2B48C" opacity="0.7"/>
+  
+  <!-- 近山 -->
+  <path d="M10,140 Q40,100 70,130 Q100,100 130,120 Q160,100 190,130 L190,170 L10,170 Z" fill="#A0522D" opacity="0.6"/>
+  
+  <!-- 小亭子 -->
+  <path d="M80,110 L120,110 L130,90 L70,90 Z" fill="#8B4513"/>
+  <rect x="95" y="110" width="10" height="20" fill="#8B4513"/>
+  
+  <!-- 小树 -->
+  <path d="M40,120 Q50,100 60,120 L55,120 L55,130 L45,130 L45,120 Z" fill="#556B2F"/>
+  <path d="M150,115 Q160,95 170,115 L165,115 L165,125 L155,125 L155,115 Z" fill="#556B2F"/>
+  
+  <!-- 装饰性云纹 -->
+  <path d="M20,60 Q30,50 40,60 T60,60 T80,60" fill="none" stroke="#8B4513" stroke-width="2" opacity="0.6"/>
+  <path d="M120,50 Q130,40 140,50 T160,50 T180,50" fill="none" stroke="#8B4513" stroke-width="2" opacity="0.6"/>
+</svg>

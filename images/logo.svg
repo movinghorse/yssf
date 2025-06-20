@@ -1,0 +1,29 @@
+<svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="120" height="80" fill="#2C3E50" rx="8"/>
+  
+  <!-- 山峰轮廓 -->
+  <path d="M10 50 Q20 35 30 40 Q40 30 50 35 Q60 25 70 30 Q80 20 90 25 Q100 15 110 20 V65 H10 Z" fill="#34495E" opacity="0.8"/>
+  
+  <!-- 水波纹 -->
+  <path d="M10 55 Q25 50 40 55 T70 55 T100 55 T110 55" stroke="#5DADE2" stroke-width="2" fill="none" opacity="0.7"/>
+  <path d="M10 60 Q25 57 40 60 T70 60 T100 60 T110 60" stroke="#85C1E9" stroke-width="1.5" fill="none" opacity="0.6"/>
+  
+  <!-- 云朵 -->
+  <circle cx="25" cy="25" r="6" fill="#ECF0F1" opacity="0.8"/>
+  <circle cx="30" cy="22" r="4" fill="#ECF0F1" opacity="0.8"/>
+  <circle cx="35" cy="25" r="5" fill="#ECF0F1" opacity="0.8"/>
+  
+  <circle cx="85" cy="18" r="5" fill="#ECF0F1" opacity="0.6"/>
+  <circle cx="90" cy="15" r="3" fill="#ECF0F1" opacity="0.6"/>
+  <circle cx="95" cy="18" r="4" fill="#ECF0F1" opacity="0.6"/>
+  
+  <!-- 文字背景 -->
+  <rect x="15" y="45" width="90" height="20" fill="#2C3E50" opacity="0.3" rx="10"/>
+  
+  <!-- 主标题 -->
+  <text x="60" y="58" font-family="serif" font-size="16" font-weight="bold" fill="#F8F9FA" text-anchor="middle">云水山房</text>
+  
+  <!-- 装饰性印章风格边框 -->
+  <rect x="5" y="5" width="110" height="70" fill="none" stroke="#E74C3C" stroke-width="1" opacity="0.4" rx="5"/>
+</svg>
