@@ -28,7 +28,7 @@
   <nav class="nav-main">
     <div class="container">
       <a href="/" class="logo">
-        <img src="/images/logo.png" alt="云水山房">
+        <!-- <img src="/images/logo.png" alt="云水山房"> -->
         <span class="logo-text">云水山房</span>
       </a>
       
@@ -203,13 +203,185 @@
         <div class="seasonal-menu">
           <h3>节气菜单</h3>
           <div class="menu-items">
-            <!-- Menu items will be dynamically loaded based on season -->
+            <div class="menu-content active" data-season="spring">
+              <h4>春分</h4>
+              <ul class="dishes">
+                <li class="dish-item">
+                  <span class="dish-name">香椿拌豆腐</span>
+                  <span class="dish-desc">春季鲜嫩香椿搭配细腻豆腐，清爽可口</span>
+                  <span class="dish-price">¥48</span>
+                </li>
+                <li class="dish-item">
+                  <span class="dish-name">春笋炒腊肉</span>
+                  <span class="dish-desc">当季春笋与农家腊肉同炒，鲜香扑鼻</span>
+                  <span class="dish-price">¥68</span>
+                </li>
+                <li class="dish-item">
+                  <span class="dish-name">荠菜馄饨</span>
+                  <span class="dish-desc">野生荠菜入馅，皮薄馅大，汤鲜味美</span>
+                  <span class="dish-price">¥38</span>
+                </li>
+              </ul>
+              
+              <h4>清明</h4>
+              <ul class="dishes">
+                <li class="dish-item">
+                  <span class="dish-name">青团</span>
+                  <span class="dish-desc">传统糯米外皮包裹豆沙或咸蛋黄肉松馅</span>
+                  <span class="dish-price">¥12/个</span>
+                </li>
+                <li class="dish-item">
+                  <span class="dish-name">马兰头拌香干</span>
+                  <span class="dish-desc">春季野菜马兰头与香干凉拌，清热去火</span>
+                  <span class="dish-price">¥42</span>
+                </li>
+              </ul>
+            </div>
+            
+            <!-- 夏季菜单 -->
+            <div class="menu-content" data-season="summer">
+              <h4>立夏</h4>
+              <ul class="dishes">
+                <li class="dish-item">
+                  <span class="dish-name">龙井虾仁</span>
+                  <span class="dish-desc">新鲜虾仁配以西湖龙井，清鲜甘美</span>
+                  <span class="dish-price">¥128</span>
+                </li>
+                <li class="dish-item">
+                  <span class="dish-name">荷叶粉蒸肉</span>
+                  <span class="dish-desc">五花肉裹以荷叶蒸制，清香不腻</span>
+                  <span class="dish-price">¥88</span>
+                </li>
+              </ul>
+              
+              <h4>小满</h4>
+              <ul class="dishes">
+                <li class="dish-item">
+                  <span class="dish-name">黄瓜拌海蜇</span>
+                  <span class="dish-desc">清爽黄瓜搭配爽脆海蜇，消暑开胃</span>
+                  <span class="dish-price">¥58</span>
+                </li>
+                <li class="dish-item">
+                  <span class="dish-name">绿豆百合汤</span>
+                  <span class="dish-desc">绿豆与百合熬制，清热解暑</span>
+                  <span class="dish-price">¥28</span>
+                </li>
+              </ul>
+            </div>
+            
+            <!-- 秋季菜单 -->
+            <div class="menu-content" data-season="autumn">
+              <h4>立秋</h4>
+              <ul class="dishes">
+                <li class="dish-item">
+                  <span class="dish-name">莲子银耳羹</span>
+                  <span class="dish-desc">新鲜莲子与银耳炖煮，滋阴润肺</span>
+                  <span class="dish-price">¥32</span>
+                </li>
+                <li class="dish-item">
+                  <span class="dish-name">清蒸鲈鱼</span>
+                  <span class="dish-desc">鲜活鲈鱼清蒸，保留原汁原味</span>
+                  <span class="dish-price">¥98</span>
+                </li>
+              </ul>
+              
+              <h4>中秋</h4>
+              <ul class="dishes">
+                <li class="dish-item">
+                  <span class="dish-name">月饼</span>
+                  <span class="dish-desc">手工制作苏式、广式月饼，多种口味</span>
+                  <span class="dish-price">¥18/个</span>
+                </li>
+                <li class="dish-item">
+                  <span class="dish-name">桂花藕粉</span>
+                  <span class="dish-desc">西湖藕粉配以新鲜桂花，香甜滑腻</span>
+                  <span class="dish-price">¥26</span>
+                </li>
+              </ul>
+            </div>
+            
+            <!-- 冬季菜单 -->
+            <div class="menu-content" data-season="winter">
+              <h4>冬至</h4>
+              <ul class="dishes">
+                <li class="dish-item">
+                  <span class="dish-name">羊肉汤</span>
+                  <span class="dish-desc">慢炖羊肉汤，温补驱寒</span>
+                  <span class="dish-price">¥88</span>
+                </li>
+                <li class="dish-item">
+                  <span class="dish-name">饺子</span>
+                  <span class="dish-desc">手工水饺，多种馅料可选</span>
+                  <span class="dish-price">¥48</span>
+                </li>
+              </ul>
+              
+              <h4>腊八</h4>
+              <ul class="dishes">
+                <li class="dish-item">
+                  <span class="dish-name">腊八粥</span>
+                  <span class="dish-desc">多种杂粮、豆类、干果熬制而成</span>
+                  <span class="dish-price">¥28</span>
+                </li>
+                <li class="dish-item">
+                  <span class="dish-name">酱鸭</span>
+                  <span class="dish-desc">传统工艺腌制酱鸭，肉质紧实</span>
+                  <span class="dish-price">¥98</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="activities">
           <h3>特色活动</h3>
           <div class="activity-timeline">
-            <!-- Activities will be dynamically loaded based on season -->
+            <div class="timeline-item">
+              <div class="timeline-icon">
+                <i class="fas fa-leaf"></i>
+              </div>
+              <div class="timeline-content">
+                <h4>禅修体验</h4>
+                <p class="activity-date">每周一、三、五 07:00-08:00</p>
+                <p>在住持的带领下体验禅修，学习正念呼吸和冥想，净化心灵。</p>
+                <button class="btn btn-secondary">预约参与</button>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-icon">
+                <i class="fas fa-coffee"></i>
+              </div>
+              <div class="timeline-content">
+                <h4>茶艺表演</h4>
+                <p class="activity-date">每日 14:00-15:00</p>
+                <p>专业茶艺师展示传统茶道，讲解茶文化，客人可品尝多种茗茶。</p>
+                <button class="btn btn-secondary">了解详情</button>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-icon">
+                <i class="fas fa-palette"></i>
+              </div>
+              <div class="timeline-content">
+                <h4>传统工艺工作坊</h4>
+                <p class="activity-date">每周六 10:00-12:00</p>
+                <p>体验传统手工艺如剪纸、陶艺、书法等，感受传统文化魅力。</p>
+                <button class="btn btn-secondary">预约参与</button>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-icon">
+                <i class="fas fa-tree"></i>
+              </div>
+              <div class="timeline-content">
+                <h4>季节性活动</h4>
+                <p class="activity-date">根据季节安排</p>
+                <p>春季赏花、夏季品茶、秋季采摘、冬季赏雪等特色活动。</p>
+                <button class="btn btn-secondary">查看活动日历</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
