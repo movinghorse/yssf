@@ -28,16 +28,28 @@
   <nav class="nav-main">
     <div class="container">
       <a href="/" class="logo">
-        <img src="/images/logo.png" alt="云栖山舍">
+        <!-- <img src="/images/logo.png" alt="云水山房"> -->
+        <span class="logo-text">云水山房</span>
       </a>
+      
+      <!-- Desktop Navigation -->
       <ul class="nav-links">
-        <li><a href="#about">关于我们</a></li>
-        <li><a href="#rooms">客房展示</a></li>
-        <li><a href="#dining">餐饮活动</a></li>
-        <li><a href="#location">地理位置</a></li>
-        <li><a href="#contact">联系我们</a></li>
+        <li><a href="#about" data-section="about">关于我们</a></li>
+        <li><a href="#rooms" data-section="rooms">客房展示</a></li>
+        <li><a href="#dining" data-section="dining">餐饮活动</a></li>
+        <li><a href="#location" data-section="location">地理位置</a></li>
+        <li><a href="#contact" data-section="contact">联系我们</a></li>
       </ul>
-      <button class="btn btn-booking">立即预订</button>
+      
+      <!-- Booking Button -->
+      <button class="btn btn-booking" onclick="openBookingModal()">立即预订</button>
+      
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" aria-label="切换菜单">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
@@ -49,7 +61,7 @@
       <div class="hero-slide" style="background-image: url('/images/hero-3.jpg')"></div>
     </div>
     <div class="hero-content">
-      <h1 class="fade-in">云栖山舍</h1>
+      <h1 class="fade-in">云水山房</h1>
       <p class="slide-up">山水间的诗意栖居</p>
       <a href="#booking" class="btn btn-primary">立即预订</a>
     </div>
@@ -61,18 +73,18 @@
       <h2 class="section-title">关于我们</h2>
       <div class="about-content">
         <div class="about-text">
-          <p>云栖山舍坐落于西湖之畔，是一处融合传统与现代的禅意民宿。我们致力于为每一位客人提供独特的住宿体验，让您在山水之间感受诗意栖居的美好的。</p>
+          <p>云水山房坐落于西湖之畔，是一处融合传统与现代的禅意民宿。我们致力于为每一位客人提供独特的住宿体验，让您在山水之间感受诗意栖居的美好的。</p>
           <div class="owner-message">
             <blockquote>
               "在这里，时间仿佛静止，让心灵回归自然，感受生活的本真。"
             </blockquote>
-            <cite>— 云栖山舍主人</cite>
+            <cite>— 云水山房主人</cite>
           </div>
         </div>
         <div class="about-gallery">
-          <img src="/images/about-1.jpg" alt="庭院景观">
-          <img src="/images/about-2.jpg" alt="茶室">
-          <img src="/images/about-3.jpg" alt="露台">
+          <img src="/images/hero-1.jpg" alt="庭院景观">
+          <img src="/images/hero-2.jpg" alt="茶室">
+          <img src="/images/hero-3.jpg" alt="露台">
         </div>
       </div>
     </div>
@@ -92,7 +104,7 @@
         <!-- Room Cards -->
         <div class="room-card" data-type="mountain">
           <div class="card-front">
-            <img src="/images/room-mountain.jpg" alt="山景房">
+            <img src="/images/rooms/mountain-view.jpg" alt="山景房">
             <div class="room-info">
               <h3>山景房</h3>
               <p>45㎡ | 2人</p>
@@ -110,7 +122,75 @@
             <button class="btn btn-vr">VR看房</button>
           </div>
         </div>
-        <!-- More room cards... -->
+        
+        <!-- Water View Room -->
+        <div class="room-card" data-type="garden">
+          <div class="card-front">
+            <img src="/images/rooms/water-view.jpg" alt="水景房">
+            <div class="room-info">
+              <h3>水景房</h3>
+              <p>50㎡ | 2人</p>
+              <span class="price">¥988/晚</span>
+            </div>
+          </div>
+          <div class="card-back">
+            <h3>设施详情</h3>
+            <ul>
+              <li><i class="fas fa-wifi"></i> 免费WiFi</li>
+              <li><i class="fas fa-bath"></i> 独立卫浴</li>
+              <li><i class="fas fa-snowflake"></i> 地暖</li>
+              <li><i class="fas fa-tv"></i> 智能电视</li>
+              <li><i class="fas fa-eye"></i> 水景阳台</li>
+            </ul>
+            <button class="btn btn-vr">VR看房</button>
+          </div>
+        </div>
+        
+        <!-- Garden Suite -->
+        <div class="room-card" data-type="garden">
+          <div class="card-front">
+            <img src="/images/rooms/garden-suite.jpg" alt="庭院套房">
+            <div class="room-info">
+              <h3>庭院套房</h3>
+              <p>65㎡ | 3人</p>
+              <span class="price">¥1288/晚</span>
+            </div>
+          </div>
+          <div class="card-back">
+            <h3>设施详情</h3>
+            <ul>
+              <li><i class="fas fa-wifi"></i> 免费WiFi</li>
+              <li><i class="fas fa-bath"></i> 独立卫浴</li>
+              <li><i class="fas fa-snowflake"></i> 地暖</li>
+              <li><i class="fas fa-tv"></i> 智能电视</li>
+              <li><i class="fas fa-tree"></i> 私人庭院</li>
+            </ul>
+            <button class="btn btn-vr">VR看房</button>
+          </div>
+        </div>
+        
+        <!-- Family Suite -->
+        <div class="room-card" data-type="starry">
+          <div class="card-front">
+            <img src="/images/rooms/family-suite.jpg" alt="家庭套房">
+            <div class="room-info">
+              <h3>家庭套房</h3>
+              <p>80㎡ | 4人</p>
+              <span class="price">¥1588/晚</span>
+            </div>
+          </div>
+          <div class="card-back">
+            <h3>设施详情</h3>
+            <ul>
+              <li><i class="fas fa-wifi"></i> 免费WiFi</li>
+              <li><i class="fas fa-bath"></i> 双卫浴</li>
+              <li><i class="fas fa-snowflake"></i> 地暖</li>
+              <li><i class="fas fa-tv"></i> 智能电视</li>
+              <li><i class="fas fa-users"></i> 家庭空间</li>
+            </ul>
+            <button class="btn btn-vr">VR看房</button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -123,13 +203,185 @@
         <div class="seasonal-menu">
           <h3>节气菜单</h3>
           <div class="menu-items">
-            <!-- Menu items will be dynamically loaded based on season -->
+            <div class="menu-content active" data-season="spring">
+              <h4>春分</h4>
+              <ul class="dishes">
+                <li class="dish-item">
+                  <span class="dish-name">香椿拌豆腐</span>
+                  <span class="dish-desc">春季鲜嫩香椿搭配细腻豆腐，清爽可口</span>
+                  <span class="dish-price">¥48</span>
+                </li>
+                <li class="dish-item">
+                  <span class="dish-name">春笋炒腊肉</span>
+                  <span class="dish-desc">当季春笋与农家腊肉同炒，鲜香扑鼻</span>
+                  <span class="dish-price">¥68</span>
+                </li>
+                <li class="dish-item">
+                  <span class="dish-name">荠菜馄饨</span>
+                  <span class="dish-desc">野生荠菜入馅，皮薄馅大，汤鲜味美</span>
+                  <span class="dish-price">¥38</span>
+                </li>
+              </ul>
+              
+              <h4>清明</h4>
+              <ul class="dishes">
+                <li class="dish-item">
+                  <span class="dish-name">青团</span>
+                  <span class="dish-desc">传统糯米外皮包裹豆沙或咸蛋黄肉松馅</span>
+                  <span class="dish-price">¥12/个</span>
+                </li>
+                <li class="dish-item">
+                  <span class="dish-name">马兰头拌香干</span>
+                  <span class="dish-desc">春季野菜马兰头与香干凉拌，清热去火</span>
+                  <span class="dish-price">¥42</span>
+                </li>
+              </ul>
+            </div>
+            
+            <!-- 夏季菜单 -->
+            <div class="menu-content" data-season="summer">
+              <h4>立夏</h4>
+              <ul class="dishes">
+                <li class="dish-item">
+                  <span class="dish-name">龙井虾仁</span>
+                  <span class="dish-desc">新鲜虾仁配以西湖龙井，清鲜甘美</span>
+                  <span class="dish-price">¥128</span>
+                </li>
+                <li class="dish-item">
+                  <span class="dish-name">荷叶粉蒸肉</span>
+                  <span class="dish-desc">五花肉裹以荷叶蒸制，清香不腻</span>
+                  <span class="dish-price">¥88</span>
+                </li>
+              </ul>
+              
+              <h4>小满</h4>
+              <ul class="dishes">
+                <li class="dish-item">
+                  <span class="dish-name">黄瓜拌海蜇</span>
+                  <span class="dish-desc">清爽黄瓜搭配爽脆海蜇，消暑开胃</span>
+                  <span class="dish-price">¥58</span>
+                </li>
+                <li class="dish-item">
+                  <span class="dish-name">绿豆百合汤</span>
+                  <span class="dish-desc">绿豆与百合熬制，清热解暑</span>
+                  <span class="dish-price">¥28</span>
+                </li>
+              </ul>
+            </div>
+            
+            <!-- 秋季菜单 -->
+            <div class="menu-content" data-season="autumn">
+              <h4>立秋</h4>
+              <ul class="dishes">
+                <li class="dish-item">
+                  <span class="dish-name">莲子银耳羹</span>
+                  <span class="dish-desc">新鲜莲子与银耳炖煮，滋阴润肺</span>
+                  <span class="dish-price">¥32</span>
+                </li>
+                <li class="dish-item">
+                  <span class="dish-name">清蒸鲈鱼</span>
+                  <span class="dish-desc">鲜活鲈鱼清蒸，保留原汁原味</span>
+                  <span class="dish-price">¥98</span>
+                </li>
+              </ul>
+              
+              <h4>中秋</h4>
+              <ul class="dishes">
+                <li class="dish-item">
+                  <span class="dish-name">月饼</span>
+                  <span class="dish-desc">手工制作苏式、广式月饼，多种口味</span>
+                  <span class="dish-price">¥18/个</span>
+                </li>
+                <li class="dish-item">
+                  <span class="dish-name">桂花藕粉</span>
+                  <span class="dish-desc">西湖藕粉配以新鲜桂花，香甜滑腻</span>
+                  <span class="dish-price">¥26</span>
+                </li>
+              </ul>
+            </div>
+            
+            <!-- 冬季菜单 -->
+            <div class="menu-content" data-season="winter">
+              <h4>冬至</h4>
+              <ul class="dishes">
+                <li class="dish-item">
+                  <span class="dish-name">羊肉汤</span>
+                  <span class="dish-desc">慢炖羊肉汤，温补驱寒</span>
+                  <span class="dish-price">¥88</span>
+                </li>
+                <li class="dish-item">
+                  <span class="dish-name">饺子</span>
+                  <span class="dish-desc">手工水饺，多种馅料可选</span>
+                  <span class="dish-price">¥48</span>
+                </li>
+              </ul>
+              
+              <h4>腊八</h4>
+              <ul class="dishes">
+                <li class="dish-item">
+                  <span class="dish-name">腊八粥</span>
+                  <span class="dish-desc">多种杂粮、豆类、干果熬制而成</span>
+                  <span class="dish-price">¥28</span>
+                </li>
+                <li class="dish-item">
+                  <span class="dish-name">酱鸭</span>
+                  <span class="dish-desc">传统工艺腌制酱鸭，肉质紧实</span>
+                  <span class="dish-price">¥98</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="activities">
           <h3>特色活动</h3>
           <div class="activity-timeline">
-            <!-- Activities will be dynamically loaded based on season -->
+            <div class="timeline-item">
+              <div class="timeline-icon">
+                <i class="fas fa-leaf"></i>
+              </div>
+              <div class="timeline-content">
+                <h4>禅修体验</h4>
+                <p class="activity-date">每周一、三、五 07:00-08:00</p>
+                <p>在住持的带领下体验禅修，学习正念呼吸和冥想，净化心灵。</p>
+                <button class="btn btn-secondary">预约参与</button>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-icon">
+                <i class="fas fa-coffee"></i>
+              </div>
+              <div class="timeline-content">
+                <h4>茶艺表演</h4>
+                <p class="activity-date">每日 14:00-15:00</p>
+                <p>专业茶艺师展示传统茶道，讲解茶文化，客人可品尝多种茗茶。</p>
+                <button class="btn btn-secondary">了解详情</button>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-icon">
+                <i class="fas fa-palette"></i>
+              </div>
+              <div class="timeline-content">
+                <h4>传统工艺工作坊</h4>
+                <p class="activity-date">每周六 10:00-12:00</p>
+                <p>体验传统手工艺如剪纸、陶艺、书法等，感受传统文化魅力。</p>
+                <button class="btn btn-secondary">预约参与</button>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-icon">
+                <i class="fas fa-tree"></i>
+              </div>
+              <div class="timeline-content">
+                <h4>季节性活动</h4>
+                <p class="activity-date">根据季节安排</p>
+                <p>春季赏花、夏季品茶、秋季采摘、冬季赏雪等特色活动。</p>
+                <button class="btn btn-secondary">查看活动日历</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -237,7 +489,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-logo">
-          <img src="/images/logo.png" alt="云栖山舍">
+          <img src="/images/logo.png" alt="云水山房">
         </div>
         <div class="footer-links">
           <div class="link-group">
@@ -261,7 +513,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <%= new Date().getFullYear() %> 云栖山舍. All rights reserved.</p>
+        <p>&copy; <%= new Date().getFullYear() %> 云水山房. All rights reserved.</p>
       </div>
     </div>
   </footer>

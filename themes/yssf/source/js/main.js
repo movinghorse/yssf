@@ -8,13 +8,19 @@ document.addEventListener('DOMContentLoaded', () => {
   initBookingForm();
   initScrollAnimations();
   initSeasonalTheme();
+  // 如果存在下面这行代码，请删除
+  // initSeasonalMenu();
 });
 
 // Navigation
 function initNavigation() {
   const nav = document.querySelector('.nav-main');
+  const mobileToggle = document.querySelector('.mobile-menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const navItems = document.querySelectorAll('.nav-links a');
   let lastScroll = 0;
 
+  // 滚动时导航栏显示/隐藏
   window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
@@ -33,6 +39,95 @@ function initNavigation() {
     
     lastScroll = currentScroll;
   });
+
+  // 移动端菜单切换
+  if (mobileToggle) {
+    mobileToggle.addEventListener('click', () => {
+      mobileToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+    });
+  }
+
+  // 平滑滚动到指定区域
+  navItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = item.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+      
+      if (targetSection) {
+        const offsetTop = targetSection.offsetTop - 80; // 导航栏高度偏移
+        
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+        
+        // 移动端关闭菜单
+        if (window.innerWidth <= 768) {
+          mobileToggle.classList.remove('active');
+          navLinks.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        }
+        
+        // 更新活跃状态
+        updateActiveNavItem(item);
+      }
+    });
+  });
+
+  // 滚动时更新活跃导航项
+  window.addEventListener('scroll', updateActiveNavOnScroll);
+}
+
+/**
+ * 更新活跃的导航项
+ * @param {Element} activeItem - 当前活跃的导航项
+ */
+function updateActiveNavItem(activeItem) {
+  document.querySelectorAll('.nav-links a').forEach(item => {
+    item.classList.remove('active');
+  });
+  activeItem.classList.add('active');
+}
+
+/**
+ * 根据滚动位置更新活跃导航项
+ */
+function updateActiveNavOnScroll() {
+  const sections = document.querySelectorAll('section[id]');
+  const scrollPos = window.pageYOffset + 100;
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    const sectionId = section.getAttribute('id');
+    
+    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+      const activeLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+      if (activeLink) {
+        updateActiveNavItem(activeLink);
+      }
+    }
+  });
+}
+
+/**
+ * 打开预订模态框
+ */
+function openBookingModal() {
+  // 这里可以添加预订模态框的逻辑
+  const bookingSection = document.querySelector('#booking');
+  if (bookingSection) {
+    bookingSection.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    // 如果没有预订区域，可以跳转到联系我们
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }
 
 // Hero Slider
@@ -221,4 +316,4 @@ function updateSeasonalContent(season) {
       .map(activity => `<li>${activity}</li>`)
       .join('');
   }
-} 
+}

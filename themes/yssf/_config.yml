@@ -3,7 +3,7 @@
 # Theme Information
 name: YSSF
 version: 1.0.0
-description: 云栖山舍 - 山水间的诗意栖居
+description: 云水山房 - 山水间的诗意栖居
 author: YSSF Team
 
 # Theme Colors
@@ -36,7 +36,7 @@ custom:
   booking_phone: '400-888-8888'
   address: '浙江省杭州市西湖区云栖路88号'
   business_hours: '24小时'
-  wechat_qr: '/images/wechat-qr.png'
+  wechat_qr: '/source/images/wechat-qr.png'
   vr_rooms:
     - name: '山景房'
       url: '/vr/mountain-view'
@@ -47,5 +47,5 @@ custom:
 
 # SEO Settings
 seo:
-  keywords: '云栖山舍,民宿,杭州民宿,西湖民宿,禅意民宿'
-  description: '云栖山舍 - 坐落于西湖之畔的禅意民宿，为您提供山水间的诗意栖居体验。' 
+  keywords: '云水山房,民宿,杭州民宿,西湖民宿,禅意民宿'
+  description: '云水山房 - 坐落于西湖之畔的禅意民宿，为您提供山水间的诗意栖居体验。'
