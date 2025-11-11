@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initBookingForm();
   initScrollAnimations();
   initSeasonalTheme();
+  // 如果存在下面这行代码，请删除
+  // initSeasonalMenu();
 });
 
 // Navigation
@@ -162,6 +164,13 @@ function initRoomCards() {
   });
 }
 
+// 导入Supabase配置和客户端
+import { createClient } from '@supabase/supabase-js';
+import supabaseConfig from './supabase-config.js';
+
+// 初始化Supabase客户端
+const supabase = createClient(supabaseConfig.url, supabaseConfig.key);
+
 // Booking Form
 function initBookingForm() {
   const form = document.querySelector('.booking-form');
@@ -186,17 +195,34 @@ function initBookingForm() {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     
+    // 收集表单数据
     const formData = new FormData(form);
+    const bookingData = {
+      check_in: formData.get('check-in'),
+      check_out: formData.get('check-out'),
+      room: formData.get('room'),
+      guests: parseInt(formData.get('guests')),
+      name: formData.get('name'),
+      phone: formData.get('phone'),
+      special_requests: formData.get('special-requests'),
+      created_at: new Date().toISOString(),
+      status: 'pending'
+    };
+    
     try {
-      const response = await fetch('/api/booking', {
-        method: 'POST',
-        body: formData
-      });
+      // 保存到Supabase数据库
+      const { data, error } = await supabase
+        .from('bookings')
+        .insert([bookingData])
+        .select();
       
-      if (response.ok) {
-        showBookingConfirmation();
-      } else {
+      if (error) {
+        console.error('Supabase error:', error);
         showBookingError();
+      } else {
+        console.log('Booking saved successfully:', data);
+        showBookingConfirmation();
+        form.reset(); // 重置表单
       }
     } catch (error) {
       console.error('Booking error:', error);
