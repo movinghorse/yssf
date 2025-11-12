@@ -81,6 +81,68 @@
   resolved "http://registry.m.jd.com/@sindresorhus/is/download/@sindresorhus/is-4.6.0.tgz"
   integrity sha1-PHycRuZ4/u/nouW7YJ09vWZf+z8=
 
+"@supabase/auth-js@2.77.0":
+  version "2.77.0"
+  resolved "http://registry.m.jd.com/@supabase/auth-js/download/@supabase/auth-js-2.77.0.tgz"
+  integrity sha1-YLRpes9/QzUA5kv+/e9pAAhwaI4=
+  dependencies:
+    "@supabase/node-fetch" "2.6.15"
+    tslib "2.8.1"
+
+"@supabase/functions-js@2.77.0":
+  version "2.77.0"
+  resolved "http://registry.m.jd.com/@supabase/functions-js/download/@supabase/functions-js-2.77.0.tgz"
+  integrity sha1-MgQdCbaBBh8ibeJmvKJ2kjnRY9g=
+  dependencies:
+    "@supabase/node-fetch" "2.6.15"
+    tslib "2.8.1"
+
+"@supabase/node-fetch@2.6.15":
+  version "2.6.15"
+  resolved "http://registry.m.jd.com/@supabase/node-fetch/download/@supabase/node-fetch-2.6.15.tgz"
+  integrity sha1-cxJxQw4naYMZGTCBYwPEQVnnImw=
+  dependencies:
+    whatwg-url "^5.0.0"
+
+"@supabase/postgrest-js@2.77.0":
+  version "2.77.0"
+  resolved "http://registry.m.jd.com/@supabase/postgrest-js/download/@supabase/postgrest-js-2.77.0.tgz"
+  integrity sha1-pDVsJNYAPpSuNsVx3p+ARH75BXU=
+  dependencies:
+    "@supabase/node-fetch" "2.6.15"
+    tslib "2.8.1"
+
+"@supabase/realtime-js@2.77.0":
+  version "2.77.0"
+  resolved "http://registry.m.jd.com/@supabase/realtime-js/download/@supabase/realtime-js-2.77.0.tgz"
+  integrity sha1-9D8RLZIWHl9KRZ4UZXWJNtNmlos=
+  dependencies:
+    "@supabase/node-fetch" "2.6.15"
+    "@types/phoenix" "^1.6.6"
+    "@types/ws" "^8.18.1"
+    tslib "2.8.1"
+    ws "^8.18.2"
+
+"@supabase/storage-js@2.77.0":
+  version "2.77.0"
+  resolved "http://registry.m.jd.com/@supabase/storage-js/download/@supabase/storage-js-2.77.0.tgz"
+  integrity sha1-sBehjZNliKzlmNkD7MMVqzx4CZs=
+  dependencies:
+    "@supabase/node-fetch" "2.6.15"
+    tslib "2.8.1"
+
+"@supabase/supabase-js@^2.77.0":
+  version "2.77.0"
+  resolved "http://registry.m.jd.com/@supabase/supabase-js/download/@supabase/supabase-js-2.77.0.tgz"
+  integrity sha1-EsdaXljZJQkPvHD3ll+oWcBn3EQ=
+  dependencies:
+    "@supabase/auth-js" "2.77.0"
+    "@supabase/functions-js" "2.77.0"
+    "@supabase/node-fetch" "2.6.15"
+    "@supabase/postgrest-js" "2.77.0"
+    "@supabase/realtime-js" "2.77.0"
+    "@supabase/storage-js" "2.77.0"
+
 "@szmarczak/http-timer@^4.0.5":
   version "4.0.6"
   resolved "http://registry.m.jd.com/@szmarczak/http-timer/download/@szmarczak/http-timer-4.0.6.tgz"
@@ -122,10 +184,22 @@
   dependencies:
     undici-types "~7.8.0"
 
+"@types/phoenix@^1.6.6":
+  version "1.6.6"
+  resolved "http://registry.m.jd.com/@types/phoenix/download/@types/phoenix-1.6.6.tgz"
+  integrity sha1-PBq1P9WiNjS4436nLMrL8H+8eBY=
+
 "@types/responselike@^1.0.0":
   version "1.0.3"
   resolved "http://registry.m.jd.com/@types/responselike/download/@types/responselike-1.0.3.tgz"
   integrity sha1-zClwbwo5fP5t+J3r/kv1zqFZ21A=
+  dependencies:
+    "@types/node" "*"
+
+"@types/ws@^8.18.1":
+  version "8.18.1"
+  resolved "http://registry.m.jd.com/@types/ws/download/@types/ws-8.18.1.tgz"
+  integrity sha1-SEZOS/Ld/RfbE9hFRn9gcP/qSqk=
   dependencies:
     "@types/node" "*"
 
@@ -2286,7 +2360,12 @@ tr46@^5.1.0:
   dependencies:
     punycode "^2.3.1"
 
-tslib@^2.0.3:
+tr46@~0.0.3:
+  version "0.0.3"
+  resolved "http://registry.m.jd.com/tr46/download/tr46-0.0.3.tgz"
+  integrity sha1-gYT9NH2snNwYWZLzpmIuFLnZq2o=
+
+tslib@^2.0.3, tslib@2.8.1:
   version "2.8.1"
   resolved "http://registry.m.jd.com/tslib/download/tslib-2.8.1.tgz"
   integrity sha1-YS7+TtI11Wfoq6Xypfq3AoCt6D8=
@@ -2376,6 +2455,11 @@ warehouse@^5.0.1:
     rfdc "^1.3.0"
     through2 "^4.0.2"
 
+webidl-conversions@^3.0.0:
+  version "3.0.1"
+  resolved "http://registry.m.jd.com/webidl-conversions/download/webidl-conversions-3.0.1.tgz"
+  integrity sha1-JFNCdeKnvGvnvIZhHMFq4KVlSHE=
+
 webidl-conversions@^5.0.0:
   version "5.0.0"
   resolved "http://registry.m.jd.com/webidl-conversions/download/webidl-conversions-5.0.0.tgz"
@@ -2423,6 +2507,14 @@ whatwg-url@^14.0.0:
     tr46 "^5.1.0"
     webidl-conversions "^7.0.0"
 
+whatwg-url@^5.0.0:
+  version "5.0.0"
+  resolved "http://registry.m.jd.com/whatwg-url/download/whatwg-url-5.0.0.tgz"
+  integrity sha1-lmRU6HZUYuN2RNNib2dCzotwll0=
+  dependencies:
+    tr46 "~0.0.3"
+    webidl-conversions "^3.0.0"
+
 whatwg-url@^8.0.0, whatwg-url@^8.5.0:
   version "8.7.0"
   resolved "http://registry.m.jd.com/whatwg-url/download/whatwg-url-8.7.0.tgz"
@@ -2459,7 +2551,7 @@ ws@^7.4.6:
   resolved "http://registry.m.jd.com/ws/download/ws-7.5.10.tgz"
   integrity sha1-WLXCDcKBYz9sGRE/ObNJvYvVWNk=
 
-ws@^8.18.0:
+ws@^8.18.0, ws@^8.18.2:
   version "8.18.2"
   resolved "http://registry.m.jd.com/ws/download/ws-8.18.2.tgz"
   integrity sha1-QnOLK+V87YX0YVQyCqu1GrADcFo=

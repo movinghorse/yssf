@@ -21,7 +21,22 @@
   
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
-  <script src="/js/main.js" defer></script>
+  <script type="module" src="/js/main.js" defer></script>
+  
+  <!-- 注意：在实际使用前，需要：
+  1. 在Supabase控制台创建名为'bookings'的表
+  2. 添加以下字段：
+     - id (自动递增主键)
+     - check_in (日期类型)
+     - check_out (日期类型)
+     - room (文本类型)
+     - guests (整数类型)
+     - name (文本类型)
+     - phone (文本类型)
+     - special_requests (文本类型)
+     - created_at (时间戳类型)
+     - status (文本类型，默认'pending')
+  3. 更新supabase-config.js中的url和key为您的实际值 -->
 </head>
 <body>
   <!-- Navigation -->
@@ -38,6 +53,7 @@
         <li><a href="#rooms" data-section="rooms">客房展示</a></li>
         <li><a href="#dining" data-section="dining">餐饮活动</a></li>
         <li><a href="#location" data-section="location">地理位置</a></li>
+        <li><a href="#booking" data-section="booking">在线预订</a></li>
         <li><a href="#contact" data-section="contact">联系我们</a></li>
       </ul>
       
