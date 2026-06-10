@@ -3,560 +3,197 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>云水山房 - 坐落于西湖之畔的禅意民宿，为您提供山水间的诗意栖居体验</title>
-  
+  <title>云水山房 - 山水间的诗意栖居</title>
+
   <!-- Meta Tags -->
-  <meta name="description" content="云水山房 - 坐落于西湖之畔的禅意民宿，为您提供山水间的诗意栖居体验。">
+  <meta name="description" content="坐落于西湖之畔的禅意民宿，为您提供山水间的诗意栖居体验">
   <meta name="keywords" content="云水山房,民宿,杭州民宿,西湖民宿,禅意民宿">
-  
+  <meta name="author" content="云水山房">
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
-  
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="http://example.com/2010/12/12/新鲜事/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="新鲜事">
+  <meta property="og:description" content="坐落于西湖之畔的禅意民宿，为您提供山水间的诗意栖居体验">
+  <meta property="og:image" content="http://example.com/images/hero-1.jpg">
+  <meta property="og:url" content="http://example.com/2010/12/12/新鲜事/">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="云水山房">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "云水山房",
+    "description": "坐落于西湖之畔的禅意民宿，为您提供山水间的诗意栖居体验",
+    "url": "http://example.com",
+    "telephone": "400-888-8888",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "浙江省杭州市西湖区云栖路88号",
+      "addressLocality": "杭州",
+      "addressRegion": "浙江",
+      "addressCountry": "CN"
+    },
+    "priceRange": "¥688 - ¥1288",
+    "image": ["http://example.com/images/hero-1.jpg"],
+    "openingHours": "Mo-Su 00:00-23:59"
+  }
+  </script>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
-  
+
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+
   <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
   <script type="module" src="/js/main.js" defer></script>
-  
-  <!-- 注意：在实际使用前，需要：
-  1. 在Supabase控制台创建名为'bookings'的表
-  2. 添加以下字段：
-     - id (自动递增主键)
-     - check_in (日期类型)
-     - check_out (日期类型)
-     - room (文本类型)
-     - guests (整数类型)
-     - name (文本类型)
-     - phone (文本类型)
-     - special_requests (文本类型)
-     - created_at (时间戳类型)
-     - status (文本类型，默认'pending')
-  3. 更新supabase-config.js中的url和key为您的实际值 -->
 <meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <!-- Navigation -->
-  <nav class="nav-main">
-    <div class="container">
-      <a href="/" class="logo">
-        <!-- <img src="/images/logo.png" alt="云水山房"> -->
-        <span class="logo-text">云水山房</span>
-      </a>
-      
-      <!-- Desktop Navigation -->
-      <ul class="nav-links">
-        <li><a href="#about" data-section="about">关于我们</a></li>
-        <li><a href="#rooms" data-section="rooms">客房展示</a></li>
-        <li><a href="#dining" data-section="dining">餐饮活动</a></li>
-        <li><a href="#location" data-section="location">地理位置</a></li>
-        <li><a href="#booking" data-section="booking">在线预订</a></li>
-        <li><a href="#contact" data-section="contact">联系我们</a></li>
-      </ul>
-      
-      <!-- Booking Button -->
-      <button class="btn btn-booking" onclick="openBookingModal()">立即预订</button>
-      
-      <!-- Mobile Menu Toggle -->
-      <button class="mobile-menu-toggle" aria-label="切换菜单">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
+<nav class="nav-main">
+  <div class="container">
+    <a href="/" class="logo">
+      <span class="logo-text">云水山房</span>
+    </a>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-slider">
-      <div class="hero-slide active" style="background-image: url('/images/hero-1.jpg')"></div>
-      <div class="hero-slide" style="background-image: url('/images/hero-2.jpg')"></div>
-      <div class="hero-slide" style="background-image: url('/images/hero-3.jpg')"></div>
-    </div>
-    <div class="hero-content">
-      <h1 class="fade-in">云水山房</h1>
-      <p class="slide-up">山水间的诗意栖居</p>
-      <a href="#booking" class="btn btn-primary">立即预订</a>
-    </div>
-  </section>
+    <!-- Desktop Navigation -->
+    <ul class="nav-links">
+      <li><a href="#about" data-section="about">关于我们</a></li>
+      <li><a href="#rooms" data-section="rooms">客房展示</a></li>
+      <li><a href="#dining" data-section="dining">餐饮活动</a></li>
+      <li><a href="#location" data-section="location">地理位置</a></li>
+      <li><a href="#booking" data-section="booking">在线预订</a></li>
+      <li><a href="#contact" data-section="contact">联系我们</a></li>
+      <li><a href="/archives/">最新动态</a></li>
+    </ul>
 
-  <!-- About Section -->
-  <section id="about" class="section-about">
-    <div class="container">
-      <h2 class="section-title">关于我们</h2>
-      <div class="about-content">
-        <div class="about-text">
-          <p>云水山房坐落于西湖之畔，是一处融合传统与现代的禅意民宿。我们致力于为每一位客人提供独特的住宿体验，让您在山水之间感受诗意栖居的美好的。</p>
-          <div class="owner-message">
-            <blockquote>
-              "在这里，时间仿佛静止，让心灵回归自然，感受生活的本真。"
-            </blockquote>
-            <cite>— 云水山房主人</cite>
-          </div>
-        </div>
-        <div class="about-gallery">
-          <img src="/images/hero-1.jpg" alt="庭院景观">
-          <img src="/images/hero-2.jpg" alt="茶室">
-          <img src="/images/hero-3.jpg" alt="露台">
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- Booking Button -->
+    <button class="btn btn-booking" onclick="document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">立即预订</button>
 
-  <!-- Rooms Section -->
-  <section id="rooms" class="section-rooms">
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" aria-label="切换菜单">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+  <main class="post-main">
     <div class="container">
-      <h2 class="section-title">客房展示</h2>
-      <div class="room-filters">
-        <button class="filter-btn active" data-filter="all">全部房型</button>
-        <button class="filter-btn" data-filter="mountain">山景房</button>
-        <button class="filter-btn" data-filter="garden">庭院房</button>
-        <button class="filter-btn" data-filter="starry">星空房</button>
-      </div>
-      <div class="room-grid">
-        <!-- Room Cards -->
-        <div class="room-card" data-type="mountain">
-          <div class="card-front">
-            <img src="/images/rooms/mountain-view.jpg" alt="山景房">
-            <div class="room-info">
-              <h3>山景房</h3>
-              <p>45㎡ | 2人</p>
-              <span class="price">¥888/晚</span>
-            </div>
+      <article class="post-content">
+        <header class="post-header">
+          <h1 class="post-title">新鲜事</h1>
+          <div class="post-meta">
+            <time datetime="2010-12-12">
+              <i class="fas fa-calendar" aria-hidden="true"></i> 2010年12月12日
+            </time>
+            
+            <span class="post-category">
+              <i class="fas fa-folder" aria-hidden="true"></i>
+              
+              <a href="/categories/%E4%BA%91%E8%A8%80%E6%B0%B4%E5%A3%B0%E5%B1%B1%E8%AF%9D/">云言水声山话</a>
+              
+            </span>
+            
           </div>
-          <div class="card-back">
-            <h3>设施详情</h3>
-            <ul>
-              <li><i class="fas fa-wifi"></i> 免费WiFi</li>
-              <li><i class="fas fa-bath"></i> 独立卫浴</li>
-              <li><i class="fas fa-snowflake"></i> 地暖</li>
-              <li><i class="fas fa-tv"></i> 智能电视</li>
-            </ul>
-            <button class="btn btn-vr">VR看房</button>
-          </div>
+        </header>
+        <div class="post-body">
+          <p>重回云水山房，发生了许多新鲜事。 去年7月从文海带回来的小母鸡当上了鸡妈妈。4月21日孵出了12只小鸡。有妈妈的呵护，小鸡长的健康而快乐，活泼的同时显得充满了安全感。大头狗也从来都不欺负小鸡，一派和谐的景象。 鸡妈妈带小鸡的样子完全和动物习性专家劳伦兹研究的印刻现象一致，妈妈“咯咯”一声，小鸡就紧紧跟随着妈妈。院落里有了它们充满了生命力。 <a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=61242da70100inpq&url=http://static13.photo.sina.com.cn/orignal/61242da7x85b085b2939c"><img src="http://static13.photo.sina.com.cn/middle/61242da7x85b085b2939c&690" alt="第七十四篇：新鲜事" title="第七十四篇：新鲜事"></a> 小鸡围绕着鸡妈妈。 <a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=61242da70100inpq&url=http://static1.photo.sina.com.cn/orignal/61242da7x85b08e2b1e00"><img src="http://static1.photo.sina.com.cn/middle/61242da7x85b08e2b1e00&690" alt="第七十四篇：新鲜事" title="第七十四篇：新鲜事"></a> 鸡妈妈带小鸡回家 鸡爸爸可完全没有爸爸的样子，不仅不照顾幼年的孩子，还照样和往常一样和别的母鸡“寻欢作乐”，月子妈妈独子一人带着12个孩子。 大头狗好像也要做妈妈的样子，肚子的大小有点异样，我问小妹：“大头有没有做姑娘”，小妹说：“一个月前，家里面公狗不断”。当一个母狗发情的时候，它的气味可以散发到半径为300米的范围。 等暑假来的时候大头也要做妈妈了。 过年的时候和小妹一起整理了一下种在猪槽里的芦荟。没想到在它的中央居然长出支开出了美丽、艳丽的花。 <a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=61242da70100inpq&url=http://static12.photo.sina.com.cn/orignal/61242da7x85b0c055eafb"><img src="http://static12.photo.sina.com.cn/middle/61242da7x85b0c055eafb&690" alt="第七十四篇：新鲜事" title="第七十四篇：新鲜事"></a> 芦荟花居然有支干。 <a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=61242da70100inpq&url=http://static3.photo.sina.com.cn/orignal/61242da7x85b0c5a4fe12"><img src="http://static3.photo.sina.com.cn/middle/61242da7x85b0c5a4fe12&690" alt="第七十四篇：新鲜事" title="第七十四篇：新鲜事"></a> “节节高”样的温润而平和的芦荟花 生命原来就是如此和谐、多样。</p>
+
         </div>
         
-        <!-- Water View Room -->
-        <div class="room-card" data-type="garden">
-          <div class="card-front">
-            <img src="/images/rooms/water-view.jpg" alt="水景房">
-            <div class="room-info">
-              <h3>水景房</h3>
-              <p>50㎡ | 2人</p>
-              <span class="price">¥988/晚</span>
-            </div>
-          </div>
-          <div class="card-back">
-            <h3>设施详情</h3>
-            <ul>
-              <li><i class="fas fa-wifi"></i> 免费WiFi</li>
-              <li><i class="fas fa-bath"></i> 独立卫浴</li>
-              <li><i class="fas fa-snowflake"></i> 地暖</li>
-              <li><i class="fas fa-tv"></i> 智能电视</li>
-              <li><i class="fas fa-eye"></i> 水景阳台</li>
-            </ul>
-            <button class="btn btn-vr">VR看房</button>
-          </div>
-        </div>
-        
-        <!-- Garden Suite -->
-        <div class="room-card" data-type="garden">
-          <div class="card-front">
-            <img src="/images/rooms/garden-suite.jpg" alt="庭院套房">
-            <div class="room-info">
-              <h3>庭院套房</h3>
-              <p>65㎡ | 3人</p>
-              <span class="price">¥1288/晚</span>
-            </div>
-          </div>
-          <div class="card-back">
-            <h3>设施详情</h3>
-            <ul>
-              <li><i class="fas fa-wifi"></i> 免费WiFi</li>
-              <li><i class="fas fa-bath"></i> 独立卫浴</li>
-              <li><i class="fas fa-snowflake"></i> 地暖</li>
-              <li><i class="fas fa-tv"></i> 智能电视</li>
-              <li><i class="fas fa-tree"></i> 私人庭院</li>
-            </ul>
-            <button class="btn btn-vr">VR看房</button>
-          </div>
-        </div>
-        
-        <!-- Family Suite -->
-        <div class="room-card" data-type="starry">
-          <div class="card-front">
-            <img src="/images/rooms/family-suite.jpg" alt="家庭套房">
-            <div class="room-info">
-              <h3>家庭套房</h3>
-              <p>80㎡ | 4人</p>
-              <span class="price">¥1588/晚</span>
-            </div>
-          </div>
-          <div class="card-back">
-            <h3>设施详情</h3>
-            <ul>
-              <li><i class="fas fa-wifi"></i> 免费WiFi</li>
-              <li><i class="fas fa-bath"></i> 双卫浴</li>
-              <li><i class="fas fa-snowflake"></i> 地暖</li>
-              <li><i class="fas fa-tv"></i> 智能电视</li>
-              <li><i class="fas fa-users"></i> 家庭空间</li>
-            </ul>
-            <button class="btn btn-vr">VR看房</button>
-          </div>
-        </div>
-      </div>
+      </article>
     </div>
-  </section>
-
-  <!-- Dining Section -->
-  <section id="dining" class="section-dining">
-    <div class="container">
-      <h2 class="section-title">餐饮活动</h2>
-      <div class="dining-content">
-        <div class="seasonal-menu">
-          <h3>节气菜单</h3>
-          <div class="menu-items">
-            <div class="menu-content active" data-season="spring">
-              <h4>春分</h4>
-              <ul class="dishes">
-                <li class="dish-item">
-                  <span class="dish-name">香椿拌豆腐</span>
-                  <span class="dish-desc">春季鲜嫩香椿搭配细腻豆腐，清爽可口</span>
-                  <span class="dish-price">¥48</span>
-                </li>
-                <li class="dish-item">
-                  <span class="dish-name">春笋炒腊肉</span>
-                  <span class="dish-desc">当季春笋与农家腊肉同炒，鲜香扑鼻</span>
-                  <span class="dish-price">¥68</span>
-                </li>
-                <li class="dish-item">
-                  <span class="dish-name">荠菜馄饨</span>
-                  <span class="dish-desc">野生荠菜入馅，皮薄馅大，汤鲜味美</span>
-                  <span class="dish-price">¥38</span>
-                </li>
-              </ul>
-              
-              <h4>清明</h4>
-              <ul class="dishes">
-                <li class="dish-item">
-                  <span class="dish-name">青团</span>
-                  <span class="dish-desc">传统糯米外皮包裹豆沙或咸蛋黄肉松馅</span>
-                  <span class="dish-price">¥12/个</span>
-                </li>
-                <li class="dish-item">
-                  <span class="dish-name">马兰头拌香干</span>
-                  <span class="dish-desc">春季野菜马兰头与香干凉拌，清热去火</span>
-                  <span class="dish-price">¥42</span>
-                </li>
-              </ul>
-            </div>
-            
-            <!-- 夏季菜单 -->
-            <div class="menu-content" data-season="summer">
-              <h4>立夏</h4>
-              <ul class="dishes">
-                <li class="dish-item">
-                  <span class="dish-name">龙井虾仁</span>
-                  <span class="dish-desc">新鲜虾仁配以西湖龙井，清鲜甘美</span>
-                  <span class="dish-price">¥128</span>
-                </li>
-                <li class="dish-item">
-                  <span class="dish-name">荷叶粉蒸肉</span>
-                  <span class="dish-desc">五花肉裹以荷叶蒸制，清香不腻</span>
-                  <span class="dish-price">¥88</span>
-                </li>
-              </ul>
-              
-              <h4>小满</h4>
-              <ul class="dishes">
-                <li class="dish-item">
-                  <span class="dish-name">黄瓜拌海蜇</span>
-                  <span class="dish-desc">清爽黄瓜搭配爽脆海蜇，消暑开胃</span>
-                  <span class="dish-price">¥58</span>
-                </li>
-                <li class="dish-item">
-                  <span class="dish-name">绿豆百合汤</span>
-                  <span class="dish-desc">绿豆与百合熬制，清热解暑</span>
-                  <span class="dish-price">¥28</span>
-                </li>
-              </ul>
-            </div>
-            
-            <!-- 秋季菜单 -->
-            <div class="menu-content" data-season="autumn">
-              <h4>立秋</h4>
-              <ul class="dishes">
-                <li class="dish-item">
-                  <span class="dish-name">莲子银耳羹</span>
-                  <span class="dish-desc">新鲜莲子与银耳炖煮，滋阴润肺</span>
-                  <span class="dish-price">¥32</span>
-                </li>
-                <li class="dish-item">
-                  <span class="dish-name">清蒸鲈鱼</span>
-                  <span class="dish-desc">鲜活鲈鱼清蒸，保留原汁原味</span>
-                  <span class="dish-price">¥98</span>
-                </li>
-              </ul>
-              
-              <h4>中秋</h4>
-              <ul class="dishes">
-                <li class="dish-item">
-                  <span class="dish-name">月饼</span>
-                  <span class="dish-desc">手工制作苏式、广式月饼，多种口味</span>
-                  <span class="dish-price">¥18/个</span>
-                </li>
-                <li class="dish-item">
-                  <span class="dish-name">桂花藕粉</span>
-                  <span class="dish-desc">西湖藕粉配以新鲜桂花，香甜滑腻</span>
-                  <span class="dish-price">¥26</span>
-                </li>
-              </ul>
-            </div>
-            
-            <!-- 冬季菜单 -->
-            <div class="menu-content" data-season="winter">
-              <h4>冬至</h4>
-              <ul class="dishes">
-                <li class="dish-item">
-                  <span class="dish-name">羊肉汤</span>
-                  <span class="dish-desc">慢炖羊肉汤，温补驱寒</span>
-                  <span class="dish-price">¥88</span>
-                </li>
-                <li class="dish-item">
-                  <span class="dish-name">饺子</span>
-                  <span class="dish-desc">手工水饺，多种馅料可选</span>
-                  <span class="dish-price">¥48</span>
-                </li>
-              </ul>
-              
-              <h4>腊八</h4>
-              <ul class="dishes">
-                <li class="dish-item">
-                  <span class="dish-name">腊八粥</span>
-                  <span class="dish-desc">多种杂粮、豆类、干果熬制而成</span>
-                  <span class="dish-price">¥28</span>
-                </li>
-                <li class="dish-item">
-                  <span class="dish-name">酱鸭</span>
-                  <span class="dish-desc">传统工艺腌制酱鸭，肉质紧实</span>
-                  <span class="dish-price">¥98</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="activities">
-          <h3>特色活动</h3>
-          <div class="activity-timeline">
-            <div class="timeline-item">
-              <div class="timeline-icon">
-                <i class="fas fa-leaf"></i>
-              </div>
-              <div class="timeline-content">
-                <h4>禅修体验</h4>
-                <p class="activity-date">每周一、三、五 07:00-08:00</p>
-                <p>在住持的带领下体验禅修，学习正念呼吸和冥想，净化心灵。</p>
-                <button class="btn btn-secondary">预约参与</button>
-              </div>
-            </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-icon">
-                <i class="fas fa-coffee"></i>
-              </div>
-              <div class="timeline-content">
-                <h4>茶艺表演</h4>
-                <p class="activity-date">每日 14:00-15:00</p>
-                <p>专业茶艺师展示传统茶道，讲解茶文化，客人可品尝多种茗茶。</p>
-                <button class="btn btn-secondary">了解详情</button>
-              </div>
-            </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-icon">
-                <i class="fas fa-palette"></i>
-              </div>
-              <div class="timeline-content">
-                <h4>传统工艺工作坊</h4>
-                <p class="activity-date">每周六 10:00-12:00</p>
-                <p>体验传统手工艺如剪纸、陶艺、书法等，感受传统文化魅力。</p>
-                <button class="btn btn-secondary">预约参与</button>
-              </div>
-            </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-icon">
-                <i class="fas fa-tree"></i>
-              </div>
-              <div class="timeline-content">
-                <h4>季节性活动</h4>
-                <p class="activity-date">根据季节安排</p>
-                <p>春季赏花、夏季品茶、秋季采摘、冬季赏雪等特色活动。</p>
-                <button class="btn btn-secondary">查看活动日历</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Location Section -->
-  <section id="location" class="section-location">
-    <div class="container">
-      <h2 class="section-title">地理位置</h2>
-      <div class="location-content">
-        <div id="map" class="map-container"></div>
-        <div class="transportation-info">
-          <h3>交通指南</h3>
-          <div class="transport-tabs">
-            <button class="tab-btn active" data-tab="self-drive">自驾</button>
-            <button class="tab-btn" data-tab="train">高铁</button>
-            <button class="tab-btn" data-tab="bus">公交</button>
-          </div>
-          <div class="tab-content">
-            <!-- Transportation details will be loaded here -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Booking Section -->
-  <section id="booking" class="section-booking">
-    <div class="container">
-      <h2 class="section-title">在线预订</h2>
-      <form class="booking-form">
-        <div class="form-group">
-          <label class="form-label">入住日期</label>
-          <input type="date" name="check-in" class="form-input" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label">离店日期</label>
-          <input type="date" name="check-out" class="form-input" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label">房型选择</label>
-          <select name="room" class="form-input" required>
-            <option value="">请选择房型</option>
-            <option value="mountain" data-price="888">山景房</option>
-            <option value="garden" data-price="988">庭院房</option>
-            <option value="starry" data-price="1088">星空房</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">入住人数</label>
-          <input type="number" name="guests" class="form-input" min="1" max="4" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label">联系人</label>
-          <input type="text" name="name" class="form-input" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label">联系电话</label>
-          <input type="tel" name="phone" class="form-input" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label">特殊需求</label>
-          <textarea name="special-requests" class="form-input"></textarea>
-        </div>
-        <div class="price-display">
-          <span>总价：</span>
-          <span class="price">¥0</span>
-        </div>
-        <button type="submit" class="btn btn-primary">确认预订</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="section-contact">
-    <div class="container">
-      <h2 class="section-title">联系我们</h2>
-      <div class="contact-content">
-        <div class="contact-info">
-          <div class="info-item">
-            <i class="fas fa-phone"></i>
-            <span>400-888-8888</span>
-          </div>
-          <div class="info-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>浙江省杭州市西湖区云栖路88号</span>
-          </div>
-          <div class="info-item">
-            <i class="fas fa-clock"></i>
-            <span>24小时</span>
-          </div>
-        </div>
-        <div class="social-links">
-          <a href="#" class="social-link"><i class="fab fa-weixin"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-weibo"></i></a>
-          <a href="#" class="social-link"><i class="fas fa-book-open"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  </main>
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <img src="/images/logo.png" alt="云水山房">
-        </div>
-        <div class="footer-links">
-          <div class="link-group">
-            <h4>快速链接</h4>
-            <ul>
-              <li><a href="#about">关于我们</a></li>
-              <li><a href="#rooms">客房展示</a></li>
-              <li><a href="#dining">餐饮活动</a></li>
-              <li><a href="#location">地理位置</a></li>
-            </ul>
-          </div>
-          <div class="link-group">
-            <h4>服务支持</h4>
-            <ul>
-              <li><a href="#">预订须知</a></li>
-              <li><a href="#">退订政策</a></li>
-              <li><a href="#">常见问题</a></li>
-              <li><a href="#">隐私政策</a></li>
-            </ul>
-          </div>
-        </div>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <span class="logo-text">云水山房</span>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 云水山房. All rights reserved.</p>
+      <div class="footer-links">
+        <div class="link-group">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="#about">关于我们</a></li>
+            <li><a href="#rooms">客房展示</a></li>
+            <li><a href="#dining">餐饮活动</a></li>
+            <li><a href="#location">地理位置</a></li>
+          </ul>
+        </div>
+        <div class="link-group">
+          <h4>服务支持</h4>
+          <ul>
+            <li><a href="/%E9%A2%84%E8%AE%A2%E9%A1%BB%E7%9F%A5/">预订须知</a></li>
+            <li><a href="/%E9%80%80%E8%AE%A2%E6%94%BF%E7%AD%96/">退订政策</a></li>
+            <li><a href="/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li>
+            <li><a href="/%E9%9A%90%E7%A7%81%E6%94%BF%E7%AD%96/">隐私政策</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-  </footer>
+    <div class="footer-bottom">
+      <p>&copy; 2026 云水山房. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
 
   <!-- Customer Service -->
-  <div class="customer-service">
-    <button class="cs-button" id="csButton">
-      <i class="fas fa-headset"></i>
-    </button>
-    <div class="cs-panel" id="csPanel">
-      <div class="cs-header">
-        <h3>在线客服</h3>
-        <button class="close-btn" id="closeCsPanel">
-          <i class="fas fa-times"></i>
-        </button>
+<div class="customer-service">
+  <button class="cs-button" id="csButton" aria-label="在线客服">
+    <i class="fas fa-headset" aria-hidden="true"></i>
+  </button>
+  <div class="cs-panel" id="csPanel">
+    <div class="cs-header">
+      <h3>在线客服</h3>
+      <button class="close-btn" id="closeCsPanel" aria-label="关闭客服面板">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="cs-content">
+      <div class="cs-qr">
+        <img src="/images/wechat-qr.png" alt="微信客服二维码" loading="lazy">
+        <p>扫码添加客服微信</p>
       </div>
-      <div class="cs-content">
-        <div class="cs-qr">
-          <img src="/images/wechat-qr.png" alt="微信客服">
-          <p>扫码添加客服微信</p>
-        </div>
-        <div class="cs-contact">
-          <p><i class="fas fa-phone"></i> 400-888-8888</p>
-          <p><i class="fas fa-envelope"></i> service@yssf.com</p>
-        </div>
+      <div class="cs-contact">
+        <p><i class="fas fa-phone" aria-hidden="true"></i> 400-888-8888</p>
+        <p><i class="fas fa-envelope" aria-hidden="true"></i> service@yssf.com</p>
       </div>
     </div>
   </div>
+</div>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="回到顶部">
+  <i class="fas fa-chevron-up" aria-hidden="true"></i>
+</button>
+
+<!-- WeChat QR Modal -->
+<div class="modal" id="wechatModal">
+  <div class="modal-content">
+    <h3>微信客服</h3>
+    <img src="/images/wechat-qr.png" alt="微信客服二维码" loading="lazy">
+    <p>扫描二维码添加客服微信</p>
+    <button class="btn" onclick="this.closest('.modal').classList.remove('active')">关闭</button>
+  </div>
+</div>
+
 </body>
 </html>

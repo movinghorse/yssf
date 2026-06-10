@@ -1,15 +1,19 @@
 // YSSF Theme JavaScript
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize components
   initNavigation();
   initHeroSlider();
   initRoomCards();
+  initRoomFilters();
+  initSeasonalMenu();
+  initTransportTabs();
   initBookingForm();
   initScrollAnimations();
   initSeasonalTheme();
-  // 如果存在下面这行代码，请删除
-  // initSeasonalMenu();
+  initCustomerService();
+  initBackToTop();
+  initWechatModal();
+  initVRButtons();
 });
 
 // Navigation
@@ -20,15 +24,15 @@ function initNavigation() {
   const navItems = document.querySelectorAll('.nav-links a');
   let lastScroll = 0;
 
-  // 滚动时导航栏显示/隐藏
+  if (!nav) return;
+
+  // Scroll show/hide
   window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
     if (currentScroll <= 0) {
       nav.classList.remove('scroll-up');
       return;
     }
-    
     if (currentScroll > lastScroll && !nav.classList.contains('scroll-down')) {
       nav.classList.remove('scroll-up');
       nav.classList.add('scroll-down');
@@ -36,11 +40,10 @@ function initNavigation() {
       nav.classList.remove('scroll-down');
       nav.classList.add('scroll-up');
     }
-    
     lastScroll = currentScroll;
-  });
+  }, { passive: true });
 
-  // 移动端菜单切换
+  // Mobile menu toggle
   if (mobileToggle) {
     mobileToggle.addEventListener('click', () => {
       mobileToggle.classList.toggle('active');
@@ -49,153 +52,208 @@ function initNavigation() {
     });
   }
 
-  // 平滑滚动到指定区域
+  // Smooth scroll to section
   navItems.forEach(item => {
     item.addEventListener('click', (e) => {
+      const href = item.getAttribute('href');
+      // Only handle anchor links
+      if (!href || !href.startsWith('#')) return;
       e.preventDefault();
-      const targetId = item.getAttribute('href');
-      const targetSection = document.querySelector(targetId);
-      
+      const targetSection = document.querySelector(href);
       if (targetSection) {
-        const offsetTop = targetSection.offsetTop - 80; // 导航栏高度偏移
-        
-        window.scrollTo({
-          top: offsetTop,
-          behavior: 'smooth'
-        });
-        
-        // 移动端关闭菜单
+        const offsetTop = targetSection.offsetTop - 80;
+        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        // Close mobile menu
         if (window.innerWidth <= 768) {
           mobileToggle.classList.remove('active');
           navLinks.classList.remove('active');
           document.body.classList.remove('menu-open');
         }
-        
-        // 更新活跃状态
         updateActiveNavItem(item);
       }
     });
   });
 
-  // 滚动时更新活跃导航项
-  window.addEventListener('scroll', updateActiveNavOnScroll);
+  window.addEventListener('scroll', updateActiveNavOnScroll, { passive: true });
 }
 
-/**
- * 更新活跃的导航项
- * @param {Element} activeItem - 当前活跃的导航项
- */
 function updateActiveNavItem(activeItem) {
-  document.querySelectorAll('.nav-links a').forEach(item => {
-    item.classList.remove('active');
-  });
+  document.querySelectorAll('.nav-links a').forEach(item => item.classList.remove('active'));
   activeItem.classList.add('active');
 }
 
-/**
- * 根据滚动位置更新活跃导航项
- */
 function updateActiveNavOnScroll() {
   const sections = document.querySelectorAll('section[id]');
   const scrollPos = window.pageYOffset + 100;
-  
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
     const sectionHeight = section.offsetHeight;
     const sectionId = section.getAttribute('id');
-    
     if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
       const activeLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
-      if (activeLink) {
-        updateActiveNavItem(activeLink);
-      }
+      if (activeLink) updateActiveNavItem(activeLink);
     }
   });
-}
-
-/**
- * 打开预订模态框
- */
-function openBookingModal() {
-  // 这里可以添加预订模态框的逻辑
-  const bookingSection = document.querySelector('#booking');
-  if (bookingSection) {
-    bookingSection.scrollIntoView({ behavior: 'smooth' });
-  } else {
-    // 如果没有预订区域，可以跳转到联系我们
-    const contactSection = document.querySelector('#contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
 }
 
 // Hero Slider
 function initHeroSlider() {
   const slides = document.querySelectorAll('.hero-slide');
+  if (!slides.length) return;
   let currentSlide = 0;
-  
-  function showSlide(index) {
+  setInterval(() => {
     slides.forEach(slide => slide.classList.remove('active'));
-    slides[index].classList.add('active');
-  }
-  
-  function nextSlide() {
     currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-  }
-  
-  // Auto-advance slides
-  setInterval(nextSlide, 5000);
+    slides[currentSlide].classList.add('active');
+  }, 5000);
 }
 
-// Room Cards
+// Room Cards (mouse + touch)
 function initRoomCards() {
   const cards = document.querySelectorAll('.room-card');
-  
   cards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      card.classList.add('flipped');
-    });
-    
-    card.addEventListener('mouseleave', () => {
-      card.classList.remove('flipped');
+    // Mouse events (desktop)
+    card.addEventListener('mouseenter', () => card.classList.add('flipped'));
+    card.addEventListener('mouseleave', () => card.classList.remove('flipped'));
+    // Touch events (mobile)
+    card.addEventListener('touchstart', (e) => {
+      // Toggle flip on tap
+      const isFlipped = card.classList.contains('flipped');
+      // Close all other cards first
+      cards.forEach(c => c.classList.remove('flipped'));
+      if (!isFlipped) card.classList.add('flipped');
+    }, { passive: true });
+  });
+}
+
+// Room Filter Buttons
+function initRoomFilters() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const roomCards = document.querySelectorAll('.room-card');
+  if (!filterBtns.length) return;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active state
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      roomCards.forEach(card => {
+        if (filter === 'all' || card.dataset.type === filter) {
+          card.style.display = '';
+          card.style.opacity = '1';
+        } else {
+          card.style.opacity = '0';
+          setTimeout(() => { card.style.display = 'none'; }, 300);
+        }
+      });
     });
   });
 }
 
-// 导入Supabase配置和客户端
-import { createClient } from '@supabase/supabase-js';
-import supabaseConfig from './supabase-config.js';
+// Seasonal Menu Tabs
+function initSeasonalMenu() {
+  const seasonTabs = document.querySelectorAll('.season-tab');
+  const menuContents = document.querySelectorAll('.menu-content');
+  if (!seasonTabs.length) return;
 
-// 初始化Supabase客户端
-const supabase = createClient(supabaseConfig.url, supabaseConfig.key);
+  seasonTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const season = tab.dataset.season;
+      // Update tab active state
+      seasonTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      // Show corresponding menu content
+      menuContents.forEach(content => {
+        content.classList.toggle('active', content.dataset.season === season);
+      });
+    });
+  });
+
+  // Auto-select current season
+  const month = new Date().getMonth();
+  let currentSeason = 'spring';
+  if ([5, 6, 7].includes(month)) currentSeason = 'summer';
+  else if ([8, 9, 10].includes(month)) currentSeason = 'autumn';
+  else if ([11, 0, 1].includes(month)) currentSeason = 'winter';
+
+  const activeTab = document.querySelector(`.season-tab[data-season="${currentSeason}"]`);
+  if (activeTab) activeTab.click();
+}
+
+// Transport Tabs
+function initTransportTabs() {
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+  if (!tabBtns.length) return;
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tabId = btn.dataset.tab;
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      tabPanes.forEach(pane => {
+        pane.classList.toggle('active', pane.dataset.tab === tabId);
+      });
+    });
+  });
+}
 
 // Booking Form
 function initBookingForm() {
   const form = document.querySelector('.booking-form');
+  if (!form) return;
+
   const dateInputs = form.querySelectorAll('input[type="date"]');
   const roomSelect = form.querySelector('select[name="room"]');
-  const priceDisplay = form.querySelector('.price-display');
-  
+  const priceDisplay = form.querySelector('.price-display .price');
+
   // Set min date to today
   const today = new Date().toISOString().split('T')[0];
+  dateInputs.forEach(input => { input.min = today; });
+
+  // Price calculation
+  let pricePerNight = 0;
+  let nights = 0;
+
+  function updatePrice() {
+    if (priceDisplay && pricePerNight > 0 && nights > 0) {
+      priceDisplay.textContent = `¥${pricePerNight * nights}`;
+    } else if (priceDisplay) {
+      priceDisplay.textContent = '¥0';
+    }
+  }
+
+  if (roomSelect) {
+    roomSelect.addEventListener('change', () => {
+      const selectedOption = roomSelect.options[roomSelect.selectedIndex];
+      pricePerNight = parseInt(selectedOption.dataset.price) || 0;
+      updatePrice();
+    });
+  }
+
   dateInputs.forEach(input => {
-    input.min = today;
+    input.addEventListener('change', () => {
+      const checkIn = form.querySelector('input[name="check-in"]').value;
+      const checkOut = form.querySelector('input[name="check-out"]').value;
+      if (checkIn && checkOut) {
+        const d1 = new Date(checkIn);
+        const d2 = new Date(checkOut);
+        nights = Math.max(0, Math.round((d2 - d1) / (1000 * 60 * 60 * 24)));
+        // Ensure check-out > check-in
+        if (nights <= 0) {
+          nights = 0;
+          form.querySelector('input[name="check-out"]').min = checkIn;
+        }
+        updatePrice();
+      }
+    });
   });
-  
-  // Update price on room selection
-  roomSelect.addEventListener('change', () => {
-    const selectedOption = roomSelect.options[roomSelect.selectedIndex];
-    const price = selectedOption.dataset.price;
-    priceDisplay.textContent = `¥${price}/晚`;
-  });
-  
+
   // Form submission
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    // 收集表单数据
     const formData = new FormData(form);
     const bookingData = {
       check_in: formData.get('check-in'),
@@ -208,25 +266,28 @@ function initBookingForm() {
       created_at: new Date().toISOString(),
       status: 'pending'
     };
-    
-    try {
-      // 保存到Supabase数据库
-      const { data, error } = await supabase
-        .from('bookings')
-        .insert([bookingData])
-        .select();
-      
-      if (error) {
-        console.error('Supabase error:', error);
-        showBookingError();
-      } else {
-        console.log('Booking saved successfully:', data);
-        showBookingConfirmation();
-        form.reset(); // 重置表单
+
+    // Check if Supabase is configured
+    if (typeof window.__supabase !== 'undefined' && window.__supabase) {
+      try {
+        const { data, error } = await window.__supabase
+          .from('bookings')
+          .insert([bookingData])
+          .select();
+        if (error) {
+          console.error('Supabase error:', error);
+          showModal('预订失败', '抱歉，预订过程中出现错误，请稍后重试或联系客服。');
+        } else {
+          showModal('预订成功', '感谢您的预订，我们将尽快与您联系确认详情。');
+          form.reset();
+        }
+      } catch (error) {
+        console.error('Booking error:', error);
+        showModal('预订失败', '抱歉，预订过程中出现错误，请稍后重试或联系客服。');
       }
-    } catch (error) {
-      console.error('Booking error:', error);
-      showBookingError();
+    } else {
+      // Supabase not configured - show info modal
+      showModal('预订提示', '在线预订系统暂未启用，请通过电话或微信联系我们进行预订。');
     }
   });
 }
@@ -234,110 +295,117 @@ function initBookingForm() {
 // Scroll Animations
 function initScrollAnimations() {
   const elements = document.querySelectorAll('.animate-on-scroll');
-  
+  if (!elements.length) return;
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animated');
+        observer.unobserve(entry.target); // Only animate once
       }
     });
-  }, {
-    threshold: 0.1
-  });
-  
-  elements.forEach(element => observer.observe(element));
+  }, { threshold: 0.1 });
+
+  elements.forEach(el => observer.observe(el));
 }
 
-// Seasonal Theme
+// Seasonal Theme (body class)
 function initSeasonalTheme() {
-  const today = new Date();
-  const month = today.getMonth();
-  
-  // Define seasonal themes
-  const seasons = {
-    spring: { months: [2, 3, 4], theme: 'spring' },
-    summer: { months: [5, 6, 7], theme: 'summer' },
-    autumn: { months: [8, 9, 10], theme: 'autumn' },
-    winter: { months: [11, 0, 1], theme: 'winter' }
-  };
-  
-  // Set current season
+  const month = new Date().getMonth();
   let currentSeason = 'spring';
-  for (const [season, data] of Object.entries(seasons)) {
-    if (data.months.includes(month)) {
-      currentSeason = season;
-      break;
-    }
-  }
-  
-  // Apply seasonal theme
+  if ([5, 6, 7].includes(month)) currentSeason = 'summer';
+  else if ([8, 9, 10].includes(month)) currentSeason = 'autumn';
+  else if ([11, 0, 1].includes(month)) currentSeason = 'winter';
   document.body.classList.add(`theme-${currentSeason}`);
-  
-  // Update seasonal content
-  updateSeasonalContent(currentSeason);
 }
 
-// Helper Functions
-function showBookingConfirmation() {
-  const modal = document.createElement('div');
-  modal.className = 'modal booking-confirmation';
-  modal.innerHTML = `
-    <div class="modal-content">
-      <h3>预订成功</h3>
-      <p>感谢您的预订，我们将尽快与您联系确认详情。</p>
-      <button class="btn" onclick="this.closest('.modal').remove()">确定</button>
-    </div>
-  `;
-  document.body.appendChild(modal);
-}
+// Customer Service Panel
+function initCustomerService() {
+  const csButton = document.getElementById('csButton');
+  const closeCsPanel = document.getElementById('closeCsPanel');
+  const csPanel = document.getElementById('csPanel');
+  if (!csButton || !csPanel) return;
 
-function showBookingError() {
-  const modal = document.createElement('div');
-  modal.className = 'modal booking-error';
-  modal.innerHTML = `
-    <div class="modal-content">
-      <h3>预订失败</h3>
-      <p>抱歉，预订过程中出现错误，请稍后重试或联系客服。</p>
-      <button class="btn" onclick="this.closest('.modal').remove()">确定</button>
-    </div>
-  `;
-  document.body.appendChild(modal);
-}
-
-function updateSeasonalContent(season) {
-  const seasonalContent = {
-    spring: {
-      title: '春意盎然',
-      description: '春暖花开，品茗赏花',
-      activities: ['采茶制茶', '赏花踏青', '品春茶']
-    },
-    summer: {
-      title: '夏日清凉',
-      description: '避暑纳凉，享受清凉',
-      activities: ['避暑纳凉', '品夏茶', '观星赏月']
-    },
-    autumn: {
-      title: '秋色宜人',
-      description: '秋高气爽，品蟹赏月',
-      activities: ['品蟹宴', '赏秋色', '品秋茶']
-    },
-    winter: {
-      title: '冬日暖阳',
-      description: '围炉煮茶，赏雪品茗',
-      activities: ['围炉煮茶', '赏雪景', '品冬茶']
-    }
-  };
-  
-  const content = seasonalContent[season];
-  const seasonalSection = document.querySelector('.seasonal-content');
-  
-  if (seasonalSection) {
-    seasonalSection.querySelector('h2').textContent = content.title;
-    seasonalSection.querySelector('p').textContent = content.description;
-    
-    const activitiesList = seasonalSection.querySelector('.activities-list');
-    activitiesList.innerHTML = content.activities
-      .map(activity => `<li>${activity}</li>`)
-      .join('');
+  csButton.addEventListener('click', () => csPanel.classList.toggle('active'));
+  if (closeCsPanel) {
+    closeCsPanel.addEventListener('click', () => csPanel.classList.remove('active'));
   }
+  // Close on click outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.customer-service')) {
+      csPanel.classList.remove('active');
+    }
+  });
+}
+
+// Back to Top
+function initBackToTop() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.pageYOffset > window.innerHeight);
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+// WeChat QR Modal
+function initWechatModal() {
+  const wechatLink = document.getElementById('wechatLink');
+  const modal = document.getElementById('wechatModal');
+  if (!wechatLink || !modal) return;
+
+  wechatLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.classList.add('active');
+  });
+
+  // Close on backdrop click
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.classList.remove('active');
+  });
+}
+
+// VR Buttons
+function initVRButtons() {
+  document.querySelectorAll('.btn-vr').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const vrUrl = btn.dataset.vr;
+      showModal('VR全景看房', 'VR全景功能即将上线，敬请期待！如需提前了解房间详情，请联系客服。');
+    });
+  });
+}
+
+// Generic Modal Helper
+function showModal(title, message) {
+  // Remove existing modal if any
+  const existing = document.querySelector('.modal-overlay');
+  if (existing) existing.remove();
+
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.innerHTML = `
+    <div class="modal-box">
+      <h3>${title}</h3>
+      <p>${message}</p>
+      <button class="btn btn-primary">确定</button>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  // Force reflow for animation
+  requestAnimationFrame(() => overlay.classList.add('active'));
+
+  const closeBtn = overlay.querySelector('.btn');
+  const close = () => {
+    overlay.classList.remove('active');
+    setTimeout(() => overlay.remove(), 300);
+  };
+  closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) close();
+  });
 }
