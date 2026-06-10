@@ -1,0 +1,35 @@
+<!-- Rooms Section -->
+<section id="rooms" class="section-rooms animate-on-scroll">
+  <div class="container">
+    <h2 class="section-title">客房展示</h2>
+    <div class="room-filters">
+      <button class="filter-btn active" data-filter="all">全部房型</button>
+      <button class="filter-btn" data-filter="mountain">山景房</button>
+      <button class="filter-btn" data-filter="garden">庭院房</button>
+      <button class="filter-btn" data-filter="family">家庭房</button>
+    </div>
+    <div class="room-grid">
+      <% config.rooms.forEach(function(room) { %>
+      <div class="room-card" data-type="<%= room.type %>">
+        <div class="card-front">
+          <img src="<%- url_for(room.image) %>" alt="<%= config.title %><%= room.title %> - <%= room.description %>" loading="lazy">
+          <div class="room-info">
+            <h3><%= room.title %></h3>
+            <p><%= room.area %> | <%= room.capacity %></p>
+            <span class="price"><%= room.price_label %></span>
+          </div>
+        </div>
+        <div class="card-back">
+          <h3>设施详情</h3>
+          <ul>
+            <% room.amenities.forEach(function(a) { %>
+            <li><i class="<%= a.icon %>"></i> <%= a.name %></li>
+            <% }) %>
+          </ul>
+          <button class="btn btn-vr" data-vr="<%= room.vr_url %>">VR看房</button>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</section>

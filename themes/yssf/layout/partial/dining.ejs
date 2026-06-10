@@ -1,0 +1,74 @@
+<!-- Dining Section -->
+<section id="dining" class="section-dining animate-on-scroll">
+  <div class="container">
+    <h2 class="section-title">餐饮活动</h2>
+    <div class="dining-content">
+      <div class="seasonal-menu">
+        <h3>节气菜单</h3>
+        <div class="season-tabs">
+          <% var seasons = ['spring', 'summer', 'autumn', 'winter']; %>
+          <% var seasonLabels = {spring:'春', summer:'夏', autumn:'秋', winter:'冬'}; %>
+          <% seasons.forEach(function(s, i) { %>
+          <button class="season-tab<%= i === 0 ? ' active' : '' %>" data-season="<%= s %>"><%= seasonLabels[s] %></button>
+          <% }) %>
+        </div>
+        <div class="menu-items">
+          <% seasons.forEach(function(s, i) { %>
+          <div class="menu-content<%= i === 0 ? ' active' : '' %>" data-season="<%= s %>">
+            <% config.seasonal_menu[s].sections.forEach(function(sec) { %>
+            <h4><%= sec.name %></h4>
+            <ul class="dishes">
+              <% sec.dishes.forEach(function(dish) { %>
+              <li class="dish-item">
+                <span class="dish-name"><%= dish.name %></span>
+                <span class="dish-desc"><%= dish.desc %></span>
+                <span class="dish-price"><%= dish.price %></span>
+              </li>
+              <% }) %>
+            </ul>
+            <% }) %>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+      <div class="activities">
+        <h3>特色活动</h3>
+        <div class="activity-timeline">
+          <div class="timeline-item">
+            <div class="timeline-icon"><i class="fas fa-leaf"></i></div>
+            <div class="timeline-content">
+              <h4>禅修体验</h4>
+              <p class="activity-date">每周一、三、五 07:00-08:00</p>
+              <p>在住持的带领下体验禅修，学习正念呼吸和冥想，净化心灵。</p>
+              <button class="btn btn-secondary" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">预约参与</button>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-icon"><i class="fas fa-coffee"></i></div>
+            <div class="timeline-content">
+              <h4>茶艺表演</h4>
+              <p class="activity-date">每日 14:00-15:00</p>
+              <p>专业茶艺师展示传统茶道，讲解茶文化，客人可品尝多种茗茶。</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-icon"><i class="fas fa-palette"></i></div>
+            <div class="timeline-content">
+              <h4>传统工艺工作坊</h4>
+              <p class="activity-date">每周六 10:00-12:00</p>
+              <p>体验传统手工艺如剪纸、陶艺、书法等，感受传统文化魅力。</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-icon"><i class="fas fa-tree"></i></div>
+            <div class="timeline-content">
+              <h4>季节性活动</h4>
+              <p class="activity-date">根据季节安排</p>
+              <p>春季赏花、夏季品茶、秋季采摘、冬季赏雪等特色活动。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

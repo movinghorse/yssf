@@ -1,0 +1,46 @@
+<!-- Booking Section -->
+<section id="booking" class="section-booking animate-on-scroll">
+  <div class="container">
+    <h2 class="section-title">在线预订</h2>
+    <form class="booking-form">
+      <div class="form-group">
+        <label class="form-label">入住日期</label>
+        <input type="date" name="check-in" class="form-input" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">离店日期</label>
+        <input type="date" name="check-out" class="form-input" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">房型选择</label>
+        <select name="room" class="form-input" required>
+          <option value="">请选择房型</option>
+          <% config.rooms.forEach(function(room) { %>
+          <option value="<%= room.type %>" data-price="<%= room.price %>"><%= room.title %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">入住人数</label>
+        <input type="number" name="guests" class="form-input" min="1" max="6" required inputmode="numeric">
+      </div>
+      <div class="form-group">
+        <label class="form-label">联系人</label>
+        <input type="text" name="name" class="form-input" required placeholder="请输入您的姓名">
+      </div>
+      <div class="form-group">
+        <label class="form-label">联系电话</label>
+        <input type="tel" name="phone" class="form-input" required inputmode="tel" placeholder="请输入手机号码">
+      </div>
+      <div class="form-group">
+        <label class="form-label">特殊需求</label>
+        <textarea name="special-requests" class="form-input" placeholder="如有特殊需求请在此说明"></textarea>
+      </div>
+      <div class="price-display">
+        <span>预估总价：</span>
+        <span class="price">¥0</span>
+      </div>
+      <button type="submit" class="btn btn-primary">确认预订</button>
+    </form>
+  </div>
+</section>

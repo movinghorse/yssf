@@ -1,29 +1,62 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= config.title %> - <%= config.description %></title>
-  
+  <title><%= config.title %> - <%= config.subtitle %></title>
+
   <!-- Meta Tags -->
-  <meta name="description" content="<%= config.theme_config.seo.description %>">
-  <meta name="keywords" content="<%= config.theme_config.seo.keywords %>">
-  
+  <meta name="description" content="<%= config.description %>">
+  <meta name="keywords" content="<%= config.keywords %>">
+  <meta name="author" content="<%= config.author %>">
+
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-  
+  <link rel="icon" type="image/png" href="<%- url_for('/images/favicon.png') %>">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="<%= config.url %>/<%= (page.path || '').replace(/^\//, '') %>">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="<%= page.layout === 'post' ? 'article' : 'website' %>">
+  <meta property="og:title" content="<%= page.title || config.title %>">
+  <meta property="og:description" content="<%= page.description || config.description %>">
+  <meta property="og:image" content="<%= config.url %>/images/hero-1.jpg">
+  <meta property="og:url" content="<%= config.url %>/<%= (page.path || '').replace(/^\//, '') %>">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="<%= config.title %>">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "<%= config.title %>",
+    "description": "<%= config.description %>",
+    "url": "<%= config.url %>",
+    "telephone": "<%= config.theme_config.custom.booking_phone %>",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "<%= config.theme_config.custom.address %>",
+      "addressLocality": "杭州",
+      "addressRegion": "浙江",
+      "addressCountry": "CN"
+    },
+    "priceRange": "¥688 - ¥1288",
+    "image": ["<%= config.url %>/images/hero-1.jpg"],
+    "openingHours": "Mo-Su 00:00-23:59"
+  }
+  </script>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
-  
+
   <!-- Styles -->
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  
+  <link rel="stylesheet" href="<%- url_for('/css/style.css') %>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+
   <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
-  <script src="/js/main.js" defer></script>
-  
-  <!-- Custom Head -->
-  <%- config.custom_head %>
+  <script type="module" src="<%- url_for('/js/main.js') %>" defer></script>
 </head>
-</rewritten_file>

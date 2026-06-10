@@ -115,32 +115,191 @@ featured_image: /images/hero-bg.svg
 # 客房信息
 rooms:
   - title: 山景大床房
+    type: mountain
     image: /images/rooms/mountain-view.jpg
-    price: ¥688/晚
+    price: 688
+    price_label: ¥688/晚
+    area: 45㎡
+    capacity: 2人
     description: 面朝青山，静享山林之美，配备舒适大床和现代化设施。
-    amenities: [免费WiFi, 空调, 24小时热水, 茶具, 拖鞋]
+    amenities:
+      - icon: fas fa-wifi
+        name: 免费WiFi
+      - icon: fas fa-bath
+        name: 独立卫浴
+      - icon: fas fa-snowflake
+        name: 地暖
+      - icon: fas fa-tv
+        name: 智能电视
+    vr_url: /vr/mountain-view
     url: /rooms/mountain-view/
     
   - title: 水景双床房
+    type: water
     image: /images/rooms/water-view.jpg
-    price: ¥788/晚
+    price: 788
+    price_label: ¥788/晚
+    area: 50㎡
+    capacity: 2人
     description: 临水而居，聆听流水潺潺，配备两张舒适单人床和现代化设施。
-    amenities: [免费WiFi, 空调, 24小时热水, 茶具, 拖鞋]
+    amenities:
+      - icon: fas fa-wifi
+        name: 免费WiFi
+      - icon: fas fa-bath
+        name: 独立卫浴
+      - icon: fas fa-snowflake
+        name: 地暖
+      - icon: fas fa-tv
+        name: 智能电视
+      - icon: fas fa-eye
+        name: 水景阳台
+    vr_url: /vr/water-view
     url: /rooms/water-view/
     
   - title: 庭院套房
+    type: garden
     image: /images/rooms/garden-suite.jpg
-    price: ¥1088/晚
+    price: 1088
+    price_label: ¥1088/晚
+    area: 65㎡
+    capacity: 3人
     description: 独立庭院，私密空间，配备豪华大床和完善的现代化设施。
-    amenities: [免费WiFi, 空调, 24小时热水, 茶具, 拖鞋, 私人庭院]
+    amenities:
+      - icon: fas fa-wifi
+        name: 免费WiFi
+      - icon: fas fa-bath
+        name: 独立卫浴
+      - icon: fas fa-snowflake
+        name: 地暖
+      - icon: fas fa-tv
+        name: 智能电视
+      - icon: fas fa-tree
+        name: 私人庭院
+    vr_url: /vr/garden-view
     url: /rooms/garden-suite/
     
   - title: 家庭套房
+    type: family
     image: /images/rooms/family-suite.jpg
-    price: ¥1288/晚
+    price: 1288
+    price_label: ¥1288/晚
+    area: 80㎡
+    capacity: 4人
     description: 宽敞明亮，适合家庭入住，配备大床和双床，满足全家需求。
-    amenities: [免费WiFi, 空调, 24小时热水, 茶具, 拖鞋, 加床服务]
+    amenities:
+      - icon: fas fa-wifi
+        name: 免费WiFi
+      - icon: fas fa-bath
+        name: 双卫浴
+      - icon: fas fa-snowflake
+        name: 地暖
+      - icon: fas fa-tv
+        name: 智能电视
+      - icon: fas fa-users
+        name: 家庭空间
+    vr_url: /vr/family-view
     url: /rooms/family-suite/
+
+# 交通指南
+transport:
+  self_drive:
+    title: 自驾
+    content: |
+      从杭州市区出发，沿灵隐路向西行驶约30分钟即可到达。
+      导航地址：浙江省杭州市西湖区云栖路88号
+      停车场：免费停车位20个
+  train:
+    title: 高铁
+    content: |
+      杭州东站下车，乘坐地铁1号线至龙翔桥站，换乘公交Y2路至云栖竹径站。
+      全程约1小时，打车约40分钟。
+  bus:
+    title: 公交
+    content: |
+      乘坐公交Y2路、324路至云栖竹径站下车，步行约5分钟即到。
+      或乘坐公交103路至灵隐站，转乘Y2路。
+
+# 季节菜单
+seasonal_menu:
+  spring:
+    label: 春
+    sections:
+      - name: 春分
+        dishes:
+          - name: 香椿拌豆腐
+            desc: 春季鲜嫩香椿搭配细腻豆腐，清爽可口
+            price: ¥48
+          - name: 春笋炒腊肉
+            desc: 当季春笋与农家腊肉同炒，鲜香扑鼻
+            price: ¥68
+          - name: 荠菜馄饨
+            desc: 野生荠菜入馅，皮薄馅大，汤鲜味美
+            price: ¥38
+      - name: 清明
+        dishes:
+          - name: 青团
+            desc: 传统糯米外皮包裹豆沙或咸蛋黄肉松馅
+            price: ¥12/个
+          - name: 马兰头拌香干
+            desc: 春季野菜马兰头与香干凉拌，清热去火
+            price: ¥42
+  summer:
+    label: 夏
+    sections:
+      - name: 立夏
+        dishes:
+          - name: 龙井虾仁
+            desc: 新鲜虾仁配以西湖龙井，清鲜甘美
+            price: ¥128
+          - name: 荷叶粉蒸肉
+            desc: 五花肉裹以荷叶蒸制，清香不腻
+            price: ¥88
+      - name: 小满
+        dishes:
+          - name: 黄瓜拌海蜇
+            desc: 清爽黄瓜搭配爽脆海蜇，消暑开胃
+            price: ¥58
+          - name: 绿豆百合汤
+            desc: 绿豆与百合熬制，清热解暑
+            price: ¥28
+  autumn:
+    label: 秋
+    sections:
+      - name: 立秋
+        dishes:
+          - name: 莲子银耳羹
+            desc: 新鲜莲子与银耳炖煮，滋阴润肺
+            price: ¥32
+          - name: 清蒸鲈鱼
+            desc: 鲜活鲈鱼清蒸，保留原汁原味
+            price: ¥98
+      - name: 中秋
+        dishes:
+          - name: 月饼
+            desc: 手工制作苏式、广式月饼，多种口味
+            price: ¥18/个
+          - name: 桂花藕粉
+            desc: 西湖藕粉配以新鲜桂花，香甜滑腻
+            price: ¥26
+  winter:
+    label: 冬
+    sections:
+      - name: 冬至
+        dishes:
+          - name: 羊肉汤
+            desc: 慢炖羊肉汤，温补驱寒
+            price: ¥88
+          - name: 饺子
+            desc: 手工水饺，多种馅料可选
+            price: ¥48
+      - name: 腊八
+        dishes:
+          - name: 腊八粥
+            desc: 多种杂粮、豆类、干果熬制而成
+            price: ¥28
+          - name: 酱鸭
+            desc: 传统工艺腌制酱鸭，肉质紧实
+            price: ¥98
 
 # 特色服务
 services:
@@ -210,3 +369,7 @@ theme_config:
   seo:
     keywords: '云水山房,民宿,杭州民宿,西湖民宿,禅意民宿'
     description: '云水山房 - 坐落于西湖之畔的禅意民宿，为您提供山水间的诗意栖居体验。'
+
+# Sitemap
+sitemap:
+  path: sitemap.xml

@@ -1,0 +1,39 @@
+<!-- Customer Service -->
+<div class="customer-service">
+  <button class="cs-button" id="csButton" aria-label="在线客服">
+    <i class="fas fa-headset" aria-hidden="true"></i>
+  </button>
+  <div class="cs-panel" id="csPanel">
+    <div class="cs-header">
+      <h3>在线客服</h3>
+      <button class="close-btn" id="closeCsPanel" aria-label="关闭客服面板">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="cs-content">
+      <div class="cs-qr">
+        <img src="<%- url_for(config.theme_config.custom.wechat_qr) %>" alt="微信客服二维码" loading="lazy">
+        <p>扫码添加客服微信</p>
+      </div>
+      <div class="cs-contact">
+        <p><i class="fas fa-phone" aria-hidden="true"></i> <%= config.theme_config.custom.booking_phone %></p>
+        <p><i class="fas fa-envelope" aria-hidden="true"></i> service@yssf.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="回到顶部">
+  <i class="fas fa-chevron-up" aria-hidden="true"></i>
+</button>
+
+<!-- WeChat QR Modal -->
+<div class="modal" id="wechatModal">
+  <div class="modal-content">
+    <h3>微信客服</h3>
+    <img src="<%- url_for(config.theme_config.custom.wechat_qr) %>" alt="微信客服二维码" loading="lazy">
+    <p>扫描二维码添加客服微信</p>
+    <button class="btn" onclick="this.closest('.modal').classList.remove('active')">关闭</button>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<!-- Navigation -->
+<nav class="nav-main">
+  <div class="container">
+    <a href="<%- url_for('/') %>" class="logo">
+      <span class="logo-text">云水山房</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <ul class="nav-links">
+      <li><a href="#about" data-section="about">关于我们</a></li>
+      <li><a href="#rooms" data-section="rooms">客房展示</a></li>
+      <li><a href="#dining" data-section="dining">餐饮活动</a></li>
+      <li><a href="#location" data-section="location">地理位置</a></li>
+      <li><a href="#booking" data-section="booking">在线预订</a></li>
+      <li><a href="#contact" data-section="contact">联系我们</a></li>
+      <li><a href="<%- url_for('/archives/') %>">最新动态</a></li>
+    </ul>
+
+    <!-- Booking Button -->
+    <button class="btn btn-booking" onclick="document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">立即预订</button>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" aria-label="切换菜单">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>

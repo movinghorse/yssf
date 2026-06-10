@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="<%= config.language || 'zh-CN' %>">
+<%- partial('partial/head') %>
+<body>
+  <%- partial('partial/nav') %>
+  <main class="archive-main">
+    <div class="container">
+      <h1 class="archive-title"><%= page.title || '文章归档' %></h1>
+      <div class="archive-list">
+        <% var lastYear = 0; %>
+        <% page.posts.sort('-date').each(function(post) { %>
+          <% var year = post.date.year(); %>
+          <% if (year !== lastYear) { %>
+            <% if (lastYear !== 0) { %></div><% } %>
+            <h2 class="archive-year"><%= year %></h2>
+            <div class="archive-year-posts">
+            <% lastYear = year; %>
+          <% } %>
+          <article class="archive-item">
+            <time datetime="<%= post.date.format('YYYY-MM-DD') %>"><%= post.date.format('MM-DD') %></time>
+            <a href="<%- url_for(post.path) %>"><%= post.title %></a>
+          </article>
+        <% }) %>
+        <% if (lastYear !== 0) { %></div><% } %>
+      </div>
+    </div>
+  </main>
+  <%- partial('partial/footer') %>
+  <%- partial('partial/customer-service') %>
+</body>
+</html>
