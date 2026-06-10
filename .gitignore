@@ -36,3 +36,4 @@ coverage/
 
 # 构建输出 public目录
 public/
+.deploy_git/
