@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initCustomerService();
   initBackToTop();
   initWechatModal();
-  initVRButtons();
 });
 
 // Navigation

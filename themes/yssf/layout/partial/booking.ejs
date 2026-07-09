@@ -2,6 +2,7 @@
 <section id="booking" class="section-booking animate-on-scroll">
   <div class="container">
     <h2 class="section-title">在线预订</h2>
+    <p class="section-desc">提交意向后我们将通过电话或微信与您确认。平常订金 ¥200/间，黄金周、节假日及周五、周六需全额预付。</p>
     <form class="booking-form">
       <div class="form-group">
         <label class="form-label">入住日期</label>
@@ -15,14 +16,17 @@
         <label class="form-label">房型选择</label>
         <select name="room" class="form-input" required>
           <option value="">请选择房型</option>
-          <% config.rooms.forEach(function(room) { %>
-          <option value="<%= room.type %>" data-price="<%= room.price %>"><%= room.title %></option>
-          <% }) %>
+          <option value="huanshan-suite" data-price="880">还山楼雪景套房（¥880/晚）</option>
+          <option value="shaiyue-suite" data-price="880">筛月阁景观套房（¥880/晚）</option>
+          <option value="shaiyue-charm" data-price="580">筛月阁风情套房（¥580/晚）</option>
+          <option value="huanshan-view" data-price="480">还山楼景观房（¥480/晚）</option>
+          <option value="family" data-price="280">家庭房（¥280/晚）</option>
+          <option value="standard" data-price="280">标准房（¥280/晚）</option>
         </select>
       </div>
       <div class="form-group">
         <label class="form-label">入住人数</label>
-        <input type="number" name="guests" class="form-input" min="1" max="6" required inputmode="numeric">
+        <input type="number" name="guests" class="form-input" min="1" max="4" required inputmode="numeric">
       </div>
       <div class="form-group">
         <label class="form-label">联系人</label>
@@ -34,13 +38,14 @@
       </div>
       <div class="form-group">
         <label class="form-label">特殊需求</label>
-        <textarea name="special-requests" class="form-input" placeholder="如有特殊需求请在此说明"></textarea>
+        <textarea name="special-requests" class="form-input" placeholder="如需加床、机场接送等请在此说明"></textarea>
       </div>
       <div class="price-display">
         <span>预估总价：</span>
         <span class="price">¥0</span>
       </div>
-      <button type="submit" class="btn btn-primary">确认预订</button>
+      <button type="submit" class="btn btn-primary">提交预订意向</button>
+      <p class="booking-hint">也可直接致电 <a href="tel:08885117233">0888-5117233</a> 或 <a href="tel:15012244880">15012244880</a> 预订</p>
     </form>
   </div>
 </section>

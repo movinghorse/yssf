@@ -4,9 +4,9 @@
 
 # Site
 title: 云水山房
-subtitle: 山水间的诗意栖居
-description: 坐落于西湖之畔的禅意民宿，为您提供山水间的诗意栖居体验
-keywords: 云水山房,民宿,杭州民宿,西湖民宿,禅意民宿
+subtitle: 束河古镇的诗意栖居
+description: 坐落于丽江束河古镇的纳西风格私人会所，五栋小楼、八间客房，面向玉龙雪山，为您提供自然与人文交融的度假体验
+keywords: 云水山房,丽江民宿,束河古镇,纳西风格,玉龙雪山,丽江住宿
 author: 云水山房
 language: zh-CN
 timezone: Asia/Shanghai
@@ -112,219 +112,132 @@ deploy:
 # 特色图片
 featured_image: /images/hero-bg.svg
 
-# 客房信息
-rooms:
-  - title: 山景大床房
-    type: mountain
-    image: /images/rooms/mountain-view.jpg
-    price: 688
-    price_label: ¥688/晚
-    area: 45㎡
-    capacity: 2人
-    description: 面朝青山，静享山林之美，配备舒适大床和现代化设施。
-    amenities:
-      - icon: fas fa-wifi
-        name: 免费WiFi
-      - icon: fas fa-bath
-        name: 独立卫浴
-      - icon: fas fa-snowflake
-        name: 地暖
-      - icon: fas fa-tv
-        name: 智能电视
-    vr_url: /vr/mountain-view
-    url: /rooms/mountain-view/
-    
-  - title: 水景双床房
-    type: water
-    image: /images/rooms/water-view.jpg
-    price: 788
-    price_label: ¥788/晚
-    area: 50㎡
-    capacity: 2人
-    description: 临水而居，聆听流水潺潺，配备两张舒适单人床和现代化设施。
-    amenities:
-      - icon: fas fa-wifi
-        name: 免费WiFi
-      - icon: fas fa-bath
-        name: 独立卫浴
-      - icon: fas fa-snowflake
-        name: 地暖
-      - icon: fas fa-tv
-        name: 智能电视
-      - icon: fas fa-eye
-        name: 水景阳台
-    vr_url: /vr/water-view
-    url: /rooms/water-view/
-    
-  - title: 庭院套房
-    type: garden
-    image: /images/rooms/garden-suite.jpg
-    price: 1088
-    price_label: ¥1088/晚
-    area: 65㎡
-    capacity: 3人
-    description: 独立庭院，私密空间，配备豪华大床和完善的现代化设施。
-    amenities:
-      - icon: fas fa-wifi
-        name: 免费WiFi
-      - icon: fas fa-bath
-        name: 独立卫浴
-      - icon: fas fa-snowflake
-        name: 地暖
-      - icon: fas fa-tv
-        name: 智能电视
-      - icon: fas fa-tree
-        name: 私人庭院
-    vr_url: /vr/garden-view
-    url: /rooms/garden-suite/
-    
-  - title: 家庭套房
-    type: family
-    image: /images/rooms/family-suite.jpg
-    price: 1288
-    price_label: ¥1288/晚
-    area: 80㎡
-    capacity: 4人
-    description: 宽敞明亮，适合家庭入住，配备大床和双床，满足全家需求。
-    amenities:
-      - icon: fas fa-wifi
-        name: 免费WiFi
-      - icon: fas fa-bath
-        name: 双卫浴
-      - icon: fas fa-snowflake
-        name: 地暖
-      - icon: fas fa-tv
-        name: 智能电视
-      - icon: fas fa-users
-        name: 家庭空间
-    vr_url: /vr/family-view
-    url: /rooms/family-suite/
+
 
 # 交通指南
 transport:
   self_drive:
     title: 自驾
     content: |
-      从杭州市区出发，沿灵隐路向西行驶约30分钟即可到达。
-      导航地址：浙江省杭州市西湖区云栖路88号
-      停车场：免费停车位20个
+      导航至「丽江束河古镇」，进入古镇后按指引前往云水山房。
+      古镇周边有公共停车区域，建议提前联系确认停车位置。
   train:
-    title: 高铁
+    title: 飞机 / 火车
     content: |
-      杭州东站下车，乘坐地铁1号线至龙翔桥站，换乘公交Y2路至云栖竹径站。
-      全程约1小时，打车约40分钟。
+      丽江三义机场：距束河约 40 分钟车程，可预约专车接送（¥120/趟）。
+      丽江站：打车约 25 分钟可达束河古镇。
   bus:
-    title: 公交
+    title: 古镇内
     content: |
-      乘坐公交Y2路、324路至云栖竹径站下车，步行约5分钟即到。
-      或乘坐公交103路至灵隐站，转乘Y2路。
+      束河古镇内步行即可到达，建议轻装前往。
+      如需机场接送，请提前一天电话预约：0888-5117233。
 
 # 季节菜单
 seasonal_menu:
   spring:
     label: 春
     sections:
-      - name: 春分
+      - name: 早春
         dishes:
-          - name: 香椿拌豆腐
-            desc: 春季鲜嫩香椿搭配细腻豆腐，清爽可口
-            price: ¥48
-          - name: 春笋炒腊肉
-            desc: 当季春笋与农家腊肉同炒，鲜香扑鼻
-            price: ¥68
-          - name: 荠菜馄饨
-            desc: 野生荠菜入馅，皮薄馅大，汤鲜味美
+          - name: 丽江粑粑
+            desc: 纳西传统面点，外酥里软，可甜可咸
+            price: ¥15/个
+          - name: 野菜汤
+            desc: 当季山野菜清煮，清爽解腻
             price: ¥38
+          - name: 梅花入席
+            desc: 2 月院中梅花盛开，可品茶赏梅
+            price: 季节限定
       - name: 清明
         dishes:
-          - name: 青团
-            desc: 传统糯米外皮包裹豆沙或咸蛋黄肉松馅
-            price: ¥12/个
-          - name: 马兰头拌香干
-            desc: 春季野菜马兰头与香干凉拌，清热去火
-            price: ¥42
+          - name: 鸡豆凉粉
+            desc: 丽江特色凉粉，酸辣开胃
+            price: ¥18
+          - name: 纳西烤鱼
+            desc: 本地鲜鱼炭火慢烤，香料入味
+            price: ¥88
   summer:
     label: 夏
     sections:
-      - name: 立夏
+      - name: 初夏
         dishes:
-          - name: 龙井虾仁
-            desc: 新鲜虾仁配以西湖龙井，清鲜甘美
+          - name: 野生菌火锅
+            desc: 雨季鲜菌入汤，鲜美无比
             price: ¥128
-          - name: 荷叶粉蒸肉
-            desc: 五花肉裹以荷叶蒸制，清香不腻
-            price: ¥88
-      - name: 小满
+          - name: 水性杨花
+            desc: 泸沽湖特色蔬菜，清炒或做汤
+            price: ¥48
+      - name: 雨季
         dishes:
-          - name: 黄瓜拌海蜇
-            desc: 清爽黄瓜搭配爽脆海蜇，消暑开胃
-            price: ¥58
-          - name: 绿豆百合汤
-            desc: 绿豆与百合熬制，清热解暑
+          - name: 腊排骨火锅
+            desc: 纳西经典，腊香与番茄酸鲜交融
+            price: ¥98
+          - name: 酥油茶
+            desc: 高原暖饮，配丽江粑粑更佳
             price: ¥28
   autumn:
     label: 秋
     sections:
-      - name: 立秋
+      - name: 金秋
         dishes:
-          - name: 莲子银耳羹
-            desc: 新鲜莲子与银耳炖煮，滋阴润肺
+          - name: 松茸炖鸡
+            desc: 秋季松茸与本地土鸡慢炖
+            price: ¥168
+          - name: 核桃露
+            desc: 本地薄皮核桃现磨，香浓温润
             price: ¥32
-          - name: 清蒸鲈鱼
-            desc: 鲜活鲈鱼清蒸，保留原汁原味
-            price: ¥98
       - name: 中秋
         dishes:
-          - name: 月饼
-            desc: 手工制作苏式、广式月饼，多种口味
-            price: ¥18/个
-          - name: 桂花藕粉
-            desc: 西湖藕粉配以新鲜桂花，香甜滑腻
-            price: ¥26
+          - name: 火腿月饼
+            desc: 宣威火腿入馅，滇式风味
+            price: ¥20/个
+          - name: 苹果炖梨
+            desc: 高原水果慢炖，润燥清甜
+            price: ¥36
   winter:
     label: 冬
     sections:
-      - name: 冬至
+      - name: 冬日
         dishes:
-          - name: 羊肉汤
-            desc: 慢炖羊肉汤，温补驱寒
+          - name: 纳西火塘菜
+            desc: 围炉而坐，慢煮本地食材
             price: ¥88
-          - name: 饺子
-            desc: 手工水饺，多种馅料可选
-            price: ¥48
-      - name: 腊八
+          - name: 黑山羊火锅
+            desc: 丽江冬季暖身首选
+            price: ¥128
+      - name: 赏雪
         dishes:
-          - name: 腊八粥
-            desc: 多种杂粮、豆类、干果熬制而成
-            price: ¥28
-          - name: 酱鸭
-            desc: 传统工艺腌制酱鸭，肉质紧实
+          - name: 汽锅鸡
+            desc: 云南经典，原汁原味
             price: ¥98
+          - name: 热姜茶
+            desc: 雪山脚下，围炉取暖
+            price: ¥18
 
 # 特色服务
 services:
-  - title: 农家美食
+  - title: 纳西家宴
     icon: fa-utensils
-    description: 采用当地新鲜食材，提供正宗农家菜肴，让您品尝地道乡村美食。
+    description: 一天一桌预定饮食，采用本地食材，呈现地道纳西风味。
     
-  - title: 茶艺体验
+  - title: 品茶听水
     icon: fa-coffee
-    description: 专业茶艺师带您领略中国传统茶道文化，品味各地名茶。
+    description: 在池塘边或亲水平台品茶，听水声、观雪山，享受慢时光。
     
-  - title: 民俗活动
+  - title: 古镇漫步
     icon: fa-theater-masks
-    description: 定期举办传统民俗活动，让您近距离体验中国传统文化魅力。
+    description: 束河古镇石板路、四方街、青龙桥，感受千年茶马古道遗韵。
     
-  - title: 周边游览
+  - title: 雪山周边
     icon: fa-mountain
-    description: 提供周边景点游览服务，探索当地自然风光和人文景观。
+    description: 玉龙雪山、拉市海、白沙壁画，为您规划周边游览路线。
 
 # 主题配置
 theme_config:
   # 主题信息
   name: YSSF
   version: 1.0.0
-  description: 云水山房 - 山水间的诗意栖居
+  description: 云水山房 - 丽江束河古镇的诗意栖居
   
   # 主题颜色
   colors:
@@ -353,22 +266,17 @@ theme_config:
   
   # 自定义设置
   custom:
-    booking_phone: '400-888-8888'
-    address: '浙江省杭州市西湖区云栖路88号'
-    business_hours: '24小时'
+    booking_phone: '0888-5117233'
+    booking_mobile: '15012244880'
+    address: '云南省丽江市古城区束河古镇'
+    business_hours: '全天接待（建议提前电话预约）'
     wechat_qr: '/images/wechat-qr.png'
-    vr_rooms:
-      - name: '山景房'
-        url: '/vr/mountain-view'
-      - name: '庭院房'
-        url: '/vr/garden-view'
-      - name: '星空房'
-        url: '/vr/starry-view'
+    airport_shuttle: '¥120/趟'
   
   # SEO设置
   seo:
-    keywords: '云水山房,民宿,杭州民宿,西湖民宿,禅意民宿'
-    description: '云水山房 - 坐落于西湖之畔的禅意民宿，为您提供山水间的诗意栖居体验。'
+    keywords: '云水山房,丽江民宿,束河古镇,纳西风格,玉龙雪山'
+    description: '云水山房 - 丽江束河古镇纳西风格私人会所，五栋小楼八间客房，面向玉龙雪山。'
 
 # Sitemap
 sitemap:

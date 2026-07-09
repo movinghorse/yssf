@@ -1,15 +1,117 @@
+<%
+  var rooms = [
+    {
+      title: '还山楼雪景套房',
+      type: 'suite',
+      image: '/images/placeholder.svg',
+      price_label: '¥880/晚',
+      area: '35㎡',
+      capacity: '2人',
+      description: '西朝东纳西小楼，面向玉龙雪山，配冰箱、液晶电视与科勒洁具。',
+      amenities: [
+        { icon: 'fas fa-mountain', name: '雪山景观' },
+        { icon: 'fas fa-wifi', name: '宽带网络' },
+        { icon: 'fas fa-tv', name: '液晶电视' },
+        { icon: 'fas fa-bath', name: '科勒洁具' }
+      ],
+      url: '/还山楼雪景套房/'
+    },
+    {
+      title: '筛月阁景观套房',
+      type: 'suite',
+      image: '/images/placeholder.svg',
+      price_label: '¥880/晚',
+      area: '50㎡',
+      capacity: '2人',
+      description: '面朝池塘与柳荫，大红色温馨布置，可赏柳塘月色。',
+      amenities: [
+        { icon: 'fas fa-water', name: '池塘景观' },
+        { icon: 'fas fa-wifi', name: '宽带网络' },
+        { icon: 'fas fa-tv', name: '液晶电视' },
+        { icon: 'fas fa-bath', name: '科勒洁具' }
+      ],
+      url: '/筛月阁景观套房/'
+    },
+    {
+      title: '筛月阁风情套房',
+      type: 'suite',
+      image: '/images/placeholder.svg',
+      price_label: '¥580/晚',
+      area: '45㎡',
+      capacity: '2人',
+      description: '玻璃墙直面池塘，内设壁炉，雨季烤火听噼啪声格外惬意。',
+      amenities: [
+        { icon: 'fas fa-fire', name: '壁炉' },
+        { icon: 'fas fa-wifi', name: '宽带网络' },
+        { icon: 'fas fa-tv', name: '液晶电视' },
+        { icon: 'fas fa-bath', name: '科勒洁具' }
+      ],
+      url: '/筛月阁/'
+    },
+    {
+      title: '还山楼景观房',
+      type: 'view',
+      image: '/images/placeholder.svg',
+      price_label: '¥480/晚',
+      area: '25㎡',
+      capacity: '2人',
+      description: '面向雪山的中档景观房，独立观景空间，适合静心小住。',
+      amenities: [
+        { icon: 'fas fa-mountain', name: '雪山景观' },
+        { icon: 'fas fa-wifi', name: '宽带网络' },
+        { icon: 'fas fa-tv', name: '液晶电视' },
+        { icon: 'fas fa-bath', name: '科勒洁具' }
+      ],
+      url: '/还山楼/'
+    },
+    {
+      title: '家庭房',
+      type: 'family',
+      image: '/images/placeholder.svg',
+      price_label: '¥280/晚',
+      area: '25㎡',
+      capacity: '3人',
+      description: '1.5m + 1.0m 双床，共 3 间，适合亲子或好友结伴入住。',
+      amenities: [
+        { icon: 'fas fa-bed', name: '双床配置' },
+        { icon: 'fas fa-wifi', name: '宽带网络' },
+        { icon: 'fas fa-tv', name: '液晶电视' },
+        { icon: 'fas fa-bath', name: '科勒洁具' }
+      ],
+      url: '/客房介绍/'
+    },
+    {
+      title: '标准房',
+      type: 'standard',
+      image: '/images/placeholder.svg',
+      price_label: '¥280/晚',
+      area: '20㎡',
+      capacity: '2人',
+      description: '1.0m + 1.0m 标准双床，简洁舒适，性价比之选。',
+      amenities: [
+        { icon: 'fas fa-bed', name: '标准双床' },
+        { icon: 'fas fa-wifi', name: '宽带网络' },
+        { icon: 'fas fa-tv', name: '液晶电视' },
+        { icon: 'fas fa-bath', name: '科勒洁具' }
+      ],
+      url: '/客房介绍/'
+    }
+  ];
+%>
 <!-- Rooms Section -->
 <section id="rooms" class="section-rooms animate-on-scroll">
   <div class="container">
     <h2 class="section-title">客房展示</h2>
+    <p class="section-desc">五栋纳西小楼，八间客房，每一间都有独立的室内外活动与喝茶空间。</p>
     <div class="room-filters">
       <button class="filter-btn active" data-filter="all">全部房型</button>
-      <button class="filter-btn" data-filter="mountain">山景房</button>
-      <button class="filter-btn" data-filter="garden">庭院房</button>
+      <button class="filter-btn" data-filter="suite">套房</button>
+      <button class="filter-btn" data-filter="view">景观房</button>
       <button class="filter-btn" data-filter="family">家庭房</button>
+      <button class="filter-btn" data-filter="standard">标准房</button>
     </div>
     <div class="room-grid">
-      <% config.rooms.forEach(function(room) { %>
+      <% rooms.forEach(function(room) { %>
       <div class="room-card" data-type="<%= room.type %>">
         <div class="card-front">
           <img src="<%- url_for(room.image) %>" alt="<%= config.title %><%= room.title %> - <%= room.description %>" loading="lazy">
@@ -26,10 +128,11 @@
             <li><i class="<%= a.icon %>"></i> <%= a.name %></li>
             <% }) %>
           </ul>
-          <button class="btn btn-vr" data-vr="<%= room.vr_url %>">VR看房</button>
+          <a href="<%- url_for(room.url) %>" class="btn btn-vr">查看详情</a>
         </div>
       </div>
       <% }) %>
     </div>
+    <p class="rooms-note">预定价适用于除黄金周、节假日外的平日；加床 ¥50/晚。更多楼栋介绍见 <a href="<%- url_for('/客房介绍/') %>">客房介绍</a>。</p>
   </div>
 </section>
